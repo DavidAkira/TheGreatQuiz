@@ -1,24 +1,86 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
-
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
+﻿/*
+--Colors--
+	grey/green #5E7A77
+	orange #D98906
+	brown/orange #B86E0C
+	grey #546964
+	lighter orange #FFAD00
 */
-.dl-horizontal dt {
-    white-space: normal;
+
+*{
+	padding: 0px;
+	margin: 0px;
+	font-family: Verdana, sans-serif;
+
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+*:focus{
+  outline: none;
 }
+
+section{
+
+}
+
+body{
+	background-color: #546964;
+}
+
+header.mainHeader{
+	width: auto;
+	height: 55px;
+	background-color: #FFAD00;
+}
+
+div.loginWindow{
+	margin-top: 150px;
+	text-align: center;
+}
+
+div.loginWindow h1{
+	font-size: 36px;
+	margin-bottom: 15px;
+}
+
+input.inputBox{
+	padding: 3px;
+	font-size: 115%;
+	width: 225px;
+	height: 40px;
+	border-style: solid;
+	border-color: black;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	background-color: #495C57;
+	color: white;
+}
+
+input.inputBox:focus{
+	border-color: #FFAD00;
+}
+
+input.logRegButton{
+	font-size: 115%;
+	cursor: pointer;
+	border-style:none;
+	height: 45px;
+	width: 90px;
+	color: white;
+	background-color: #FFAD00;
+}
+
+input.logRegButton:hover{
+	background-color: #D98906;
+}
+
+nav{
+	padding: 10px;
+}
+
+nav ul.navList{
+	display: inline-block;
+	font-size: 22px;
+}
+
+nav ul.navList:hover{
+	background-color: #D98906;
