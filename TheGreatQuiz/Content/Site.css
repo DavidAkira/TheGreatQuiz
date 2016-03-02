@@ -18,6 +18,11 @@
   outline: none;
 }
 
+a{
+    text-decoration: none;
+    color: white;
+}
+
 section{
 
 }
@@ -43,8 +48,9 @@ div.loginWindow h1{
 	margin-bottom: 15px;
 }
 
-div.registerBox h1{
-    margin-bottom: 15px;
+div.registerWindow h1{
+    font-size: 36px;
+    margin-bottom: 20px;
 }
 
 input.inputBox{
@@ -89,10 +95,29 @@ input.registerBox{
 }
 
 input.completRegistrationButton{
-    width: 150px;
+    margin-top: 15px;
+    width: 200px;
+    border-color: #FFAD00;
     border-style: solid;
     border-radius: 4px;
+
 }
 
+p.regBackButton{
+    display: inline-block;
+    padding: 10px;
+    margin-left: 8px;
+    margin-top: 8px;
+    font-size: 22px;
+    background-color: #FFAD00;
+    border-color: #FFAD00;
+    border-style: solid;
+    border-radius: 4px;
+    color: white;
+}
 
-
+p.errorText{
+    color: white;
+    margin-top: -5px;
+    margin-bottom: 8px;
+}
