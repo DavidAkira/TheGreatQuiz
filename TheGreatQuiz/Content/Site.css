@@ -24,6 +24,7 @@ section{
 
 body{
 	background-color: #546964;
+    line-height: 140%;
 }
 
 header.mainHeader{
@@ -40,6 +41,10 @@ div.loginWindow{
 div.loginWindow h1{
 	font-size: 36px;
 	margin-bottom: 15px;
+}
+
+div.registerBox h1{
+    margin-bottom: 15px;
 }
 
 input.inputBox{
@@ -73,14 +78,21 @@ input.logRegButton:hover{
 	background-color: #D98906;
 }
 
-nav{
-	padding: 10px;
+div.registerWindow{
+    text-align: center;
+    margin-top: 20px;
 }
 
-nav ul.navList{
-	display: inline-block;
-	font-size: 22px;
+
+input.registerBox{
+    margin-bottom: 10px;
 }
 
-nav ul.navList:hover{
-	background-color: #D98906;
+input.completRegistrationButton{
+    width: 150px;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+
+
