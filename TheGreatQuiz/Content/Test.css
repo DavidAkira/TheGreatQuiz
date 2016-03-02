@@ -1,0 +1,34 @@
+﻿/*
+--Colors--
+	grey/green #5E7A77
+	orange #D98906
+	brown/orange #B86E0C
+	grey #546964
+	lighter orange #FFAD00
+*/
+.testWindow{
+    margin-top: 50px;
+    height: 250px;
+    background-color: #5E7A77;
+    border-style: solid;
+	border-color: black;
+}
+.differentTests{
+    display: inline;
+    list-style-type: none;
+}
+.testButton{
+    padding: 3px;
+	font-size: 115%;
+	width: 100%;
+    height: auto;
+	background-color: #FFAD00;
+
+}
+.Link{
+    text-decoration: none;
+
+}
+.whatTest{
+
+}
