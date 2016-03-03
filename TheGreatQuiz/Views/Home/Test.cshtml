@@ -9,31 +9,30 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="~/Content/Test.css" />
-    <link rel="stylesheet" href="~/Content/Site.css" />
     <link rel="stylesheet" href="~/Content/unsemantic-grid-responsive-tablet.css" />
 </head>
 <body>
     <header class="mainHeader"></header>
-
     <div class="grid-container grid-90 prefix-5">
-        <section class="testWindow grid-50">
-            <nav class="testHeader">
-                <ul>
-                    <li class="differentTests">
-                        <div class="grid-60 testButton"></div>
-                    </li>
-                    <li class="differentTests">
-                        <button class="grid-20 testButton">Aktuella</button>
-                    </li>
-                    <li class="differentTests">
-                        <button class="grid-20 testButton">Färdiga</button>
-                    </li>
-                </ul>
-            </nav>
 
-            <a class="grid-100 Link" href="">Matematik A</a>
-            <a class="grid-100 Link" href="">blablabla</a>
-            <a class="grid-100 Link" href="">blablabla</a>
+
+        <section class="testWindow grid-40 grid-parent">
+            
+            <nav class="testHeader">
+              <div class="grid-60"><br /></div>                        
+              <button class="grid-20 testButton">Aktuella</button>                                         
+              <button class="grid-20 testButton">Färdiga</button>                  
+            </nav>
+            <artile class="grid-100">
+                <ul>
+                    <li class="Tests">
+                        <a class="grid-100 Link" href="">Matematik A</a>            
+                    </li>
+                    <li class="Tests">
+                        <a class="grid-100 Link" href="">blablabla</a>
+                    </li>
+                </ul>               
+            </artile>
         </section>
 
     </div>
