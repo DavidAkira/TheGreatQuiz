@@ -4,10 +4,11 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="myApp" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <script src="~/Scripts/angular.min.js"></script>
     <link rel="stylesheet" href="~/Content/Test.css" />
     <link rel="stylesheet" href="~/Content/unsemantic-grid-responsive-tablet.css" />
 </head>
@@ -20,18 +21,28 @@
             
             <nav class="testHeader">
               <div class="grid-60"><br /></div>                        
-              <button class="grid-20 testButton">Aktuella</button>                                         
+              <button ng-click="CurrentTests()" class="grid-20 testButton">Aktuella</button>                                         
               <button class="grid-20 testButton">Färdiga</button>                  
             </nav>
             <artile class="grid-100">
                 <ul>
+                    <li>{{Tests}}</li>
                     <li class="Tests">
                         <a class="grid-100 Link" href="">Matematik A</a>            
                     </li>
                     <li class="Tests">
                         <a class="grid-100 Link" href="">blablabla</a>
                     </li>
-                </ul>               
+                </ul> 
+                <form>
+                    <label>Till:</label> <br />
+                    <input ng-model="name" type="text" /> <br />
+                    <label>Meddelande:</label> <br />
+                    <textarea ng-model="message"></textarea> <br />
+                </form>
+                <h2>{{ name }}</h2>
+                <p>{{ message }}</p>
+                <script src="~/Content/whatTests.js"></script>              
             </artile>
         </section>
 
