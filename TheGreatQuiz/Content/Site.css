@@ -32,6 +32,15 @@ header.mainHeader{
 	background-color: #FFAD00;
 }
 
+.header-link{
+    padding: 17px;
+    display: inline-block;
+    text-align: center;
+    font-style: normal;
+    text-decoration: none;
+    color: black;
+}
+
 div.loginWindow{
 	margin-top: 150px;
 	text-align: center;
@@ -82,5 +91,7 @@ nav ul.navList{
 	font-size: 22px;
 }
 
-nav ul.navList:hover{
-	background-color: #D98906;
+nav ul.navList:hover {
+      background-color: #D98906;
+
+}
