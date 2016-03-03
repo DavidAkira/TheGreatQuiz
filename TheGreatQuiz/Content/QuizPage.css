@@ -1,0 +1,22 @@
+﻿body {
+}
+
+.quizWindow {
+    padding: 20px;
+
+    margin-top: 14%;
+    text-align: center;
+    background-color: #FFAD00;
+    border-radius: 10px;
+}
+
+#nextQuiz {
+    float: right;
+    text-decoration: none;
+    font-size: 30px;
+}
+#lastQuiz {
+    float: left;
+    text-decoration: none;
+    font-size: 30px;
+}

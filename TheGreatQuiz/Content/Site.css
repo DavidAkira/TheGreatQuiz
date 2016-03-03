@@ -3,7 +3,7 @@
 	grey/green #5E7A77
 	orange #D98906
 	brown/orange #B86E0C
-	grey #546964
+	grey #546964 background
 	lighter orange #FFAD00
 */
 
@@ -18,12 +18,18 @@
   outline: none;
 }
 
+a{
+    text-decoration: none;
+    color: white;
+}
+
 section{
 
 }
 
 body{
 	background-color: #546964;
+    line-height: 140%;
 }
 
 header.mainHeader{
@@ -40,6 +46,11 @@ div.loginWindow{
 div.loginWindow h1{
 	font-size: 36px;
 	margin-bottom: 15px;
+}
+
+div.registerWindow h1{
+    font-size: 36px;
+    margin-bottom: 20px;
 }
 
 input.inputBox{
@@ -73,14 +84,40 @@ input.logRegButton:hover{
 	background-color: #D98906;
 }
 
-nav{
-	padding: 10px;
+div.registerWindow{
+    text-align: center;
+    margin-top: 20px;
 }
 
-nav ul.navList{
-	display: inline-block;
-	font-size: 22px;
+
+input.registerBox{
+    margin-bottom: 10px;
 }
 
-nav ul.navList:hover{
-	background-color: #D98906;
+input.completRegistrationButton{
+    margin-top: 15px;
+    width: 200px;
+    border-color: #FFAD00;
+    border-style: solid;
+    border-radius: 4px;
+
+}
+
+p.regBackButton{
+    display: inline-block;
+    padding: 10px;
+    margin-left: 8px;
+    margin-top: 8px;
+    font-size: 22px;
+    background-color: #FFAD00;
+    border-color: #FFAD00;
+    border-style: solid;
+    border-radius: 4px;
+    color: white;
+}
+
+p.errorText{
+    color: white;
+    margin-top: -5px;
+    margin-bottom: 8px;
+}
