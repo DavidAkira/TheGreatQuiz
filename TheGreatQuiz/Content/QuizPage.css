@@ -2,13 +2,53 @@
 }
 
 .quizWindow {
+    position: relative;
+    overflow: hidden;
+    width: 250px;
+    height: 250px;
     padding: 20px;
-
     margin-top: 14%;
     text-align: center;
     background-color: #FFAD00;
+    border-style: solid;
     border-radius: 10px;
 }
+legend {
+    display: block;
+    padding-left: 2px;
+    padding-right: 2px;
+    border: none;
+}
+#quizMain h1{ font-size: 25px; padding: 0px; font-weight: 100;}
+#quizMain h2{ font-size: 20px; font-weight: 100;}
+#quizMain h3{ font-size: 18px; font-weight: 100;}
+#quizMain .btn {
+    display: inline-block;cursor: pointer;background-color: #D98906;
+    color: #fff;text-decoration: none;
+    padding: 5px 15px;border-radius: 6px;
+
+}
+
+/* intro page */
+#quizMain .intro { position: absolute;top: 25%;left: 660px;}
+#quizMain .intro p{ }
+/* Question page */
+#quizMain .question{ position: absolute;top: 25%;left: 60px;}
+#quizMain .question .quizText { font-size: 20px;margin: 0px 0px 20px 0px;}
+#quizMain .question .answer {
+    display: inline-block;font-size: 18px;border: 2px solid;
+    border-radius: 6px;padding: 10px;margin: 0px 15px 15px 0px;position: relative;
+
+}
+
+#quizMain .question .answer.selected{ border-color: whitesmoke;  }
+#quizMain .question .answer.correct{ border-color: orangered;  }
+#quizMain .question .answer::after {
+    content: '';display: block;width: 20px;height: 20px;
+    background: #FFAD00 no-repeat 0px 0px;background-size: 20px 20px;
+    position: absolute;top: 5px;right: 5px; 
+}
+
 
 #nextQuiz {
     float: right;
