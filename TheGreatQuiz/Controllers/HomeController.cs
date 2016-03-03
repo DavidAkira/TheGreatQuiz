@@ -14,16 +14,13 @@ namespace TheGreatQuiz.Controllers
         }
 
         public ActionResult Register()
+        {
+            return View();
+        }
         public ActionResult QuizPage()
         {
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
