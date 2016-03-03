@@ -237,6 +237,10 @@
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Views\Home\TestHeader.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\QuizPage.cshtml" />
   </ItemGroup>

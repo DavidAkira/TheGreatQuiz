@@ -38,6 +38,25 @@ header.mainHeader{
 	background-color: #FFAD00;
 }
 
+.header-link{
+    padding: 17px;
+    display: inline-block;
+    text-align: center;
+    font-style: normal;
+    text-decoration: none;
+    color: black;
+}
+
+.right-header-link{
+    float: right;
+    margin-right: 20px;
+}
+
+.left-header-link{
+    float: left;
+    margin-left: 20px;
+}
+
 div.loginWindow{
 	margin-top: 150px;
 	text-align: center;
@@ -104,11 +123,11 @@ input.completRegistrationButton{
 }
 
 p.regBackButton{
-    display: inline-block;
+	display: inline-block;
     padding: 10px;
     margin-left: 8px;
     margin-top: 8px;
-    font-size: 22px;
+	font-size: 22px;
     background-color: #FFAD00;
     border-color: #FFAD00;
     border-style: solid;
@@ -120,4 +139,8 @@ p.errorText{
     color: white;
     margin-top: -5px;
     margin-bottom: 8px;
+}
+nav ul.navList:hover {
+      background-color: #D98906;
+
 }

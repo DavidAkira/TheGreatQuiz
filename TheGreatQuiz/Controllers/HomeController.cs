@@ -22,5 +22,9 @@ namespace TheGreatQuiz.Controllers
             return View();
         }
 
+		public ActionResult TestHeader()
+		{
+			return View();
+		}
     }
 }
