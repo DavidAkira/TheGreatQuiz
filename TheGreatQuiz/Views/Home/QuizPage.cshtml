@@ -4,57 +4,56 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" ng-app="myQuiz">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <link href="/Content/QuizPage.css" rel="stylesheet" />
     <link rel="stylesheet" href="/Content/Site.css">
     <link rel="stylesheet" href="/Content/unsemantic-grid-responsive-tablet.css">
-    <script src="/Scripts/angular.min.js"></script>
     <script src="/Scripts/jquery-1.10.2.js"></script>
-    <script src="/Scripts/App.js"></script>
-
 </head>
 <body>
     <div class="grid-container">
         <section class="grid-100 grid-parent">
             <div class="quizWindow grid-50 prefix-25 tablet-grid-90 tablet-prefix-5">
-                <section id="quizMain">
-                    <h1>Newton prov i Webutveckling</h1><br/>
+                
+                <section id="quizMain" ng-controller="QuizController">
+                    <h1>The greatest quiz known to man</h1><br/>
+
                     <article class="progress">
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <div class="{{ ($index === activeQuestion) ? 'on' : 'off' }}" ng-repeat="myQuestion in myQuestions"></div>
                     </article>
-                    <article class="intro">
+
+                    <article class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active' }}">
                         <h2>Välkommen</h2>
                         <p>Tryck på start för att börja testet.</p>
-                        <p class="btn">Start!</p>
+                        <p class="btn" ng-click="activeQuestion = 0">Start!</p>
                     </article>
-                    <article class="question unanswered">
-                        <p class="quizText">Hur många barn bodde i Bullarebyn?</p>
-                        <p class="answer">Alla var spöken</p>
-                        <p class="answer selected correct">Tolv</p>
-                        <p class="answer">De är alla döda</p>
-                        <p class="answer">Det fanns fyra miljoner</p>
+
+                    <article class="question answered
+                             {{ $index === activeQuestion ? 'active' : 'inactive' }}"
+                             ng-repeat="myQuestion in myQuestions">
+                        <p class="quizText">{{myQuestion.question}}</p>
+                        <p class="answer" ng-repeat="Answers in myQuestions[$index].answers">{{Answers.text}}</p>
                         <article class="feedback">
                             <p>något lurigt meddelande</p>
                         </article>
-                        <div class="btn">Föregående</div>
-                        <div class="btn">Nästa</div>
                     </article>
+
                     <article class="result">
                         <h3>Resultat</h3>
                         <p>Du svarade X% korrekt, X rätt utav X frågor</p>
                         <p class="btn">Avsluta</p>
                     </article>
                 </section>
-                
-        </div>    
+
+            </div>    
         </section>
-
+        <div class="btn">Föregående</div>
+        <div class="btn">Nästa</div>
     </div>
-
+    <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/quiz.js"></script>
 </body>
 </html>

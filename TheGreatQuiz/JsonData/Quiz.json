@@ -1,3 +1,68 @@
-﻿{
-
-}
+﻿[
+  {
+    "question": "Vad är ditt problem?",
+    "answers": [
+      {
+        "id": 0,
+        "text": "Grodor"
+      },
+      {
+        "id": 1,
+        "text": "Spindlar"
+      },
+      {
+        "id": 2,
+        "text": "Kaktusar"
+      },
+      {
+        "id": 3,
+        "text": "En bords hare"
+      }
+    ],
+    "correct": 1
+  },
+  {
+    "question": "Vem var första personen på månen?",
+    "answers": [
+      {
+        "id": 0,
+        "text": "Bill"
+      },
+      {
+        "id": 1,
+        "text": "Bull"
+      },
+      {
+        "id": 2,
+        "text": "Måns"
+      },
+      {
+        "id": 3,
+        "text": "Killen som hade gymmat"
+      },
+      {
+        "id": 4,
+        "text": "Bengt"
+      }
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Vilken var huvudstaden i Japan innan Tokyo blev det?",
+    "answers": [
+      {
+        "id": 0,
+        "text": "Osaka"
+      },
+      {
+        "id": 1,
+        "text": "Beijing"
+      },
+      {
+        "id": 2,
+        "text": "Kyoto"
+      }
+    ],
+    "correct": 2
+  }
+]

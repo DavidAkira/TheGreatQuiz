@@ -40,17 +40,15 @@ legend {
     position: relative;display: inline-block;width: 30px;height: 30px;margin-right: 30px;
     border-radius: 50%;background-color: #B86E0C;transition: background-color 1s; 
 }
-    #quizMain .progress div::after {
-        content: '';display: block;position: absolute;top: -60px;left: -15px;
-        width: 65px;height: 40px;background: url(https://cdn3.iconfinder.com/data/icons/gray-toolbar-6/512/trend-512.png) no-repeat 0px 0px;
-        transition: opacity 1s, top 1s;
-    }
+
+#quizMain .progress div.on,
+#quizMain .progress div.answered{ background-color: #efbe5e;}
 
 /* intro page */
-#quizMain .intro { position: absolute;top: 25%;left: 660px;}
+#quizMain .intro { position: absolute;top: 30%;left: 660px;width: 300px;}
 #quizMain .intro p{ }
 /* Question page */
-#quizMain .question{ position: absolute;top: 25%;left: 660px;}
+#quizMain .question{ position: absolute;top: 25%;left: 660px; width: 600px}
 #quizMain .question .quizText { font-size: 20px;margin: 0px 0px 20px 0px;}
 #quizMain .question .answer {
     display: inline-block;font-size: 18px;width: 225px;border: 2px solid;
@@ -83,3 +81,7 @@ legend {
 /* Results */
 
 #quizMain .result{ position: absolute;top: 25%;left: 100%;}
+
+#quizMain .active, #quizMain .inactive { transition: left 1.5s ease-in-out; }
+#quizMain .active { left: 0%;}
+#quizMain .intro.inactive, #quizMain.inactive.answered { left: -1350px;}
