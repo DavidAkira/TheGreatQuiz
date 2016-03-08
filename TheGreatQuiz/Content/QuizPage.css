@@ -1,15 +1,21 @@
-﻿body {
-}
+﻿/*
+--Colors--
+	grey/green #5E7A77
+	orange #D98906
+	brown/orange #B86E0C
+	grey #546964 background
+	lighter orange #FFAD00
+*/
 
 .quizWindow {
     position: relative;
     overflow: hidden;
     width: 250px;
-    height: 250px;
+    height: 300px;
     padding: 20px;
     margin-top: 14%;
     text-align: center;
-    background-color: #FFAD00;
+    background-color: #D98906;
     border-style: solid;
     border-radius: 10px;
 }
@@ -23,40 +29,57 @@ legend {
 #quizMain h2{ font-size: 20px; font-weight: 100;}
 #quizMain h3{ font-size: 18px; font-weight: 100;}
 #quizMain .btn {
-    display: inline-block;cursor: pointer;background-color: #D98906;
-    color: #fff;text-decoration: none;
+    display: inline-block;cursor: pointer;background-color: #B86E0C;
+    color: black;text-decoration: none;
     padding: 5px 15px;border-radius: 6px;
 
 }
+/* Progress bar */
+#quizMain .progress { width: 550px;position: absolute;top:17%;left: 7%;}
+#quizMain .progress div {
+    position: relative;display: inline-block;width: 30px;height: 30px;margin-right: 30px;
+    border-radius: 50%;background-color: #B86E0C;transition: background-color 1s; 
+}
+    #quizMain .progress div::after {
+        content: '';display: block;position: absolute;top: -60px;left: -15px;
+        width: 65px;height: 40px;background: url(https://cdn3.iconfinder.com/data/icons/gray-toolbar-6/512/trend-512.png) no-repeat 0px 0px;
+        transition: opacity 1s, top 1s;
+    }
 
 /* intro page */
 #quizMain .intro { position: absolute;top: 25%;left: 660px;}
 #quizMain .intro p{ }
 /* Question page */
-#quizMain .question{ position: absolute;top: 25%;left: 60px;}
+#quizMain .question{ position: absolute;top: 25%;left: 660px;}
 #quizMain .question .quizText { font-size: 20px;margin: 0px 0px 20px 0px;}
 #quizMain .question .answer {
-    display: inline-block;font-size: 18px;border: 2px solid;
+    display: inline-block;font-size: 18px;width: 225px;border: 2px solid;
     border-radius: 6px;padding: 10px;margin: 0px 15px 15px 0px;position: relative;
 
 }
 
 #quizMain .question .answer.selected{ border-color: whitesmoke;  }
 #quizMain .question .answer.correct{ border-color: orangered;  }
+
 #quizMain .question .answer::after {
     content: '';display: block;width: 20px;height: 20px;
-    background: #FFAD00 no-repeat 0px 0px;background-size: 20px 20px;
+    background: no-repeat 0px 0px;background-size: 20px 20px;
     position: absolute;top: 5px;right: 5px; 
 }
+#quizMain .question .answer.selected::after { background-image:url(https://cdn1.iconfinder.com/data/icons/pointed-edge-web-navigation/101/cross-grey-256.png)}
+#quizMain .question .answer.correct::after { background-image:url(https://cdn3.iconfinder.com/data/icons/miniglyphs/500/018-512.png)}
 
+#quizMain .question.unanswered .answer { cursor: pointer;}
+#quizMain .question.unanswered .answer:hover { background-color: #FFAD00;}
 
-#nextQuiz {
-    float: right;
-    text-decoration: none;
-    font-size: 30px;
-}
-#lastQuiz {
-    float: left;
-    text-decoration: none;
-    font-size: 30px;
-}
+#quizMain .question.answered .answer { cursor:default;}
+
+/* Feedback */
+
+#quizMain .feedback { color: #efbe5e;margin-top: 10px;transition: opacity 1.5s, margin-top 1.5s;
+                      visibility: hidden;opacity: 0; }
+#quizMain .feedback .btn { margin-top: 0px;}
+
+/* Results */
+
+#quizMain .result{ position: absolute;top: 25%;left: 100%;}
