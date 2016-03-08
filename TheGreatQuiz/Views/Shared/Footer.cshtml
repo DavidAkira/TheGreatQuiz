@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Footer";
+}
+
+<body>
+
+    <footer>
+        <div>
+            <span class="foot-clock">00:00</span>
+            <span class="foot-timer">00:00</span>
+        </div>
+
+    </footer>
+
+    <script>
+        $(function () {
+            $(".foot-timer").css("visibility", "visible")
+
+            function StopWatch(startMin, startSec){
+                this.seconds = startSec;
+                this.minutes = startMin;
+
+                this.tick = function () {
+                    this.seconds--;
+                    if (this.seconds <= 0) {
+
+                        this.minutes--;
+                        if (this.minutes < 0) {
+                            alert("Test over");
+                            this.minutes = 0;
+                            return true;
+                        }
+                        this.seconds = 59;
+                    };
+                };
+            };
+
+            var tmpWatch = new StopWatch(1, 00);
+            
+            var tmpIntervalID = setInterval(tick, 1000);
+
+            function tick() {
+                var isOver = tmpWatch.tick();
+
+                if (isOver) {
+                    clearInterval(tmpIntervalID);
+                }
+
+                $(".foot-timer").text(tmpWatch.minutes + ":" + tmpWatch.seconds);
+            }
+
+        });
+
+    </script>
+</body>
+
