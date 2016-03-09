@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Services;
+using TheGreatQuiz.Models;
 
 namespace TheGreatQuiz.Controllers
 {
@@ -19,23 +19,40 @@ namespace TheGreatQuiz.Controllers
             return View();
         }
 
-        public ActionResult angularTestPage()
+		[HttpPost]
+		public ActionResult Register(User user)
+		{
+			user.Name = Request.Form["txtEmail"];
+
+			var firstPassword = Request.Form["txtFirstPassword"];
+			var secondPassword = Request.Form["txtSecondPassword"];
+
+			//TODO:: when database is fixed send to database and redirect to main page.
+			if (firstPassword == secondPassword)
+			{
+				user.Password = firstPassword;
+			}
+
+			return View();
+		}
+
+		public ActionResult QuizPage()
+        {
+            return View();
+        }
+        public ActionResult Test()
         {
             return View();
         }
 
-        [HttpGet]
-        public JsonResult GetPeople()
-        {
-            var people = new List<Person>()
-            {
-                new Person { Id = 1, FirstName = "John", LastName = "Doe" },
-                new Person { Id = 1, FirstName = "Mary", LastName = "Jane" },
-                new Person { Id = 1, FirstName = "Bob", LastName = "Parker" }
-            };
+		public ActionResult TestHeader()
+		{
+			return View();
+		}
 
-            return Json(people, JsonRequestBehavior.AllowGet);
-        }
-
+		public ActionResult RegisterPage()
+		{
+			return View();
+		}
     }
 }

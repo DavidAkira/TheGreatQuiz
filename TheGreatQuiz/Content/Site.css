@@ -3,7 +3,7 @@
 	grey/green #5E7A77
 	orange #D98906
 	brown/orange #B86E0C
-	grey #546964
+	grey #546964 background
 	lighter orange #FFAD00
 */
 
@@ -33,9 +33,57 @@ body{
 }
 
 header.mainHeader{
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
 	width: auto;
 	height: 55px;
 	background-color: #FFAD00;
+}
+
+.header-link{
+    padding: 17px;
+    display: inline-block;
+    text-align: center;
+    font-style: normal;
+    text-decoration: none;
+    color: black;
+}
+
+footer{
+    width: auto;
+    height: 55px;
+    background-color: #B86E0C;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.foot-clock{
+    float: right;
+
+    padding: 17px;
+}
+
+.foot-timer{
+    padding: 17px;
+    margin-left: 44%;
+    display: inline-block;
+    visibility: hidden;
+}
+
+.right-header-link{
+    float: right;
+    margin-right: 20px;
+}
+
+.left-header-link{
+    float: left;
+    margin-left: 20px;
 }
 
 div.loginWindow{
@@ -75,7 +123,7 @@ input.logRegButton{
 	cursor: pointer;
 	border-style:none;
 	height: 45px;
-	width: 90px;
+	width: 140px;
 	color: white;
 	background-color: #FFAD00;
 }
@@ -104,11 +152,11 @@ input.completRegistrationButton{
 }
 
 p.regBackButton{
-    display: inline-block;
+	display: inline-block;
     padding: 10px;
     margin-left: 8px;
     margin-top: 8px;
-    font-size: 22px;
+	font-size: 22px;
     background-color: #FFAD00;
     border-color: #FFAD00;
     border-style: solid;
@@ -120,4 +168,8 @@ p.errorText{
     color: white;
     margin-top: -5px;
     margin-bottom: 8px;
+}
+nav ul.navList:hover {
+      background-color: #D98906;
+
 }
