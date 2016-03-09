@@ -40,6 +40,10 @@ namespace TheGreatQuiz.Controllers
         {
             return View();
         }
+        public ActionResult Test()
+        {
+            return View();
+        }
 
 		public ActionResult TestHeader()
 		{

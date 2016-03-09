@@ -181,8 +181,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\QuizPage.css" />
+    <Content Include="Content\Test.css" />
     <Content Include="Content\unsemantic-grid-responsive-tablet.css" />
+    <Content Include="Content\whatTests.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -244,6 +245,7 @@
     <Content Include="Views\Home\TestHeader.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\QuizPage.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Home\RegisterPage.cshtml" />
   </ItemGroup>
