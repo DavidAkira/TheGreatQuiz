@@ -7,17 +7,17 @@ using TheGreatQuiz.Models;
 
 namespace TheGreatQuiz.Controllers
 {
-	public class HomeController : Controller
-	{
-		public ActionResult Index()
-		{
-			return View();
-		}
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
 
-		public ActionResult Register()
-		{
-			return View();
-		}
+        public ActionResult Register()
+        {
+            return View();
+        }
 
 		[HttpPost]
 		public ActionResult Register(User user)
