@@ -1,10 +1,10 @@
 ﻿[
   {
-    "question": "Vad är ditt problem?",
+    "question": "Vad är ditt största bekymmer?",
     "answers": [
       {
         "id": 0,
-        "text": "Grodor"
+        "text": "Jag är alldeles för vacker"
       },
       {
         "id": 1,
@@ -16,33 +16,34 @@
       },
       {
         "id": 3,
-        "text": "En bords hare"
+        "text": "Jag kan bara svänga åt vänster"
       }
     ],
-    "correct": 1
+    "correct": 1,
+    "feedback" : "Man kan lätt tro att vänstersvängar, fåfänga och kaktusar är ett större problem än spindlar"
   },
   {
     "question": "Vem var första personen på månen?",
     "answers": [
       {
         "id": 0,
-        "text": "Bill"
+        "text": "Lajka"
       },
       {
         "id": 1,
-        "text": "Bull"
+        "text": "Hans Höjdhoppare"
       },
       {
         "id": 2,
-        "text": "Måns"
+        "text": "Måns Månriddare"
       },
       {
         "id": 3,
-        "text": "Killen som hade gymmat"
+        "text": "Mannen med de välutvecklade övre extremiteterna"
       },
       {
         "id": 4,
-        "text": "Bengt"
+        "text": "Dave Chapell"
       }
     ],
     "correct": 3

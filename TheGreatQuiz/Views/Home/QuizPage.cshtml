@@ -16,42 +16,55 @@
 <body>
     <div class="grid-container">
         <section class="grid-100 grid-parent">
-            <div class="quizWindow grid-50 prefix-25 tablet-grid-90 tablet-prefix-5">
+            <div class="quizWindow grid-60 prefix-20 tablet-grid-90 tablet-prefix-5">
                 
                 <section id="quizMain" ng-controller="QuizController">
-                    <h1>The greatest quiz known to man</h1><br/>
+                    <h1>Newton prov i slumpade frågor</h1><br/>
 
                     <article class="progress">
-                        <div class="{{ ($index === activeQuestion) ? 'on' : 'off' }}" ng-repeat="myQuestion in myQuestions"></div>
+                        <div class="{{ ($index === activeQuestion) ? 'on' : 'off' }}
+                             {{ (myQuestion.questionState === 'answered') ? 'answered' : 'unanswered' }}
+                             {{ (myQuestion.correctness === 'correct') ? 'correct' : 'incorrect' }}"
+                             ng-repeat="myQuestion in myQuestions"></div>
                     </article>
 
                     <article class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active' }}">
-                        <h2>Välkommen</h2>
-                        <p>Tryck på start för att börja testet.</p>
+                        <h2>Välkommen till TheGreatQuiz</h2><br/>
+                        <p>Tryck på start för att pröva dina kunskaper!</p><br/>
                         <p class="btn" ng-click="activeQuestion = 0">Start!</p>
                     </article>
 
-                    <article class="question answered
-                             {{ $index === activeQuestion ? 'active' : 'inactive' }}"
+                    <article class="question 
+                             {{ $index === activeQuestion ? 'active' : 'inactive' }}
+                             {{ myQuestion.questionState === 'answered' ? 'answered' : 'unanswered' }}"
                              ng-repeat="myQuestion in myQuestions">
                         <p class="quizText">{{myQuestion.question}}</p>
-                        <p class="answer" ng-repeat="Answers in myQuestions[$index].answers">{{Answers.text}}</p>
+                        <p class="answer"
+                           ng-class="{selected:isSelected($parent.$index,$index),correct:isCorrect($parent.$index,$index)}"
+                           ng-click="selectAnswer($parent.$index,$index)"
+                           ng-repeat="Answer in myQuestions[$index].answers">
+                            {{Answer.text}}
+                        </p>
                         <article class="feedback">
-                            <p>något lurigt meddelande</p>
+                            <p ng-show="myQuestion.correctness === 'correct'">Bra svarat!</p>
+                            <p ng-show="myQuestion.correctness === 'incorrect'">föga imponerande :(</p>
+                            <p ng-show="myQuestion.correctness === 'incorrect'">{{myQuestion.feedback}}</p>                                                     
                         </article>
                     </article>
-
-                    <article class="result">
-                        <h3>Resultat</h3>
-                        <p>Du svarade X% korrekt, X rätt utav X frågor</p>
-                        <p class="btn">Avsluta</p>
+                    <article class="navigation" ng-show="activeQuestion > -1 ">
+                        <div class="btn left" ng-click="selectPrevious()"><</div>
+                        <div class="btn right" ng-click="selectContinue()">></div>
+                    </article>
+                    <article class="result {{ (totalQuestions === activeQuestion) ? 'active' : 'inactive'}}">
+                        <h3>Resultat</h3><br/>
+                        <p>Du svarade {{percentage}}% korrekt, {{score}} rätt utav {{totalQuestions}} frågor</p><br/>
+                        <p class="btn" ng-click="exitQuiz()">Avsluta</p>
                     </article>
                 </section>
 
             </div>    
         </section>
-        <div class="btn">Föregående</div>
-        <div class="btn">Nästa</div>
+
     </div>
     <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
     <script type="text/javascript" src="~/Scripts/quiz.js"></script>
