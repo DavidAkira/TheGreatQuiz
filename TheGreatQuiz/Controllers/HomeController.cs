@@ -27,7 +27,7 @@ namespace TheGreatQuiz.Controllers
 			var firstPassword = Request.Form["txtFirstPassword"];
 			var secondPassword = Request.Form["txtSecondPassword"];
 
-			//TODO:: when database is fixed send to database and redirect to main page.
+			//TODO:: when database is fixed send to database and redirect to loggin page.
 			if (firstPassword == secondPassword)
 			{
 				user.Password = firstPassword;
@@ -35,6 +35,11 @@ namespace TheGreatQuiz.Controllers
 
 			return View();
 		}
+
+        public ActionResult Portal()
+        {
+            return View();
+        }
 
 		public ActionResult QuizPage()
         {
