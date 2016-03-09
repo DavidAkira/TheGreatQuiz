@@ -11,7 +11,7 @@ namespace DatabaseConnectionQuiz
     public class GetQuizName
     {
 
-        public List<QuizzesDto> FetchInfoFromGreger()
+        public List<QuizzesDto> FetchInfoFromQuizDb()
         {
             var sqlCon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDB.mdf;Integrated Security=True");
 

@@ -101,11 +101,11 @@ namespace TheGreatQuiz.Controllers
         {
 
             var model = new QuizzesView();
-            var gregerDtos = new GetQuizName().FetchInfoFromGreger();
+            var quizzesDtos = new GetQuizName().FetchInfoFromQuizDb();
 
-            if (gregerDtos.Count != 0)
+            if (quizzesDtos.Count != 0)
             {
-                foreach (QuizzesDto t in gregerDtos)
+                foreach (QuizzesDto t in quizzesDtos)
                 {
                     var newMod = new Quizzes
                     {
