@@ -1,0 +1,40 @@
+﻿<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/Content/Site.css">
+    <link rel="stylesheet" href="~/Content/unsemantic-grid-responsive-tablet.css">
+    <link href="~/Content/Portal.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+</head>
+
+<body>
+    @RenderPage("../Shared/Header.cshtml")
+
+    <section id="active-tests" class="grid-container">
+        <h2>Aktiva Test</h2>
+        @{ 
+            foreach (var test in ViewBag.tests)
+            {
+                <a class="test-link grid-100" href="#">@test.Name</a>
+            }
+        }
+    </section>
+
+    <section id="finished-tests" class="grid-container">
+        <h2>Avklarade Test</h2>
+        @{
+            <h3>2014-01</h3>
+            foreach (var finishedTest in ViewBag.finishedTests)
+            {
+                <a class="test-link grid-100" href="#">@finishedTest.Name</a>
+            }
+        }
+
+    </section>
+
+    @RenderPage("../Shared/Footer.cshtml")
+</body>
+
+</html>

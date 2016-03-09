@@ -1,0 +1,16 @@
+﻿#active-tests, #finished-tests{
+    margin-top: 100px;
+    text-align: center;
+}
+
+#finished-tests{
+    margin-bottom: 50px;
+}
+
+.test-link:hover{
+    text-decoration: underline;
+}
+
+#finished-tests h2{
+    margin-bottom: 30px;
+}

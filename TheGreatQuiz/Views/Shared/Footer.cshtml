@@ -13,7 +13,7 @@
 
     </footer>
 
-    <script>
+    @*<script>
         $(function () {
             $(".foot-timer").css("visibility", "visible")
 
@@ -50,8 +50,17 @@
                 $(".foot-timer").text(tmpWatch.minutes + ":" + tmpWatch.seconds);
             }
 
-        });
+        });*@
 
+    @*</script>*@
+
+    <script>
+        var myVar = setInterval(myTimer, 1000);
+
+        function myTimer() {
+            var d = new Date();
+            $(".foot-clock").html(d.toLocaleTimeString());
+        }
     </script>
 </body>
 
