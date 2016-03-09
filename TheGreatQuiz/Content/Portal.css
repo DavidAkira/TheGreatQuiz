@@ -7,6 +7,10 @@
     margin-bottom: 50px;
 }
 
-#active-tests a:hover{
+.test-link:hover{
     text-decoration: underline;
+}
+
+#finished-tests h2{
+    margin-bottom: 30px;
 }
