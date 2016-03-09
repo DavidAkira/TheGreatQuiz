@@ -30,8 +30,10 @@
 }
 /* navigation */
 
-#quizMain .btn.left{float: left;position: absolute;left: 2%;top: 45%;font-size: 30px;}
-#quizMain .btn.right{float: right;position: absolute;right: 2%;top: 45%;font-size: 30px;}
+#quizMain .btn.left{float: left;position: absolute;left: 2%;top: 45%;font-size: 30px;background-color: #D98906;padding: 0px;}
+
+#quizMain .btn.right{float: right;position: absolute;right: 2%;top: 45%;font-size: 30px;background-color: #D98906;padding: 0px; }
+img{ height: 40px;}
 
 /* Progress bar */
 #quizMain .progress { width: 100%;position: absolute;top:17%;}
@@ -42,7 +44,7 @@
 
 #quizMain .progress div.on,
 #quizMain .progress div.answered{ background-color: #efbe5e;}
-#quizMain .progress div.on{ background-color: #FFAD00;}
+#quizMain .progress div.on{ background-color: red;}
 
 /* intro page */
 #quizMain .intro { position: absolute;top: 30%;left: 660px;width: 100%;}

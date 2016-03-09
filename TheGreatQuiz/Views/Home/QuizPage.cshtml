@@ -51,9 +51,13 @@
                             <p ng-show="myQuestion.correctness === 'incorrect'">{{myQuestion.feedback}}</p>                                                     
                         </article>
                     </article>
-                    <article class="navigation" ng-show="activeQuestion > -1 ">
-                        <div class="btn left" ng-click="selectPrevious()"><</div>
-                        <div class="btn right" ng-click="selectContinue()">></div>
+                    <article class="navigation" ng-show="activeQuestion > -1 && activeQuestion < totalQuestions ">
+                        <div class="btn left" ng-click="selectPrevious()">
+                            <img src="http://image005.flaticon.com/25/svg/25/25184.svg"/>
+                        </div>
+                        <div class="btn right" ng-click="selectContinue()">
+                            <img src="http://image005.flaticon.com/25/svg/25/25446.svg"/>
+                        </div>
                     </article>
                     <article class="result {{ (totalQuestions === activeQuestion) ? 'active' : 'inactive'}}">
                         <h3>Resultat</h3><br/>
