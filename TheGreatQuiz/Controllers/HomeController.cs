@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services;
 
 namespace TheGreatQuiz.Controllers
 {
@@ -16,6 +17,24 @@ namespace TheGreatQuiz.Controllers
         public ActionResult Register()
         {
             return View();
+        }
+
+        public ActionResult angularTestPage()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public JsonResult GetPeople()
+        {
+            var people = new List<Person>()
+            {
+                new Person { Id = 1, FirstName = "John", LastName = "Doe" },
+                new Person { Id = 1, FirstName = "Mary", LastName = "Jane" },
+                new Person { Id = 1, FirstName = "Bob", LastName = "Parker" }
+            };
+
+            return Json(people, JsonRequestBehavior.AllowGet);
         }
 
     }
