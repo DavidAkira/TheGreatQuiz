@@ -17,9 +17,9 @@
     <div class="grid-container">
         <section class="grid-100 grid-parent">
             <div class="quizWindow grid-60 prefix-20 tablet-grid-90 tablet-prefix-5">
-                
+
                 <section id="quizMain" ng-controller="QuizController">
-                    <h1>Newton prov i slumpade frågor</h1><br/>
+                    <h1>Newton prov i slumpade frågor</h1><br />
 
                     <article class="progress">
                         <div class="{{ ($index === activeQuestion) ? 'on' : 'off' }}
@@ -29,12 +29,12 @@
                     </article>
 
                     <article class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active' }}">
-                        <h2>Välkommen till TheGreatQuiz</h2><br/>
-                        <p>Tryck på start för att pröva dina kunskaper!</p><br/>
+                        <h2>Välkommen till TheGreatQuiz</h2><br />
+                        <p>Tryck på start för att pröva dina kunskaper!</p><br />
                         <p class="btn" ng-click="activeQuestion = 0">Start!</p>
                     </article>
 
-                    <article class="question 
+                    <article class="question
                              {{ $index === activeQuestion ? 'active' : 'inactive' }}
                              {{ myQuestion.questionState === 'answered' ? 'answered' : 'unanswered' }}"
                              ng-repeat="myQuestion in myQuestions">
@@ -48,25 +48,25 @@
                         <article class="feedback">
                             <p ng-show="myQuestion.correctness === 'correct'">Bra svarat!</p>
                             <p ng-show="myQuestion.correctness === 'incorrect'">föga imponerande :(</p>
-                            <p ng-show="myQuestion.correctness === 'incorrect'">{{myQuestion.feedback}}</p>                                                     
+                            <p ng-show="myQuestion.correctness === 'incorrect'">{{myQuestion.feedback}}</p>
                         </article>
                     </article>
                     <article class="navigation" ng-show="activeQuestion > -1 && activeQuestion < totalQuestions ">
                         <div class="btn left" ng-click="selectPrevious()">
-                            <img src="http://image005.flaticon.com/25/svg/25/25184.svg"/>
+                            <img src="http://image005.flaticon.com/25/svg/25/25184.svg" />
                         </div>
                         <div class="btn right" ng-click="selectContinue()">
-                            <img src="http://image005.flaticon.com/25/svg/25/25446.svg"/>
+                            <img src="http://image005.flaticon.com/25/svg/25/25446.svg" />
                         </div>
                     </article>
                     <article class="result {{ (totalQuestions === activeQuestion) ? 'active' : 'inactive'}}">
-                        <h3>Resultat</h3><br/>
-                        <p>Du svarade {{percentage}}% korrekt, {{score}} rätt utav {{totalQuestions}} frågor</p><br/>
+                        <h3>Resultat</h3><br />
+                        <p>Du svarade {{percentage}}% korrekt, {{score}} rätt utav {{totalQuestions}} frågor</p><br />
                         <p class="btn" ng-click="exitQuiz()">Avsluta</p>
                     </article>
                 </section>
 
-            </div>    
+            </div>
         </section>
 
     </div>
