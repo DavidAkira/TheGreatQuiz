@@ -10,6 +10,7 @@ namespace TheGreatQuiz.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
             return View();
@@ -99,7 +100,7 @@ namespace TheGreatQuiz.Controllers
 
         public ActionResult Quizzes()
         {
-
+       
             var model = new QuizzesView();
             var quizzesDtos = new GetQuizName().FetchInfoFromQuizDb();
 
@@ -121,5 +122,23 @@ namespace TheGreatQuiz.Controllers
 
             return View(model);
         }
+
+
+        int quizId = 0;
+
+        public ActionResult angularTestPage(int Id)
+        {
+            quizId = Id;
+            return View();
+        }
+
+
+        //public JsonResult Questions()
+        //{
+            
+        //}
+
+
+
     }
 }
