@@ -23,22 +23,33 @@
         <section class="grid-100 grid-parent">
             <div class="registerWindow grid-60 prefix-20">
                 <h1>Newton</h1>
-                <form class="loginForm">
-                    <input type="text" id="registerEmail" class="inputBox registerBox" placeholder="Email" maxlength="50" /><br />
+                <form class="loginForm" onsubmit="onSubmit(event)">
+                    <input name="txtEmail" type="text" id="registerEmail" class="inputBox registerBox" placeholder="Email" maxlength="50" /><br />
                     <p id="emailErrorDisplay" class="errorText">holder</p>
-                    <input type="password" id="registerPassword" class="inputBox registerBox" placeholder="Lösenord" maxlength="50" /><br />
-                    <input type="password" id="registerSecondPassword" class="inputBox registerBox" placeholder="Upprepa lösenord" maxlength="50" /><br />
+                    <input name="txtFirstPassword" type="password" id="registerPassword" class="inputBox registerBox" placeholder="Lösenord" maxlength="50" /><br />
+                    <input name="txtSecondPassword" type="password" id="registerSecondPassword" class="inputBox registerBox" placeholder="Upprepa lösenord" maxlength="50" /><br />
                     <p id="passwordErrorDisplay" class="errorText">holder</p>
-                    <input type="button" id="completRegistration" class="logRegButton completRegistrationButton" value="Registera konto" />
+                    <input type="submit" id="completRegistration" class="logRegButton completRegistrationButton" value="Registera konto" />
                 </form>
             </div>
         </section>
 
     </div>
 
-
+    @RenderPage("../Shared/Footer.cshtml")
    
 <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="~/Scripts/registerValidation.js"></script>
+<script>
+        $(function () {
+            $(".loginForm").on("submit", function (event) {
+
+
+                if (!registerValidation(elEmail.value, elPsw.value, elSecondPsw.value)) {
+                    event.preventDefault();
+                }
+            })
+        });
+    </script>
 </body>
 </html>
