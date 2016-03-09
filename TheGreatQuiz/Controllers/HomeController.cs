@@ -38,6 +38,42 @@ namespace TheGreatQuiz.Controllers
 
         public ActionResult Portal()
         {
+            List<Test> tests = new List<Models.Test>();
+            List<FinishedTest> finishedTests = new List<FinishedTest>();
+
+            tests.Add(new Test());
+            tests[0].Name = "Programmering prov 2";
+
+            tests.Add(new Test());
+            tests[1].Name = "Webbutveckling prov 2";
+
+            tests.Add(new Test());
+            tests[2].Name = "Databashantering prov 2";
+
+
+            finishedTests.Add(new FinishedTest());
+            finishedTests[0].Name = "Programmering prov 1";
+            finishedTests[0].FinishedOn = new DateTime(2014, 1, 1);
+
+            finishedTests.Add(new FinishedTest());
+            finishedTests[1].Name = "Programmering prov 1";
+            finishedTests[1].FinishedOn = new DateTime(2014, 1, 1);
+
+            finishedTests.Add(new FinishedTest());
+            finishedTests[2].Name = "Programmering prov 1";
+            finishedTests[2].FinishedOn = new DateTime(2014, 1, 1);
+
+            finishedTests.Add(new FinishedTest());
+            finishedTests[3].Name = "Webbutveckling prov 1";
+            finishedTests[3].FinishedOn = new DateTime(2014, 1, 1);
+
+            finishedTests.Add(new FinishedTest());
+            finishedTests[4].Name = "Programmering prov 1";
+            finishedTests[4].FinishedOn = new DateTime(2014, 1, 1);
+
+            ViewBag.tests = tests;
+            ViewBag.finishedTests = finishedTests;
+
             return View();
         }
 
