@@ -186,11 +186,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Portal.css" />
     <Content Include="App_Data\QuizDB.mdf" />
     <Content Include="App_Data\QuizDB_log.ldf">
       <DependentUpon>QuizDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\Portal.css" />
     <Content Include="Content\Test.css" />
     <Content Include="App\App.js" />
     <Content Include="App\Controllers\TestPageController.js" />
