@@ -180,6 +180,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AddQuiz.css" />
+    <Content Include="Content\AddQuiz.js" />
     <Content Include="Content\Test.css" />
     <Content Include="Content\unsemantic-grid-responsive-tablet.css" />
     <Content Include="Content\whatTests.js" />
@@ -245,6 +247,7 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\QuizPage.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Home\AddQuiz.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
