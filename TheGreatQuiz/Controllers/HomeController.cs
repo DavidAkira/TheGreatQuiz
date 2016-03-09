@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TheGreatQuiz.Models;
+using DatabaseConnectionQuiz;
 
 namespace TheGreatQuiz.Controllers
 {
@@ -54,5 +55,30 @@ namespace TheGreatQuiz.Controllers
 		{
 			return View();
 		}
+
+        public ActionResult Quizzes()
+        {
+
+            var model = new QuizzesView();
+            var gregerDtos = new GetQuizName().FetchInfoFromGreger();
+
+            if (gregerDtos.Count != 0)
+            {
+                foreach (QuizzesDto t in gregerDtos)
+                {
+                    var newMod = new Quizzes
+                    {
+                        Id = t.Id,
+                        Name = t.Name,
+                        Created = t.Created,
+                        Enddate = t.Enddate
+                        
+                    };
+                    model.QuizzesList.Add(newMod);
+                }
+            }
+
+            return View(model);
+        }
     }
 }

@@ -176,12 +176,18 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Quizzes.cs" />
+    <Compile Include="Models\QuizzesView.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\QuizDB.mdf" />
+    <Content Include="App_Data\QuizDB_log.ldf">
+      <DependentUpon>QuizDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\Test.css" />
     <Content Include="App\App.js" />
     <Content Include="App\Controllers\TestPageController.js" />
@@ -253,9 +259,13 @@
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Home\RegisterPage.cshtml" />
+    <Content Include="Views\Home\Quizzes.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <ProjectReference Include="..\DatabaseConnectionQuiz\DatabaseConnectionQuiz.csproj">
+      <Project>{3fee0b67-e3f6-40d1-8e84-b809d9a8caff}</Project>
+      <Name>DatabaseConnectionQuiz</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
