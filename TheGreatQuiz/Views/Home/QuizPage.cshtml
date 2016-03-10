@@ -31,7 +31,7 @@
                     <article class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active' }}">
                         <h2>Välkommen till TheGreatQuiz</h2><br />
                         <p>Tryck på start för att pröva dina kunskaper!</p><br />
-                        <p class="btn" ng-click="activeQuestion = 0">Start!</p>
+                        <p class="btn" id="start-button" ng-click="activeQuestion = 0">Start!</p>
                     </article>
 
                     <article class="question
@@ -70,7 +70,18 @@
         </section>
 
     </div>
+    @RenderPage("../Shared/Footer.cshtml")
+
     <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
     <script type="text/javascript" src="~/Scripts/quiz.js"></script>
+    <script>
+        $(function () {
+            $("#start-button").on("click", function () {
+                startTimer(1, 0, function () {
+                    alert("Times up!");
+                });
+            });
+        });
+    </script>
 </body>
 </html>
