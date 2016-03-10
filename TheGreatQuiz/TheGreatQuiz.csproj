@@ -271,18 +271,18 @@
     <Content Include="Views\Home\QuizPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DatabaseConnectionQuiz\DatabaseConnectionQuiz.csproj">
-      <Project>{3fee0b67-e3f6-40d1-8e84-b809d9a8caff}</Project>
-      <Name>DatabaseConnectionQuiz</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseConnectionQuiz\DatabaseConnectionQuiz.csproj">
+      <Project>{3fee0b67-e3f6-40d1-8e84-b809d9a8caff}</Project>
+      <Name>DatabaseConnectionQuiz</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
