@@ -13,7 +13,7 @@ namespace DatabaseConnectionQuiz
 
         public List<QuizzesDto> FetchInfoFromQuizDb()
         {
-            var sqlCon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDB.mdf;Integrated Security=True");
+            var sqlCon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
 
 
             SqlCommand cmd = new SqlCommand("SELECT * FROM Quizzes", sqlCon);
@@ -32,7 +32,7 @@ namespace DatabaseConnectionQuiz
                         NewQuiz.Id = (int)rdr["Id"];
                         NewQuiz.Name = rdr["Name"].ToString();
                         NewQuiz.Created = (DateTime)rdr["Created"];
-                        NewQuiz.Enddate = (DateTime)rdr["Enddate"];
+                        //NewQuiz.Enddate = (DateTime)rdr["Enddate"];
 
 
                         listFromDB.Add(NewQuiz);

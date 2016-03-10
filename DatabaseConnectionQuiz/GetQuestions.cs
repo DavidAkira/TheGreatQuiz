@@ -12,7 +12,7 @@ namespace DatabaseConnectionQuiz
     {
         public List<QuestionsDto> FetchQuestionsFromDb(int quizId)
         {
-            var sqlCon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDB.mdf;Integrated Security=True");
+            var sqlCon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
 
 
             SqlCommand cmd = new SqlCommand("SELECT * FROM questions WHERE quiz_id =" + quizId, sqlCon);
