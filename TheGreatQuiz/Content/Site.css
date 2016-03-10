@@ -33,6 +33,12 @@ body{
 }
 
 header.mainHeader{
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
 	width: auto;
 	height: 55px;
 	background-color: #FFAD00;
@@ -45,6 +51,29 @@ header.mainHeader{
     font-style: normal;
     text-decoration: none;
     color: black;
+}
+
+footer{
+    width: auto;
+    height: 55px;
+    background-color: #B86E0C;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.foot-clock{
+    float: right;
+
+    padding: 17px;
+}
+
+.foot-timer{
+    padding: 17px;
+    margin-left: 44%;
+    display: inline-block;
+    visibility: hidden;
 }
 
 .right-header-link{
@@ -126,7 +155,7 @@ p.regBackButton{
 	display: inline-block;
     padding: 10px;
     margin-left: 8px;
-    margin-top: 8px;
+    margin-top: 58px;
 	font-size: 22px;
     background-color: #FFAD00;
     border-color: #FFAD00;
