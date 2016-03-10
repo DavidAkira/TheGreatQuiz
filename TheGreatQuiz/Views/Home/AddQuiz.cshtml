@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "AddQuiz";
+}
+<!DOCTYPE html>
+<html lang="en" ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/Content/AddQuiz.css">
+    <script src="~/Scripts/angular.min.js" ></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Content/AddQuiz.js"></script>
+    <script src="~/Content/angular.js"></script>
+    <link rel="stylesheet" href="~/Content/unsemantic-grid-responsive-tablet.css">
+</head>
+<body>  
+    <div class="grid-container">
+        
+        <section class="grid-parent quizPage grid-80 prefix-10" ng-controller="myController">
+            <header class="quizHeader grid-100">
+                <span>
+                  <label class="tittelRubrik">Tittel</label>
+                  <input class="tittel" type="text" placeholder="Ge din quiz ett lämpligt namn:"/>
+                  <input class="slutför" type="button" value="Slutför" />
+                </span>
+            </header>
+                <div class="space grid-15"><br /></div>
+                <article class="questionPage grid-70">
+                    <form>
+                          <input class="quizButton" type="button" value="Lägg till frågan i quizen" ng-click="AddQuestion()">
+                        <span>
+                            <label class="questionLabel">Fråga</label>
+                            <textarea class="question" placeholder="Skriv in din fråga här..." ng-model="Question">                                                            
+                            </textarea>
+   
+                        </span>
+                    
+                          <label class="radioRubrik">Kryssa i rätt alternativ<br /></label>                                               
+                        <span>
+                            <input class="radio 0" type="radio" name="rättSvar" value="0" />
+                            <input class="0 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." />
+                        </span>
+                                                      
+                        <span>
+                            <input class="radio 1" type="radio" name="rättSvar" value="1" />
+                            <input class="1 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." />
+                        </span>                          
+                                                    
+                        <span>
+                            <input class="radio 2" type="radio" name="rättSvar" value="2" />
+                            <input class="2 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." />
+                        </span>
+                           <input id="addQuestion" type="button" value="+" />
+                        </form>
+                                             
+                </article>
+                 <aside class="grid-15 färdigaSvar">
+                     <ul>
+                         <li ng-repeat="item in answers">{{item.id}}. {{item.text}}</li>
+                     </ul>
+                 </aside>
+
+        </section>
+
+
+    </div>
+
+
+</body>
+</html>

@@ -15,6 +15,10 @@ namespace TheGreatQuiz.Controllers
         {
             return View();
         }
+        public ActionResult AddQuiz()
+        {
+            return View();
+        }
 
         public ActionResult Register()
         {

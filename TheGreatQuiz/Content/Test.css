@@ -6,15 +6,8 @@
 	grey #546964
 	lighter orange #FFAD00
 */
-*{
-	padding: 0px;
-	margin: 0px;
-	font-family: Verdana, sans-serif;
 
-}
-body{
-	background-color: #546964;
-}
+
 
 header.mainHeader{
 	width: auto;
