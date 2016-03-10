@@ -10,7 +10,10 @@ namespace TheGreatQuiz.Controllers
 {
     public class HomeController : Controller
     {
-
+        public ActionResult AddQuiz()
+        {
+            return View();
+        }
         public ActionResult Index()
         {
             return View();

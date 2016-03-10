@@ -1,0 +1,146 @@
+﻿/*
+--Colors--
+	grey/green #5E7A77
+	orange #D98906
+	brown/orange #B86E0C
+	grey #546964 background
+	lighter orange #FFAD00
+*/
+*{
+	padding: 0px;
+	margin: 0px;
+	font-family: Verdana, sans-serif;
+}
+body{
+	background-color: #546964;
+}
+input{
+    border: 0;
+}
+.space{
+    width: 100%;
+}
+.questionPage{
+    height: auto;
+    width: 100%;
+    background-color: #FFAD00;
+}
+.quizHeader{
+    padding-top: 10px;
+    height: 80px;
+    width: 100%;
+}
+.quizPage{ 
+    margin-top: 40px;
+    background-color: #B86E0C;
+}
+.tittelRubrik{
+    font-size: 20px;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+.tittel{
+    width: 655px;
+    font-size: 20px;
+    padding: 5px;
+    height: auto;
+}
+.slutför{
+    font-size: 20px;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    margin-left: 30px;
+    background-color: white;
+}
+.radio{
+    margin-left: 10px;
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+.question{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 500px;
+    font-size: 28px;
+    padding: 15px;
+    height: auto;
+    margin-right: 80px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+#addQuestion{
+    margin-top: 15px;
+    font-size: 24px;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    color: green;
+    font-weight: bold;
+    border-radius: 35px 35px;
+    vertical-align: central;
+    margin-left: 10px;
+    margin-bottom: 40px
+}
+.remove{
+    margin-top: 15px;
+    font-size: 24px;
+    height: 35px;
+    width: 35px;
+    padding: 5px;
+    color: red;
+    font-weight: bold;
+    border-radius: 35px 35px;
+    vertical-align: central;
+    margin-bottom: 10px;
+}
+.quizButton{
+    margin-top: 10px;
+    margin-left: 400px;
+    float: right;
+    font-size: 16px;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    background-color: white;
+    
+}
+.färdigaSvar{
+    font-size: 16px;
+    padding: 5px;
+    overflow: hidden;
+}
+.ettSvarsAlternativTill{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width: 500px;
+    font-size: 20px;
+    padding: 10px;
+    height: auto;
+    margin-right: 20px;
+}
+.svarsAlternativ{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width: 500px;
+    font-size: 20px;
+    padding: 10px;
+    height: auto;
+    margin-right: 80px;
+}
+.radioRubrik{
+    margin-left: 5px;
+    padding: 5px;
+    font-size: 18px;
+}
+.questionLabel{
+    font-size: 28px;
+    padding: 10px;
+    margin-left: 30px;
+}
+
