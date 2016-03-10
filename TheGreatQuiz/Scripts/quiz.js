@@ -2,7 +2,7 @@
 
     var app = angular.module("myQuiz",[]);
 
-    app.controller("QuizController", ["$scope", "$http", "$sce", function($scope, $http, $sce) {
+    app.controller("QuizController", ["$scope", "$http", function($scope, $http) {
 
         $scope.score = 0;
         $scope.activeQuestion = -1;
@@ -41,16 +41,8 @@
             return $scope.myQuestions[questionIndex].correctAnswer === answerIndex;
         }
         $scope.selectContinue = function () {
-            if ($scope.activeQuestion === ($scope.totalQuestions - 1)) {
-                var choice = confirm("Detta är sista frågan är du säker på att du vill avsluta och se ditt resultat?");
-                if (choice === true) {
-                    return $scope.activeQuestion += 1;
-                } else {
-                    return 0;
-                }
-            }else {
+          
                 return $scope.activeQuestion += 1;
-            }
         }
         $scope.selectPrevious = function () {
             if ($scope.activeQuestion >= 1) {

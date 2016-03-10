@@ -194,6 +194,9 @@
     <Content Include="App_Data\QuizDB_log.ldf">
       <DependentUpon>QuizDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\AddQuiz.css" />
+    <Content Include="Content\AddQuiz.js" />
+    <Content Include="Content\Angular.js" />
     <Content Include="Content\Portal.css" />
     <Content Include="Content\QuizPage.css" />
     <Content Include="Content\Test.css" />
@@ -273,6 +276,7 @@
     <Content Include="Views\Home\Quizzes.cshtml" />
     <Content Include="Views\Home\Portal.cshtml" />
     <Content Include="Views\Home\QuizPage.cshtml" />
+    <Content Include="Views\Home\AddQuiz.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DatabaseConnectionQuiz\DatabaseConnectionQuiz.csproj">
