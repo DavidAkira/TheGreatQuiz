@@ -2,7 +2,7 @@
 
     var app = angular.module("myQuiz",[]);
 
-    app.controller("QuizController", ["$scope", "$http", "$sce", function($scope, $http, $sce) {
+    app.controller("QuizController", ["$scope", "$http", function($scope, $http) {
 
         $scope.score = 0;
         $scope.activeQuestion = -1;

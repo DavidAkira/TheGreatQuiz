@@ -2,6 +2,8 @@
     Layout = null;
 }
 
+
+
 <!DOCTYPE html>
 
 <html lang="en" ng-app="myQuiz">
@@ -14,64 +16,69 @@
     <script src="/Scripts/jquery-1.10.2.js"></script>
 </head>
 <body>
-    <div class="grid-container">
-        <section class="grid-100 grid-parent">
-            <div class="quizWindow grid-60 prefix-20 tablet-grid-90 tablet-prefix-5">
+@RenderPage("../Shared/Header.cshtml")
+<div class="grid-container">
+    <section class="grid-100 grid-parent">
+        <div class="quizWindow grid-60 prefix-20 tablet-grid-90 tablet-prefix-5">
 
-                <section id="quizMain" ng-controller="QuizController">
-                    <h1>Newton prov i slumpade frågor</h1><br />
+            <section id="quizMain" ng-controller="QuizController">
+                <h1>Newton prov i slumpade frågor</h1><br/>
 
-                    <article class="progress">
-                        <div class="{{ ($index === activeQuestion) ? 'on' : 'off' }}
+                <article class="progress">
+                    <div class="{{ ($index === activeQuestion) ? 'on' : 'off' }}
                              {{ (myQuestion.questionState === 'answered') ? 'answered' : 'unanswered' }}
                              {{ (myQuestion.correctness === 'correct') ? 'correct' : 'incorrect' }}"
-                             ng-repeat="myQuestion in myQuestions"></div>
-                    </article>
+                         ng-repeat="myQuestion in myQuestions"></div>
+                </article>
 
-                    <article class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active' }}">
-                        <h2>Välkommen till TheGreatQuiz</h2><br />
-                        <p>Tryck på start för att pröva dina kunskaper!</p><br />
-                        <p class="btn" ng-click="activeQuestion = 0">Start!</p>
-                    </article>
+                <article class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active' }}">
+                    <h2>Välkommen till TheGreatQuiz</h2><br/>
+                    <p>Tryck på start för att pröva dina kunskaper!</p><br/>
+                    <p class="btn" ng-click="activeQuestion = 0">Start!</p>
+                </article>
 
-                    <article class="question
+                <article class="question
                              {{ $index === activeQuestion ? 'active' : 'inactive' }}
                              {{ myQuestion.questionState === 'answered' ? 'answered' : 'unanswered' }}"
-                             ng-repeat="myQuestion in myQuestions">
-                        <p class="quizText">{{myQuestion.question}}</p>
-                        <p class="answer"
-                           ng-class="{selected:isSelected($parent.$index,$index),correct:isCorrect($parent.$index,$index)}"
-                           ng-click="selectAnswer($parent.$index,$index)"
-                           ng-repeat="Answer in myQuestions[$index].answers">
-                            {{Answer.text}}
+                         ng-repeat="myQuestion in myQuestions">
+                    <p class="quizText">{{myQuestion.question}}</p>
+                    <p class="answer"
+                       ng-class="{selected:isSelected($parent.$index,$index),correct:isCorrect($parent.$index,$index)}"
+                       ng-click="selectAnswer($parent.$index,$index)"
+                       ng-repeat="Answer in myQuestions[$index].answers">
+                        {{Answer.text}}
+                    </p>
+                    <article class="feedback">
+                        <p ng-show="activeQuestion === (totalQuestions - 1)">
+                            <span>OBS! </span>Detta är sista frågan, trycker du nästa så avslutas testet!
                         </p>
-                        <article class="feedback">
-                            <p ng-show="activeQuestion === (totalQuestions - 1)"><span>OBS! </span>Detta är sista frågan, trycker du nästa så avslutas testet!</p>
-                            <p ng-show="myQuestion.correctness === 'correct'">Bra svarat!</p>
-                            <p ng-show="myQuestion.correctness === 'incorrect'">föga imponerande :(</p>
-                            <p ng-show="myQuestion.correctness === 'incorrect'">{{myQuestion.feedback}}</p>
-                        </article>
+                        @*<p ng-show="myQuestion.correctness === 'correct'">Bra svarat!</p>
+                        <p ng-show="myQuestion.correctness === 'incorrect'">föga imponerande :(</p>*@
+                        @*<p ng-show="myQuestion.correctness === 'incorrect'">{{myQuestion.feedback}}</p>*@
                     </article>
-                    <article class="navigation" ng-show="activeQuestion > -1 && activeQuestion < totalQuestions ">
-                        <div class="btn left" ng-click="selectPrevious()">
-                            <img src="http://image005.flaticon.com/25/svg/25/25184.svg" />
-                        </div>
-                        <div class="btn right" ng-click="selectContinue()">
-                            <img src="http://image005.flaticon.com/25/svg/25/25446.svg" />
-                        </div>
-                    </article>
-                    <article class="result {{ (totalQuestions === activeQuestion) ? 'active' : 'inactive'}}">
-                        <h3>Resultat</h3><br />
-                        <p>Du svarade {{percentage}}% korrekt, {{score}} rätt utav {{totalQuestions}} frågor</p><br />
-                        <p class="btn" ng-click="exitQuiz()">Avsluta</p>
-                    </article>
-                </section>
+                </article>
+                <article class="navigation" ng-show="activeQuestion > -1 && activeQuestion < totalQuestions ">
+                    <div class="btn left" ng-click="selectPrevious()">
+                        <img src="http://image005.flaticon.com/25/svg/25/25184.svg"/>
+                    </div>
+                    <div class="btn right" ng-click="selectContinue()">
+                        <img src="http://image005.flaticon.com/25/svg/25/25446.svg"/>
+                    </div>
+                </article>
+                <article class="result {{ (totalQuestions === activeQuestion) ? 'active' : 'inactive'}}">
+                    <h3>Resultat</h3><br/>
+                    <p>Du svarade {{percentage}}% korrekt, {{score}} rätt utav {{totalQuestions}} frågor</p><br/>
+                    <p class="btn" ng-click="exitQuiz()">Avsluta</p>
+                </article>
+            </section>
 
-            </div>
-        </section>
+        </div>
+    </section>
 
-    </div>
-    <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/quiz.js"></script>
+</div>
+    @RenderPage("../Shared/Footer.cshtml")
+<script type="text/javascript" src="~/Scripts/angular.min.js"></script>
+<script type="text/javascript" src="~/Scripts/quiz.js"></script>
+
 </body>
 </html>
