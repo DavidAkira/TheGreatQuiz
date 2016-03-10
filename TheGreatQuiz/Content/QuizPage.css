@@ -12,7 +12,7 @@
     overflow: hidden;
     height: 400px;
     padding: 20px;
-    margin-top: 18%;
+    margin-top: 10%;
     text-align: center;
     background-color: #D98906;
     border-style: solid;
@@ -44,7 +44,7 @@ img{ height: 40px;}
 
 #quizMain .progress div.on,
 #quizMain .progress div.answered{ background-color: #efbe5e;}
-#quizMain .progress div.on{ background-color: red;}
+#quizMain .progress div.on{ background-color: whitesmoke;}
 
 /* intro page */
 #quizMain .intro { position: absolute;top: 30%;left: 660px;width: 100%;}
@@ -58,7 +58,7 @@ img{ height: 40px;}
 
 }
 
-#quizMain .question .answer.selected{ border-color: red;  }
+#quizMain .question .answer.selected{ border-color: whitesmoke;  }
 #quizMain .question .answer.correct{ border-color: whitesmoke;  }
 
 #quizMain .question .answer::after {
@@ -80,6 +80,8 @@ img{ height: 40px;}
                        }
 #quizMain .feedback .btn { margin-top: 0px;}
 
+span{ font-weight: 100;}
+
 /* Results */
 
 #quizMain .result{ position: absolute;top: 25%;left: 100%; width:100%}
@@ -89,6 +91,7 @@ img{ height: 40px;}
 #quizMain .active { left: 0px !important;}
 
 #quizMain .intro.inactive, #quizMain .inactive.answered { left: -1350px;}
+
 
 /* Test */
 @media screen and (max-width: 650px) {

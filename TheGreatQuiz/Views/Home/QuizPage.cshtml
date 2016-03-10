@@ -46,6 +46,7 @@
                             {{Answer.text}}
                         </p>
                         <article class="feedback">
+                            <p ng-show="activeQuestion === (totalQuestions - 1)"><span>OBS! </span>Detta är sista frågan, trycker du nästa så avslutas testet!</p>
                             <p ng-show="myQuestion.correctness === 'correct'">Bra svarat!</p>
                             <p ng-show="myQuestion.correctness === 'incorrect'">föga imponerande :(</p>
                             <p ng-show="myQuestion.correctness === 'incorrect'">{{myQuestion.feedback}}</p>
