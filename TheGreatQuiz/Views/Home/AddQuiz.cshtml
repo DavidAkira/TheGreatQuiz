@@ -21,8 +21,8 @@
             <header class="quizHeader grid-100">
                 <span>
                     <label class="tittelRubrik">Tittel</label>
-                    <input class="tittel" type="text" placeholder="Ge din quiz ett lämpligt namn:" />
-                    <input class="slutför" type="button" value="Slutför" />
+                    <input class="tittel" type="text" placeholder="Ge din quiz ett lämpligt namn:" ng-model="Quiz.Title"/>
+                    <input class="slutför" type="button" value="Slutför" ng-click="SendQuizData()" />
                 </span>
             </header>
             <div class="space grid-15"><br /></div>
@@ -31,24 +31,24 @@
                     <input class="quizButton" type="button" value="Lägg till frågan i quizen" ng-click="AddQuestion()">
                     <span>
                         <label class="questionLabel">Fråga</label>
-                        <textarea class="question" placeholder="Skriv in din fråga här..." ng-model="Question"></textarea>
+                        <textarea class="question" placeholder="Skriv in din fråga här..." ng-model="Answers.q"></textarea>
 
                     </span>
 
                     <label class="radioRubrik">Kryssa i rätt alternativ<br /></label>
                     <span>
                         <input class="radio 0" type="radio" name="rättSvar" value="0" />
-                        <input class="0 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." />
+                        <input class="0 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a0"/>
                     </span>
 
                     <span>
                         <input class="radio 1" type="radio" name="rättSvar" value="1" />
-                        <input class="1 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." />
+                        <input class="1 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a1"/>
                     </span>
 
                     <span>
                         <input class="radio 2" type="radio" name="rättSvar" value="2" />
-                        <input class="2 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." />
+                        <input class="2 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a2"/>
                     </span>
                     <input id="addQuestion" type="button" value="+" />
                 </form>
@@ -56,7 +56,7 @@
             </article>
             <aside class="grid-15 färdigaSvar">
                 <ul>
-                    <li ng-repeat="item in answers">{{item.id}}. {{item.text}}</li>
+                    <li ng-repeat="item in answers">{{item.q}}</li>
                 </ul>
             </aside>
 

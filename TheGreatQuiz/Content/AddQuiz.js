@@ -28,7 +28,7 @@
 
         var antalSvar = $('.radio').length;
         var radio = "<input class=\"radio " + antalSvar + "\" type=\"radio\" name=\"rättSvar\" value=\"" + antalSvar + "\" />";
-        var text = "<input class=\"ettSvarsAlternativTill " + antalSvar + "\"type=\"text\" placeholder=\"Skriv in ett svar här...\" />";
+        var text = "<input class=\"ettSvarsAlternativTill " + antalSvar + "\"type=\"text\" placeholder=\"Skriv in ett svar här...\" ng-model=\"Answers.a"+ antalSvar+ "\" />";
         var button = "<input id=\"" + antalSvar + "\" class=\"" + antalSvar + " remove\" type=\"button\" value=\"x\" />";
         var lastEl = $('#addQuestion');
         lastEl.before("<span>" + radio + text + button + "</span>");
