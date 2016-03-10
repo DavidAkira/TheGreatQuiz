@@ -1,4 +1,5 @@
 ﻿$(function () {
+   
     $('.quizButton').on('click', function () {
         // validate
         if (true) {
@@ -16,6 +17,9 @@
             alert(answer1);
         }
     });
+    
+
+
     // add elements
     $('#addQuestion').on('click', function () {
         AddButton();
@@ -31,7 +35,7 @@
 
             //remove addbutton
             if ($('.radio').length > 4) {
-                $('#addQuestion').remove();
+                $('#addQuestion').css('visability: hidden');
             }
             // attache remove event
             $('.remove:last').on('click', function () {
@@ -56,14 +60,9 @@
                         break;
                 };
                 if ($('.radio').length == 4) {
-                    AddButtonEvent();
+                    $('#addQuestion').css('visability: visible');
                 }
             });
-            function AddButtonEvent() {
-                var lastEl = $('.remove');
-                var newEl = "<input id=\"addQuestion\" type=\"button\" value=\"+\" />";
-                lastEl.after(newEl);
-            };
         }
     });
             /*

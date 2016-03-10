@@ -29,10 +29,10 @@ input{
     padding-top: 10px;
     height: 80px;
     width: 100%;
-    background-color: #B86E0C;
 }
 .quizPage{ 
     margin-top: 40px;
+    background-color: #B86E0C;
 }
 .tittelRubrik{
     font-size: 20px;
