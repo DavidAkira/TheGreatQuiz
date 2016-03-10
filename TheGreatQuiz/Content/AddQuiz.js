@@ -31,7 +31,7 @@
         var text = "<input class=\"ettSvarsAlternativTill " + antalSvar + "\"type=\"text\" placeholder=\"Skriv in ett svar här...\" ng-model=\"Answers.a"+ antalSvar+ "\" />";
         var button = "<input id=\"" + antalSvar + "\" class=\"" + antalSvar + " remove\" type=\"button\" value=\"x\" />";
         var lastEl = $('#addQuestion');
-        lastEl.before("<span>" + radio + text + button + "</span>");
+        lastEl.before("<span>" + text + radio + button + "</span>");
 
         //remove addbutton
         if ($('.radio').length > 4) {
