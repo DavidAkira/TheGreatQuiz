@@ -9,9 +9,9 @@
         $scope.activeQuestionAnswered = 0;
         $scope.percentage = 0;
 
-        $http.get("http://localhost:3434/JsonData/Quiz.json").then(function (quizData) {
-            $scope.myQuestions = quizData.data;
-            $scope.totalQuestions = $scope.myQuestions.length;
+        $http.get("/Home/QuestionsTest").success(function (quizData) {
+            $scope.myQuestions = quizData;
+            $scope.totalQuestions = quizData.length;
         });
 
         $scope.selectAnswer = function(questionIndex, answerIndex) {
@@ -20,8 +20,8 @@
 
             if (questionState != "answered") {
                 $scope.myQuestions[questionIndex].selectedAnswer = answerIndex;
-                var correctAnswer = $scope.myQuestions[questionIndex].correct;
-                $scope.myQuestions[questionIndex].correctAnswer = correctAnswer;
+                var correctAnswer = $scope.myQuestions[questionIndex].CorrectAnswer;
+                $scope.myQuestions[questionIndex].CorrectAnswer = CorrectAnswer;
 
                 if (answerIndex === correctAnswer) {
                     $scope.myQuestions[questionIndex].correctness = "correct";
@@ -38,7 +38,7 @@
             return $scope.myQuestions[questionIndex].selectedAnswer === answerIndex;
         }
         $scope.isCorrect = function (questionIndex, answerIndex) {
-            return $scope.myQuestions[questionIndex].correctAnswer === answerIndex;
+            return $scope.myQuestions[questionIndex].CorrectAnswer === answerIndex;
         }
         $scope.selectContinue = function () {
           

@@ -41,19 +41,19 @@
                              {{ $index === activeQuestion ? 'active' : 'inactive' }}
                              {{ myQuestion.questionState === 'answered' ? 'answered' : 'unanswered' }}"
                          ng-repeat="myQuestion in myQuestions">
-                    <p class="quizText">{{myQuestion.question}}</p>
+                    <p class="quizText">{{myQuestion.Title}}</p>
                     <p class="answer"
                        ng-class="{selected:isSelected($parent.$index,$index),correct:isCorrect($parent.$index,$index)}"
                        ng-click="selectAnswer($parent.$index,$index)"
-                       ng-repeat="Answer in myQuestions[$index].answers">
-                        {{Answer.text}}
+                       ng-repeat="Answer in myQuestions[$index].Answers">
+                        {{Answer.Text}}
                     </p>
                     <article class="feedback">
                         <p ng-show="activeQuestion === (totalQuestions - 1)">
                             <span>OBS! </span>Detta är sista frågan, trycker du nästa så avslutas testet!
                         </p>
-                        @*<p ng-show="myQuestion.correctness === 'correct'">Bra svarat!</p>
-                        <p ng-show="myQuestion.correctness === 'incorrect'">föga imponerande :(</p>*@
+                        <p ng-show="myQuestion.correctness === 'correct'">Bra svarat!</p>
+                        <p ng-show="myQuestion.correctness === 'incorrect'">föga imponerande :(</p>
                         @*<p ng-show="myQuestion.correctness === 'incorrect'">{{myQuestion.feedback}}</p>*@
                     </article>
                 </article>
