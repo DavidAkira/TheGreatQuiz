@@ -124,19 +124,21 @@ namespace TheGreatQuiz.Controllers
         }
 
 
-        int quizId = 0;
-
         public ActionResult angularTestPage(int Id)
         {
-            quizId = Id;
+            quizIdHolder.quizId = Id;
             return View();
         }
 
+        [HttpGet]
+        public ActionResult QuestionsTest()
+        {
+            var getQuestions = new GetQuestions();
+            List<QuestionsDto> questions = getQuestions.FetchQuestionsFromDb(quizIdHolder.quizId);
 
-        //public JsonResult Questions()
-        //{
-            
-        //}
+            return Json(questions, JsonRequestBehavior.AllowGet);
+
+        }
 
 
 

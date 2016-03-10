@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseConnectionQuiz
 {
-    class GetQuestions
+   public class GetQuestions
     {
         public List<QuestionsDto> FetchQuestionsFromDb(int quizId)
         {
@@ -26,12 +26,27 @@ namespace DatabaseConnectionQuiz
                 {
                     while (rdr.Read())
                     {
-                        var NewQuiz = new QuestionsDto();
+                        var NewQuestion = new QuestionsDto();
 
-                       
+                        NewQuestion.Title = (string)rdr["Title"];
+                        NewQuestion.Answers.Add(new AnswersDto(0, rdr["Answer_1"].ToString()));
+                        NewQuestion.Answers.Add(new AnswersDto(1, rdr["Answer_2"].ToString()));
+                        NewQuestion.Answers.Add(new AnswersDto(2, rdr["Answer_3"].ToString()));
+
+                        if ((string)rdr["Answer_4"] != "")
+                        {
+                            NewQuestion.Answers.Add(new AnswersDto(3, rdr["Answer_4"].ToString()));
+                        }
+                        var some = rdr["Answer_5"];
+                        if ((string)rdr["Answer_5"] != "")
+                        {
+                            NewQuestion.Answers.Add(new AnswersDto(4, rdr["Answer_5"].ToString()));
+                        }
+
+                        NewQuestion.CorrectAnswer = (int)rdr["CorrectAnswer"];
 
 
-                        listFromDB.Add(NewQuiz);
+                        listFromDB.Add(NewQuestion);
                     }
                     sqlCon.Close();
                     rdr.Close();

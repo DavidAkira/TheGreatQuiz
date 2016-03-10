@@ -10,8 +10,9 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 
 app.controller('StartPageController', ['$http', '$scope', function ($http, $scope) {
-    $http.get('GetPeople').success(function (data) {
+    $http.get('/Home/QuestionsTest').success(function (data) {
         console.log(data);
+        $scope.testData = data[0];
     });
 }]);
 

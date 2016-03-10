@@ -1,3 +1,10 @@
 ﻿
-<h1>Hoppas det funkar!</h1>
+<div>
+    <div ng-model="testData">
+        <div ng-repeat="x in testData.Answers">
+            <p>{{ x.Id }}</p>
+            <p>{{x.Text}}</p>
+        </div>
+    </div>
+</div>
 

@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace DatabaseConnectionQuiz
 {
-    class QuestionsDto
+   public class QuestionsDto
     {
         public string Title { get; set; }
 
-        public List<string> Answers { get; set; }
+        public List<AnswersDto> Answers { get; set; }
         public int CorrectAnswer { get; set; }
 
 
-        public QuestionsDto(string Title, List<string> Answers, int CorrectAnswer)
+        public QuestionsDto(string Title, int CorrectAnswer)
         {
             this.Title = Title;
-            this.Answers = Answers;
             this.CorrectAnswer = CorrectAnswer;
+            Answers = new List<AnswersDto>();
         }
 
         public QuestionsDto()
         {
-
+            Answers = new List<AnswersDto>();
         }
 
     }
