@@ -137,7 +137,7 @@ namespace TheGreatQuiz.Controllers
         public ActionResult QuestionsTest()
         {
             var getQuestions = new GetQuestions();
-            List<QuestionsDto> questions = getQuestions.FetchQuestionsFromDb(2);
+            List<QuestionsDto> questions = getQuestions.FetchQuestionsFromDb(3);
 
             return Json(questions, JsonRequestBehavior.AllowGet);
 
