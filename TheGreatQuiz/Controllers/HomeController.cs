@@ -21,6 +21,7 @@ namespace TheGreatQuiz.Controllers
 
         public ActionResult Register()
         {
+           
             return View();
         }
 
@@ -81,7 +82,6 @@ namespace TheGreatQuiz.Controllers
 
             return View();
         }
-
 		public ActionResult QuizPage()
         {
             return View();
