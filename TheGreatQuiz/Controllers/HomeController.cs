@@ -117,10 +117,10 @@ namespace TheGreatQuiz.Controllers
         }
 
         [HttpPost]
-        public JsonResult angularTestData(List<string> arr)
+        public JsonResult angularTestData(string[][] arr)
         {
-            string str1 = arr[0];
-            string str2 = arr[1];
+            //string str1 = arr[0];
+            //string str2 = arr[1];
 
             return Json(arr, JsonRequestBehavior.AllowGet);
         }
