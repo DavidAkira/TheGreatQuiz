@@ -277,6 +277,7 @@
     <Content Include="Views\Home\Portal.cshtml" />
     <Content Include="Views\Home\QuizPage.cshtml" />
     <Content Include="Views\Home\AddQuiz.cshtml" />
+    <Content Include="Views\Home\Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DatabaseConnectionQuiz\DatabaseConnectionQuiz.csproj">
