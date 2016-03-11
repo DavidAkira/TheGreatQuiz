@@ -24,22 +24,22 @@ namespace TheGreatQuiz.Controllers
             return View();
         }
 
-		[HttpPost]
-		public ActionResult Register(User user)
-		{
-			user.Name = Request.Form["txtEmail"];
+        [HttpPost]
+        public ActionResult Register(User user)
+        {
+            user.Name = Request.Form["txtEmail"];
 
-			var firstPassword = Request.Form["txtFirstPassword"];
-			var secondPassword = Request.Form["txtSecondPassword"];
+            var firstPassword = Request.Form["txtFirstPassword"];
+            var secondPassword = Request.Form["txtSecondPassword"];
 
-			//TODO:: when database is fixed send to database and redirect to loggin page.
-			if (firstPassword == secondPassword)
-			{
-				user.Password = firstPassword;
-			}
+            //TODO:: when database is fixed send to database and redirect to loggin page.
+            if (firstPassword == secondPassword)
+            {
+                user.Password = firstPassword;
+            }
 
-			return View();
-		}
+            return View();
+        }
 
         public ActionResult Portal()
         {
@@ -64,52 +64,23 @@ namespace TheGreatQuiz.Controllers
             return View(model);
         }
 
-		public ActionResult QuizPage()
-        {
-            return View();
-        }
         public ActionResult Test()
         {
             return View();
         }
 
-		public ActionResult TestHeader()
-		{
-			return View();
-		}
-
-		public ActionResult RegisterPage()
-		{
-			return View();
-		}
-
-        public ActionResult Quizzes()
+        public ActionResult TestHeader()
         {
-       
-            var model = new QuizzesView();
-            var quizzesDtos = new GetQuizName().FetchInfoFromQuizDb();
+            return View();
+        }
 
-            if (quizzesDtos.Count != 0)
-            {
-                foreach (QuizzesDto t in quizzesDtos)
-                {
-                    var newMod = new Quizzes
-                    {
-                        Id = t.Id,
-                        Name = t.Name,
-                        Created = t.Created,
-                        Enddate = t.Enddate
-                        
-                    };
-                    model.QuizzesList.Add(newMod);
-                }
-            }
-
-            return View(model);
+        public ActionResult RegisterPage()
+        {
+            return View();
         }
 
 
-        public ActionResult angularTestPage(int Id)
+        public ActionResult QuizPage(int Id)
         {
             quizIdHolder.quizId = Id;
             return View();
@@ -119,15 +90,25 @@ namespace TheGreatQuiz.Controllers
         public ActionResult QuestionsTest()
         {
             var getQuestions = new GetQuestions();
-            List<QuestionsDto> questions = getQuestions.FetchQuestionsFromDb(2);
+            List<QuestionsDto> questions = getQuestions.FetchQuestionsFromDb(quizIdHolder.quizId);
 
             return Json(questions, JsonRequestBehavior.AllowGet);
 
         }
 
+        public ActionResult angularTestPage()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public JsonResult angularTestData(List<string> arr)
+        {
+            string str1 = arr[0];
+            string str2 = arr[1];
 
-
+            return Json(arr, JsonRequestBehavior.AllowGet);
+        }
 
 
     }

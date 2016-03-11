@@ -274,7 +274,6 @@
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Home\RegisterPage.cshtml" />
-    <Content Include="Views\Home\Quizzes.cshtml" />
     <Content Include="Views\Home\Portal.cshtml" />
     <Content Include="Views\Home\QuizPage.cshtml" />
     <Content Include="Views\Home\AddQuiz.cshtml" />

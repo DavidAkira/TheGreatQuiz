@@ -17,7 +17,7 @@
         <h2>Aktiva Test</h2>
         @foreach (var model in Model.QuizzesList)
             {
-            @Html.ActionLink(model.Name, "/angularTestPage", new { Id = model.Id }, new { @class = "test-link" })<br/>
+            @Html.ActionLink(model.Name, "/QuizPage", new { Id = model.Id }, new { @class = "test-link" })<br/>
             }
 
     </section>
