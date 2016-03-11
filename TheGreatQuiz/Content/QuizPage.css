@@ -12,7 +12,7 @@
     position: relative;
     overflow: hidden;
     height: 400px;
-    padding: 20px;
+    padding: 15px;
     margin-top: 10%;
     text-align: center;
     background-color: #FFAD00;
@@ -20,7 +20,7 @@
     border-radius: 10px;
 }
 
-#quizMain h1{ font-size: 25px; padding: 0px; font-weight: 100;}
+#quizMain h1{ font-size: 25px; padding: 0px; font-weight: 100;margin: 0px;top: 0%;}
 #quizMain h2{ font-size: 20px; font-weight: 100;}
 #quizMain h3{ font-size: 18px; font-weight: 100;}
 #quizMain .btn {
@@ -37,7 +37,7 @@
 img{ height: 40px;}
 
 /* Progress bar */
-#quizMain .progress { width: 100%;position: absolute;top:17%;}
+#quizMain .progress { width: 100%;position: absolute;top:12%;}
 #quizMain .progress div {
     position: relative;display: inline-block;width: 20px;height: 10px;margin-right: 0px;
     background-color: black;transition: background-color 1s;
@@ -51,11 +51,11 @@ img{ height: 40px;}
 #quizMain .intro { position: absolute;top: 30%;left: 660px;width: 100%;}
 #quizMain .intro p{ }
 /* Question page */
-#quizMain .question{ position: absolute;top: 25%;left: 660px; width: 100%}
+#quizMain .question{ position: absolute;top: 22%;left: 660px; width: 100%}
 #quizMain .question .quizText { font-size: 20px;margin: 0px 0px 20px 0px;}
 #quizMain .question .answer {
     display: inline-block;font-size: 18px;width: 225px;border: 2px solid;
-    border-radius: 6px;padding: 10px;margin: 0px 15px 15px 0px;position: relative;
+    border-radius: 6px;padding: 10px;margin: 0px 15px 15px 0px;position: relative;min-height: 0px;
 
 }
 

@@ -7,11 +7,13 @@ namespace TheGreatQuiz.Models
 {
     public class QuizzesView
     {
-        public List<Quizzes> QuizzesList { get; set; }
+        public List<Quizzes> ActiveQuizzes { get; set; }
+
+        public List<Quizzes> FinishedQuizzes { get; set; }
 
         public QuizzesView()
         {
-            QuizzesList = new List<Quizzes>();
+            ActiveQuizzes = new List<Quizzes>();
         }
     }
 }
