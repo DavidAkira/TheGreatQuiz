@@ -45,6 +45,7 @@ namespace TheGreatQuiz.Controllers
         {
             var model = new QuizzesView();
             var quizzesDtos = new GetQuizName().FetchInfoFromQuizDb();
+            List<Quizzes> tmpQuizzes = new List<Quizzes>();
 
             if (quizzesDtos.Count != 0)
             {
@@ -58,9 +59,22 @@ namespace TheGreatQuiz.Controllers
                         Enddate = t.Enddate
 
                     };
-                    model.QuizzesList.Add(newMod);
+                    tmpQuizzes.Add(newMod);
                 }
             }
+
+
+            var tmpActiveQuizzes = from f in tmpQuizzes
+                                   where f.Enddate > DateTime.Now
+                                   select f;
+            model.ActiveQuizzes = tmpActiveQuizzes.ToList();
+
+
+            var tmpFinishedQuizzes = from f in tmpQuizzes
+                                     where f.Enddate < DateTime.Now
+                                     select f;
+            model.FinishedQuizzes = tmpFinishedQuizzes.ToList();
+
             return View(model);
         }
 
@@ -101,7 +115,7 @@ namespace TheGreatQuiz.Controllers
                         Enddate = t.Enddate
                         
                     };
-                    model.QuizzesList.Add(newMod);
+                    model.ActiveQuizzes.Add(newMod);
                 }
             }
 
