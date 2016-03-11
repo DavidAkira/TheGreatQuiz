@@ -119,8 +119,16 @@ namespace TheGreatQuiz.Controllers
         [HttpPost]
         public JsonResult angularTestData(string[][] arr)
         {
-            //string str1 = arr[0];
-            //string str2 = arr[1];
+            var updDB = new UpdateDatabase();
+            updDB.CreateQuiz(arr[0][0]);
+
+            var getQuiz = new GetQuizId();
+            int quizID = getQuiz.GetLatestQuizId();
+
+            for (int i = 1; i < arr.Length; i++)
+            {
+                updDB.CreateQuestionsForQuiz(quizID, arr[i][0], arr[i][1], arr[i][2], arr[i][3], arr[i][4], arr[i][5], arr[i][6]);
+            }
 
             return Json(arr, JsonRequestBehavior.AllowGet);
         }
