@@ -60,15 +60,15 @@ img{ height: 40px;}
 }
 
 #quizMain .question .answer.selected{ border-color: whitesmoke;  }
-#quizMain .question .answer.correct{ border-color: whitesmoke;  }
+/*#quizMain .question .answer.correct{ border-color: gold;  }*/
 
 #quizMain .question .answer::after {
     content: '';display: block;width: 20px;height: 20px;
     background: no-repeat 0px 0px;background-size: 20px 20px;
     position: absolute;top: 5px;right: 5px; 
 }
-#quizMain .question .answer.selected::after { background-image:url(https://cdn1.iconfinder.com/data/icons/pointed-edge-web-navigation/101/cross-grey-256.png)}
-#quizMain .question .answer.correct::after { background-image:url(https://cdn3.iconfinder.com/data/icons/miniglyphs/500/018-512.png)}
+/*#quizMain .question .answer.selected::after { background-image:url(https://cdn1.iconfinder.com/data/icons/pointed-edge-web-navigation/101/cross-grey-256.png)}
+#quizMain .question .answer.correct::after { background-image:url(https://cdn3.iconfinder.com/data/icons/miniglyphs/500/018-512.png)}*/
 
 #quizMain .question.unanswered .answer { cursor: pointer;}
 #quizMain .question.unanswered .answer:hover { background-color: #FFB519;}
