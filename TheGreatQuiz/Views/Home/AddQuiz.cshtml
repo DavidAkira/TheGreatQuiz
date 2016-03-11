@@ -17,47 +17,58 @@
 <body>
     <div class="grid-container">
 
-        <section class="grid-parent quizPage grid-80 prefix-10" ng-controller="myController">
-            <header class="quizHeader grid-100">
-                <span>
-                    <label class="tittelRubrik">Tittel</label>
-                    <input class="tittel" type="text" placeholder="Ge din quiz ett lämpligt namn:" ng-model="Quiz.Title"/>
-                    <input class="slutför" type="button" value="Slutför" ng-click="SendQuizData()" />
-                </span>
-            </header>
-            <div class="space grid-15"><br /></div>
-            <article class="questionPage grid-70">
-                <form>
-                    <input class="quizButton" type="button" value="Lägg till frågan i quizen" ng-click="AddQuestion()">
-                    <span>
+        <section class="grid-parent grid-100" ng-controller="myController">
+
+            <div class="grid-5"><br /></div>
+            <article class="quizPage grid-70 grid-parent">
+
+                <div class="grid-5"><br /></div>
+
+                <article class="questionPage grid-90">
+                    <header class="quizHeader">
+
+                        <label class="tittelRubrik">Tittel</label>
+                        <input class="tittel" type="text" placeholder="Ge din quiz ett lämpligt namn:" ng-model="Quiz.Title" />
+
+                    </header>
+                    <div class="mainPage"></div>
+                    <form>
+
                         <label class="questionLabel">Fråga</label>
                         <textarea class="question" placeholder="Skriv in din fråga här..." ng-model="Answers.q"></textarea>
 
-                    </span>
+                        <label class="radioRubrik">Kryssa i rätt alternativ<br /></label>
+                        <span>
+                            <input class="0 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a0" />
+                            <input class="radio 0" type="radio" name="rättSvar" value="0" />
+                        </span>
 
-                    <label class="radioRubrik">Kryssa i rätt alternativ<br /></label>
-                    <span>
-                        <input class="radio 0" type="radio" name="rättSvar" value="0" />
-                        <input class="0 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a0"/>
-                    </span>
+                        <span>
+                            <input class="1 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a1" />
+                            <input class="radio 1" type="radio" name="rättSvar" value="1" />
+                        </span>
 
-                    <span>
-                        <input class="radio 1" type="radio" name="rättSvar" value="1" />
-                        <input class="1 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a1"/>
-                    </span>
+                        <span>
+                            <input class="2 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a2" />
+                            <input class="radio 2" type="radio" name="rättSvar" value="2" />
+                        </span>
 
-                    <span>
-                        <input class="radio 2" type="radio" name="rättSvar" value="2" />
-                        <input class="2 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a2"/>
-                    </span>
-                    <input id="addQuestion" type="button" value="+" />
-                </form>
-
+                        <input id="addQuestion" type="button" value="+" />
+                        <br />
+                        <input class="quizButton" type="button" value="Lägg till frågan i quizen" ng-click="AddQuestion()">
+                    </form>
+                </article>
+                <div class="grid-5"><br /></div>
             </article>
-            <aside class="grid-15 färdigaSvar">
-                <ul>
+
+            <div class="space grid-5"><br /></div>
+
+            <aside class="grid-20 färdigaSvar">
+                <label class="frågSida">Frågor</label>
+                <ul class="listaMedFrågor">
                     <li ng-repeat="item in answers">{{item.q}}</li>
                 </ul>
+                <input class="slutför" type="button" value="Slutför" ng-click="SendQuizData()" />
             </aside>
 
         </section>

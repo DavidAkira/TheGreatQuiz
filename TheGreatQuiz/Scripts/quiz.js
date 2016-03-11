@@ -21,7 +21,7 @@
             if (questionState != "answered") {
                 $scope.myQuestions[questionIndex].selectedAnswer = answerIndex;
                 var correctAnswer = $scope.myQuestions[questionIndex].CorrectAnswer;
-                $scope.myQuestions[questionIndex].CorrectAnswer = CorrectAnswer;
+                $scope.myQuestions[questionIndex].CorrectAnswer = correctAnswer;
 
                 if (answerIndex === correctAnswer) {
                     $scope.myQuestions[questionIndex].correctness = "correct";
@@ -40,6 +40,7 @@
         $scope.isCorrect = function (questionIndex, answerIndex) {
             return $scope.myQuestions[questionIndex].CorrectAnswer === answerIndex;
         }
+
         $scope.selectContinue = function () {
           
                 return $scope.activeQuestion += 1;
