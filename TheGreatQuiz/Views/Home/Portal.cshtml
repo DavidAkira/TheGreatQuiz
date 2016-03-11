@@ -1,4 +1,5 @@
-﻿<html lang="sv">
+﻿@model TheGreatQuiz.Models.QuizzesView
+<html lang="sv">
 
 <head>
     <meta charset="UTF-8">
@@ -14,24 +15,15 @@
 
     <section id="active-tests" class="grid-container">
         <h2>Aktiva Test</h2>
-        @{ 
-            foreach (var test in ViewBag.tests)
+        @foreach (var model in Model.QuizzesList)
             {
-                <a class="test-link grid-100" href="#">@test.Name</a>
+            @Html.ActionLink(model.Name, "/angularTestPage", new { Id = model.Id }, new { @class = "test-link" })<br/>
             }
-        }
+
     </section>
 
     <section id="finished-tests" class="grid-container">
         <h2>Avklarade Test</h2>
-        @{
-            <h3>2014-01</h3>
-            foreach (var finishedTest in ViewBag.finishedTests)
-            {
-                <a class="test-link grid-100" href="#">@finishedTest.Name</a>
-            }
-        }
-
     </section>
 
     @RenderPage("../Shared/Footer.cshtml")
