@@ -6,8 +6,8 @@
 
 <h2>Quizzes</h2>
 
-@foreach (var model in Model.QuizzesList)
+@foreach (var model in model.quizzeslist)
 {
-   @Html.ActionLink(model.Name, "/angularTestPage", new { Id = model.Id }) <br />
+   @html.actionlink(model.name, "/angulartestpage", new { id = model.id }) <br />
 }
 

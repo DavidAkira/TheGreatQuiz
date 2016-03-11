@@ -186,6 +186,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Views\sendData.html" />
     <Content Include="App_Data\QuizDB.mdf" />
     <Content Include="App_Data\QuizDBB.mdf" />
     <Content Include="App_Data\QuizDBB_log.ldf">
