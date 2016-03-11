@@ -32,7 +32,7 @@ namespace DatabaseConnectionQuiz
                         NewQuiz.Id = (int)rdr["Id"];
                         NewQuiz.Name = rdr["Name"].ToString();
                         NewQuiz.Created = (DateTime)rdr["Created"];
-                        //NewQuiz.Enddate = (DateTime)rdr["Enddate"];
+                        NewQuiz.Enddate = (DateTime)rdr["Enddate"];
 
 
                         listFromDB.Add(NewQuiz);
