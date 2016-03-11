@@ -1,0 +1,87 @@
+﻿body{
+	background-color: #546964;
+    line-height: 140%;
+}
+*{
+	font-family: Verdana, sans-serif;
+}
+h1 {
+    font-family: Serif;
+    font-size: 50px;
+    color: white;
+    padding: 25px;
+    width: 300px;
+    position: relative;
+    left:26%;
+    background-color: #FFAD00;
+    text-align: center;
+    margin-bottom: 40px
+}
+h3 {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+input.logRegButton{
+	font-size: 115%;
+	cursor: pointer;
+	border-style:none;
+	height: 40px;
+	width: 140px;
+	color: white;
+	background-color: #FFAD00;
+    border-radius: 10px;
+}
+header.mainHeader{
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+	width: auto;
+	height: 55px;
+	background-color: #FFAD00;
+}
+div.loginWindow{
+	margin-top: 150px;
+	text-align: center;
+}
+
+div .inputBox:focus{
+	border-color: #FFAD00;
+}
+
+input .logRegButton{
+	font-size: 100%;
+	cursor: pointer;
+	border-style:none;
+	height: 45px;
+	width: 160px;
+	color: white;
+	background-color: #FFAD00;
+    text-align: center;
+}
+
+input.logRegButton:hover{
+	background-color: #D98906;
+}
+
+div .registerWindow{
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+input.registerBox{
+    margin-bottom: 10px;
+}
+
+input.completRegistrationButton{
+    margin-top: 15px;
+    width: 200px;
+    border-color: #FFAD00;
+    border-style: solid;
+    border-radius: 4px;
+
+}

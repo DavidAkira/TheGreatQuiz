@@ -1,4 +1,5 @@
-﻿@{
+﻿@using TheGreatQuiz.Models
+@{
     Layout = null;
 }
 
@@ -18,13 +19,17 @@
 
         <section class="grid-100 grid-parent">
             <div class="loginWindow grid-60 prefix-20">
-                <h1>Newton</h1>
-                <form class="loginForm">
+                <h1>Newton indexsida</h1>
+                @{
+                    var user = Session["user"] as User;
+                }
+                <h3>Welcome @user.Email</h3>
+                @*<form class="loginForm">
                     <input type="text" id="loginEmail" class="inputBox" placeholder="Email" maxlength="50" />
                     <input type="password" id="loginPassword" class="inputBox" placeholder="Lösenord" maxlength="50" /><br><br><br>
                     <input type="button" value="Logga in" class="logRegButton" id="loginButton" />
                     <input type="button" value="Registrera dig" class="logRegButton" id="registerButton" />
-                </form>
+                </form>*@
             </div>
 
         </section>

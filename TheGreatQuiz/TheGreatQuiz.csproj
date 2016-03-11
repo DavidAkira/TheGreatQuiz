@@ -49,6 +49,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.JScript" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -169,6 +170,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -197,6 +199,7 @@
     <Content Include="Content\AddQuiz.css" />
     <Content Include="Content\AddQuiz.js" />
     <Content Include="Content\Angular.js" />
+    <Content Include="Content\Login.css" />
     <Content Include="Content\Portal.css" />
     <Content Include="Content\QuizPage.css" />
     <Content Include="Content\Test.css" />
@@ -278,6 +281,7 @@
     <Content Include="Views\Home\QuizPage.cshtml" />
     <Content Include="Views\Home\AddQuiz.cshtml" />
     <Content Include="Views\Home\Footer.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DatabaseConnectionQuiz\DatabaseConnectionQuiz.csproj">
@@ -293,6 +297,7 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
