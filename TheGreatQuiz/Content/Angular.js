@@ -2,43 +2,56 @@
 app.controller("myController", function ($scope, $rootScope) {
     
     $scope.SendQuizData = function () {
-        alert("anropats");
+        //hämta ett värde
+        var fråga = $scope.Quiz.Answers[0].q;
+        alert(fråga);
     };
-    var Answers = [{ q: "", a0: "", a1: "", a2: "", a3: "", a4: "", ra: "" }];        
+    var Answers = { q: "", ra: "", a0: "", a1: "", a2: "", a3: "", a4: "" };        
     $scope.Answers = Answers;
-    var Quiz = [
+
+    // varje fråga som puchas till denna visas på AddQuiz sidan
+    $rootScope.question = [];
+
+    //spara quiz i $scope
+    $scope.Quiz = [
         {
             Title: "",
             Answers: []
         }
     ];
-    $scope.Quiz = Quiz;
-    $scope.RightAnswer = { value: 0 };
+    $scope.Quiz.Answers = [];
+
+    // pusha en fråga till quizen
     $scope.AddQuestion = function () {
-        var value = $scope.RightAnswer.value;
-        alert("right answer index = "+ value);
-        var q = $scope.Answers.q
-        alert("question= " + q);
-        var a0 = $scope.Answers.a0
-        alert("answer 1= " + a0);
-        var a1 = $scope.Answers.a1
-        alert("answer 2= " + a1);
-        var a2 = $scope.Answers.a2
-        alert("answer 3= " + a2);
-        if($scope.Answers.a3)
-        {
-            alert($scope.Answers.a3);
+        var array = { q: "", ra: "", a0: "", a1: "", a2: "", a3: "", a4: "" };
+        $rootScope.question.push($scope.Answers.q);
+        array.q = $scope.Answers.q;
+        // kan bara läsa av från de 3 första radio buttons
+        array.ra = $scope.Answers.ra;
+        array.a0 = $scope.Answers.a0;
+        array.a1 = $scope.Answers.a1;
+        array.a2 = $scope.Answers.a2;
+        //hämta svar fyra samt fem
+        if ($('.radio').length > 4) {
+            array.a3 = $('.ettSvarsAlternativTill:first').val();
+            array.a4 = $('.ettSvarsAlternativTill:last').val();
         }
-        else {
-            alert("not declared");
+        // hämta svar fyra
+        else if ($('.radio').length > 3) {
+            array.a3 = $('.ettSvarsAlternativTill').val();
         }
-        if ($scope.Answers.a4) {
-            alert($scope.Answers.a3);
-        }
-        else {
-            alert("not declared");
-        }
-       // $scope.answers.q.push($scope.Answers.q);
-        // $scope.Quiz.Answers.push(el);
+        // lägg till arrayen i quizen
+        $scope.Quiz.Answers.push(array);
+        alert("efter pushat");
+
+
+        /*
+        alert($('input[name=rättSvar]:checked', '#form').val());
+        var value = $scope.Answers.ra;
+        alert("right answer index = " + value);
+        
+        var radio = $('input[name=rättSvar]');
+        var checkedValue = radio.filter(':checked').val();
+        */
     }
 });
