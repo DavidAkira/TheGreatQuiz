@@ -1,5 +1,4 @@
 ﻿$(function () {
-
     $('.quizButton').on('click', function () {
         // validate
         if (true) {
@@ -17,7 +16,14 @@
             alert(answer1);
         }
     });
-
+    var UpdateIndex = function () {
+        $('.ettSvarsAlternativTill').removeClass('4').addClass('3');
+        $('.radio:last').removeClass('4').addClass('3');
+        var el = $('.remove');
+        el.removeClass('4').addClass('3');
+        el.attr('id', '3');
+        alert("rätt id");
+    };
 
 
     // add elements
@@ -25,14 +31,14 @@
         AddButton();
     });
     function AddButton() {
-
+                         
         var antalSvar = $('.radio').length;
-        var radio = "<input class=\"radio " + antalSvar + "\" type=\"radio\" name=\"rättSvar\" value=\"" + antalSvar + "\" />";
+        var radio = "<input class=\"radio " + antalSvar + "\" type=\"radio\" name=\"rättSvar\" ng-value=\"" + antalSvar + "\" ng-model=\"RightAnswers.value\" />";
         var text = "<input class=\"ettSvarsAlternativTill " + antalSvar + "\"type=\"text\" placeholder=\"Skriv in ett svar här...\" ng-model=\"Answers.a"+ antalSvar+ "\" />";
         var button = "<input id=\"" + antalSvar + "\" class=\"" + antalSvar + " remove\" type=\"button\" value=\"x\" />";
         var lastEl = $('#addQuestion');
         lastEl.before("<span>" + text + radio + button + "</span>");
-
+        
         //remove addbutton
         if ($('.radio').length > 4) {
             // $('#addQuestion').remove();
@@ -42,17 +48,11 @@
         $('.remove:last').on('click', function () {
             var aktivId = $(this).attr('id');
             switch (aktivId) {
-                case '0':
-                    $('.0').remove();
-                    break;
-                case '1':
-                    $('.1').remove();
-                    break;
-                case '2':
-                    $('.2').remove();
-                    break;
                 case '3':
                     $('.3').remove();
+                    if ($('.radio').length > 3) {
+                        UpdateIndex();
+                    }
                     break;
                 case '4':
                     $('.4').remove();

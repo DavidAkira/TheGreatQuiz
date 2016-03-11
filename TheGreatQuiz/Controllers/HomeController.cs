@@ -21,30 +21,32 @@ namespace TheGreatQuiz.Controllers
 
         public ActionResult Register()
         {
+           
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Register(User user)
-        {
-            user.Name = Request.Form["txtEmail"];
+		[HttpPost]
+		public ActionResult Register(User user)
+		{
+			user.Name = Request.Form["txtEmail"];
 
-            var firstPassword = Request.Form["txtFirstPassword"];
-            var secondPassword = Request.Form["txtSecondPassword"];
+			var firstPassword = Request.Form["txtFirstPassword"];
+			var secondPassword = Request.Form["txtSecondPassword"];
 
-            //TODO:: when database is fixed send to database and redirect to loggin page.
-            if (firstPassword == secondPassword)
-            {
-                user.Password = firstPassword;
-            }
+			//TODO:: when database is fixed send to database and redirect to loggin page.
+			if (firstPassword == secondPassword)
+			{
+				user.Password = firstPassword;
+			}
 
-            return View();
-        }
+			return View();
+		}
 
         public ActionResult Portal()
         {
             var model = new QuizzesView();
             var quizzesDtos = new GetQuizName().FetchInfoFromQuizDb();
+            List<Quizzes> tmpQuizzes = new List<Quizzes>();
 
             if (quizzesDtos.Count != 0)
             {
@@ -58,9 +60,22 @@ namespace TheGreatQuiz.Controllers
                         Enddate = t.Enddate
 
                     };
-                    model.QuizzesList.Add(newMod);
+                    tmpQuizzes.Add(newMod);
                 }
             }
+
+
+            var tmpActiveQuizzes = from f in tmpQuizzes
+                                   where f.Enddate > DateTime.Now
+                                   select f;
+            model.ActiveQuizzes = tmpActiveQuizzes.ToList();
+
+
+            var tmpFinishedQuizzes = from f in tmpQuizzes
+                                     where f.Enddate < DateTime.Now
+                                     select f;
+            model.FinishedQuizzes = tmpFinishedQuizzes.ToList();
+
             return View(model);
         }
 
@@ -69,17 +84,17 @@ namespace TheGreatQuiz.Controllers
             return View();
         }
 
-        public ActionResult TestHeader()
-        {
-            return View();
-        }
+		public ActionResult TestHeader()
+		{
+			return View();
+		}
 
-        public ActionResult RegisterPage()
-        {
-            return View();
-        }
+		public ActionResult RegisterPage()
+		{
+			return View();
+		}
 
-
+       
         public ActionResult QuizPage(int Id)
         {
             quizIdHolder.quizId = Id;

@@ -49,7 +49,9 @@
             if ($scope.activeQuestion >= 1) {
             return $scope.activeQuestion -= 1;                
             }
+            return 0;
         }
+
 
     }]);
 

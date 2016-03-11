@@ -3,24 +3,9 @@ app.controller("myController", function ($scope, $rootScope) {
     
     $scope.SendQuizData = function () {
         alert("anropats");
-        //var quiz = [
-        //{
-        //    title: "NaturQuiz",
-        //    questions: [
-        //        { q: "vilken färg har himlen?", a0: "blå", a1: "vit", a2: "ingen", a3: "", a4: "", ra: 0 },
-        //        { q: "vilken färg har gräd?", a0: "blå", a1: "grön", a2: "ingen", a3: brun, a4: "", ra: 2 },
-        //        { q: "vilken färg har himlen?", a0: "blå", a1: "vit", a2: "ingen", a3: "roligt", a4: "", ra: 4 },
-        //        { q: "hur gammal är solen?", a0: "5", a1: "vet inte", a2: "irrelevant", a3: "grattis", a4: "", ra: 3 },
-        //        { q: "Hur hälsar man?", a0: "stick och brinn", a1: "nej tack", a2: "ingen", a3: "hej", a4: "hejsan", ra: 4 },
-        //        { q: "vilken färg har himlen?", a0: "blå", a1: "vit", a2: "ingen", a3: "fel", a4: "rätt", ra: 1 }
-        //    ]
-        //}
-        //];
     };
     var Answers = [{ q: "", a0: "", a1: "", a2: "", a3: "", a4: "", ra: "" }];        
     $scope.Answers = Answers;
-
-
     var Quiz = [
         {
             Title: "",
@@ -28,21 +13,32 @@ app.controller("myController", function ($scope, $rootScope) {
         }
     ];
     $scope.Quiz = Quiz;
-
-    $rootScope.answers = [{ q: "hej" }];
-
-
+    $scope.RightAnswer = { value: 0 };
     $scope.AddQuestion = function () {
-        var el = [
-            { q: $scope.q },
-            { a0: $scope.a0 },
-            { a1: $scope.a1 },
-            { a2: $scope.a2 },
-            { a3: "" },
-            { a4: "" },
-            { ra: 0 }
-        ];
-        $rootScope.answers.q.push($scope.Answers.q);
-        $scope.Quiz.Answers.push(el);
+        var value = $scope.RightAnswer.value;
+        alert("right answer index = "+ value);
+        var q = $scope.Answers.q
+        alert("question= " + q);
+        var a0 = $scope.Answers.a0
+        alert("answer 1= " + a0);
+        var a1 = $scope.Answers.a1
+        alert("answer 2= " + a1);
+        var a2 = $scope.Answers.a2
+        alert("answer 3= " + a2);
+        if($scope.Answers.a3)
+        {
+            alert($scope.Answers.a3);
+        }
+        else {
+            alert("not declared");
+        }
+        if ($scope.Answers.a4) {
+            alert($scope.Answers.a3);
+        }
+        else {
+            alert("not declared");
+        }
+       // $scope.answers.q.push($scope.Answers.q);
+        // $scope.Quiz.Answers.push(el);
     }
 });

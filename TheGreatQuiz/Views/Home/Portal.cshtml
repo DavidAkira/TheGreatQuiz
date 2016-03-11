@@ -15,15 +15,19 @@
 
     <section id="active-tests" class="grid-container">
         <h2>Aktiva Test</h2>
-        @foreach (var model in Model.QuizzesList)
-            {
-            @Html.ActionLink(model.Name, "/QuizPage", new { Id = model.Id }, new { @class = "test-link" })<br/>
-            }
+        @foreach (var quiz in Model.ActiveQuizzes)
+        {
+            @Html.ActionLink(quiz.Name, "/angularTestPage", new { Id = quiz.Id }, new { @class = "test-link" })<br/>
+        }
 
     </section>
 
     <section id="finished-tests" class="grid-container">
         <h2>Avklarade Test</h2>
+        @foreach (var quiz in Model.FinishedQuizzes)
+        {
+            @Html.ActionLink(quiz.Name, "/angularTestPage", new { Id = quiz.Id }, new { @class = "test-link" })<br />
+        }
     </section>
 
     @RenderPage("../Shared/Footer.cshtml")
