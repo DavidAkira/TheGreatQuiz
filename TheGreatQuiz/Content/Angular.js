@@ -47,11 +47,11 @@ app.controller("myController", function ($scope, $rootScope) {
         console.log(quizData);
     }
     $scope.RemoveQuestion = function (questiion) {
-        var indexFörFrågan = $rootScope.question.indexOf(questiion);
+        var questionIndex = $rootScope.question.indexOf(questiion);
         // alert(indexFörFrågan);
        
-        quizData.splice([indexFörFrågan], 1);
-        $rootScope.question.splice(indexFörFrågan, 1);
+        quizData.splice([(questionIndex + 1)], 1);
+        $rootScope.question.splice(questionIndex, 1);
         console.log(quizData);
     }
 });
