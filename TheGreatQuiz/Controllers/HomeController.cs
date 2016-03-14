@@ -32,7 +32,7 @@ namespace TheGreatQuiz.Controllers
 		[HttpPost]
 		public ActionResult Register(User user)
 		{
-			user.Name = Request.Form["txtEmail"];
+			user.Email = Request.Form["txtEmail"];
 
 			var firstPassword = Request.Form["txtFirstPassword"];
 			var secondPassword = Request.Form["txtSecondPassword"];
