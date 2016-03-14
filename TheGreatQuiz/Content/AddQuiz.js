@@ -3,17 +3,17 @@
         // validate
         if (true) {
             var quizTitle = $('.tittel').val();
-            alert(quizTitle);
+            //alert(quizTitle);
 
             var question = $('.question').val();
-            alert(question);
+            //alert(question);
 
             $('.svarsAlternativ').each(function (index) {
                 var answer = $(this).val();
-                alert("Answer" + index + "= " + answer);
+                //alert("Answer" + index + "= " + answer);
             })
             var answer1 = $(':text.0').val();
-            alert(answer1);
+            //alert(answer1);
         }
     });
     var UpdateIndex = function () {
@@ -22,7 +22,7 @@
         var el = $('.remove');
         el.removeClass('4').addClass('3');
         el.attr('id', '3');
-        alert("rätt id");
+        //alert("rätt id");
     };
 
 
@@ -34,7 +34,7 @@
                          
         var antalSvar = $('.radio').length;
         var radio = "<input class=\"radio " + antalSvar + "\" type=\"radio\" name=\"rättSvar\" ng-value=\"" + antalSvar + "\" ng-model=\"RightAnswers.value\" />";
-        var text = "<input class=\"ettSvarsAlternativTill " + antalSvar + "\"type=\"text\" placeholder=\"Skriv in ett svar här...\" ng-model=\"Answers.a"+ antalSvar+ "\" />";
+        var text = "<input class=\"ettSvarsAlternativTill queAnswer " + antalSvar + "\"type=\"text\" placeholder=\"Skriv in ett svar här...\" ng-model=\"Answers.a" + antalSvar + "\" />";
         var button = "<input id=\"" + antalSvar + "\" class=\"" + antalSvar + " remove\" type=\"button\" value=\"x\" />";
         var lastEl = $('#addQuestion');
         lastEl.before("<span>" + text + radio + button + "</span>");

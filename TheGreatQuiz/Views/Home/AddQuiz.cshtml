@@ -28,7 +28,7 @@
                     <header class="quizHeader">
 
                         <label class="tittelRubrik">Titel</label>
-                        <input class="tittel" type="text" placeholder="Ge din quiz ett lämpligt namn:" ng-model="Quiz.Title" />
+                        <input class="tittel" type="text" placeholder="Ge din quiz ett lämpligt namn:" ng-model="Quiz.Title" id="quizTitle" />
 
                     </header>
                     <div class="mainPage"></div>
@@ -39,17 +39,17 @@
 
                         <label class="radioRubrik">Kryssa i rätt alternativ<br /></label>
                         <span>
-                            <input class="0 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a0" />
+                            <input class="0 svarsAlternativ queAnswer" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a0" />
                             <input class="radio 0" type="radio" name="rättSvar" ng-model="RightAnswer.value" ng-value="0" />
                         </span>
 
                         <span>
-                            <input class="1 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a1" />
+                            <input class="1 svarsAlternativ queAnswer" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a1" />
                             <input class="radio 1" type="radio" name="rättSvar" ng-model="RightAnswer.value" ng-value="1" />
                         </span>
 
                         <span>
-                            <input class="2 svarsAlternativ" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a2" />
+                            <input class="2 svarsAlternativ queAnswer" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a2" />
                             <input class="radio 2" type="radio" ng-model="RightAnswers.value" ng-value="2" name="rättSvar" />
                         </span>
 

@@ -130,7 +130,7 @@ namespace TheGreatQuiz.Controllers
                 updDB.CreateQuestionsForQuiz(quizID, arr[i][0], arr[i][1], arr[i][2], arr[i][3], arr[i][4], arr[i][5], arr[i][6]);
             }
 
-            return Json(arr, JsonRequestBehavior.AllowGet);
+            return Json("HEJ!", JsonRequestBehavior.AllowGet);
         }
 
 

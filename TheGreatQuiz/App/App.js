@@ -24,6 +24,8 @@ app.controller('StartPageController', ['$http', '$scope', function ($http, $scop
 app.controller('sendDataController', ['$http', '$scope', function ($http, $scope) {
     console.log(123);
 
+    $scope.testData = ngValue;
+
     var arr = [
         [
             "QuizName"
