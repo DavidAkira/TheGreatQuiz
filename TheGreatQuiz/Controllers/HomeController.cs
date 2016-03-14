@@ -14,6 +14,10 @@ namespace TheGreatQuiz.Controllers
         {
             return View();
         }
+        public ActionResult AdminHome()
+        {
+            return View();
+        }
         public ActionResult Index()
         {
             return View();
