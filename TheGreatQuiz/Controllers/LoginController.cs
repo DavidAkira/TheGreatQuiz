@@ -19,7 +19,7 @@ namespace TheGreatQuiz.Controllers
         {
             if ("admin@admin.com".Equals(email) && "123".Equals(password))
             {
-                Session["user"] = new User() {Email = email};
+                Session["admin"] = new User() {Email = email};
                 return RedirectToAction("Index", "Home");
             }
             return View();                

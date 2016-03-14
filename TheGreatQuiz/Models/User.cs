@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace TheGreatQuiz.Models
 {
@@ -14,7 +15,6 @@ namespace TheGreatQuiz.Models
 		public string Password { get; set; }
 
         public string IsAdmin { get; set; }
-
 
 	}
 }

@@ -188,13 +188,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\QuizDB.mdf" />
     <Content Include="App_Data\QuizDBB.mdf" />
     <Content Include="App_Data\QuizDBB_log.ldf">
       <DependentUpon>QuizDBB.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\QuizDB_log.ldf">
-      <DependentUpon>QuizDB.mdf</DependentUpon>
     </Content>
     <Content Include="Content\AddQuiz.css" />
     <Content Include="Content\AddQuiz.js" />
