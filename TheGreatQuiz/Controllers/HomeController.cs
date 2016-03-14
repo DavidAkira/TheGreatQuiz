@@ -30,21 +30,15 @@ namespace TheGreatQuiz.Controllers
         }
 
 		[HttpPost]
-		public ActionResult Register(User user)
+		public JsonResult RegisterUser(string[] arr)
 		{
-			user.Email = Request.Form["txtEmail"];
 
-			var firstPassword = Request.Form["txtFirstPassword"];
-			var secondPassword = Request.Form["txtSecondPassword"];
+            var dbUpdate = new UpdateDatabase();
 
-			//TODO:: when database is fixed send to database and redirect to loggin page.
-			if (firstPassword == secondPassword)
-			{
-				user.Password = firstPassword;
-			}
+            dbUpdate.AddUser(arr[0], arr[1]);
 
-			return View();
-		}
+            return Json("HEJ!", JsonRequestBehavior.AllowGet);
+        }
 
         public ActionResult Portal()
         {
