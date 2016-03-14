@@ -16,7 +16,7 @@
 
     <header class="mainHeader"></header>
         
-    <p class="regBackButton">@Html.ActionLink("Tillbaks", "Index", "Home")</p>
+    <p class="regBackButton">@Html.ActionLink("Tillbaka", "Index", "Home")</p>
 
 
     <div class="grid-container">
@@ -42,13 +42,13 @@
 <script type="text/javascript" src="~/Scripts/registerValidation.js"></script>
 <script>
         $(function () {
-            $(".loginForm").on("submit", function (event) {
+            $(".loginForm").on("submit", function(event) {
 
 
                 if (!registerValidation(elEmail.value, elPsw.value, elSecondPsw.value)) {
                     event.preventDefault();
                 }
-            })
+            });
         });
     </script>
 </body>

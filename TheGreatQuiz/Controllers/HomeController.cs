@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using TheGreatQuiz.Models;
 using DatabaseConnectionQuiz;
 
@@ -12,7 +13,7 @@ namespace TheGreatQuiz.Controllers
     {
         public ActionResult AddQuiz()
         {
-            return View();
+            return View();               
         }
         public ActionResult Index()
         {

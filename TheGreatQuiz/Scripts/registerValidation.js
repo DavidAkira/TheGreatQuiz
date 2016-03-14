@@ -14,7 +14,7 @@ function registerValidation(email, firstPassword, secondPassword) {
     validPassword = PasswordValidation(firstPassword, secondPassword);
 
     // Do something if everything is valid.
-    if (validEmail && validPassword) {
+    if (validEmail && validPassword) {       
         return true;
     }
     else {
