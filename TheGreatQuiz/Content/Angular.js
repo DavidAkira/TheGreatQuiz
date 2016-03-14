@@ -72,10 +72,10 @@ app.controller("myController", function ($scope, $rootScope) {
         $(".queAnswer").each(function (i) {
             if (!this.value) {
                 //Print error
-            }
+        }
             else {
                 answers[i] = this.value;
-            }
+        }
         });
 
         quizData.push([$scope.Answers.q, rightAnswer, answers[0], answers[1], answers[2], answers[3],  answers[4]]);

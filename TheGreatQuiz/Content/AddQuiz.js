@@ -1,7 +1,8 @@
 ﻿$(function () {
     $('.quizButton').on('click', function () {
+        alert("jquery called");
         // validate
-        if (true) {
+       /* if (true) {
             var quizTitle = $('.tittel').val();
             //alert(quizTitle);
 
@@ -13,12 +14,15 @@
                 //alert("Answer" + index + "= " + answer);
             })
             var answer1 = $(':text.0').val();
-            //alert(answer1);
-        }
+            alert(answer1);
+        }*/
     });
     var UpdateIndex = function () {
         $('.ettSvarsAlternativTill').removeClass('4').addClass('3');
-        $('.radio:last').removeClass('4').addClass('3');
+        var radio =  $('.radio:last');
+        radio.removeClass('4').addClass('3');
+        radio.attr('ng-value', '3');
+        alert("funkar");
         var el = $('.remove');
         el.removeClass('4').addClass('3');
         el.attr('id', '3');
@@ -38,7 +42,6 @@
         var button = "<input id=\"" + antalSvar + "\" class=\"" + antalSvar + " remove\" type=\"button\" value=\"x\" />";
         var lastEl = $('#addQuestion');
         lastEl.before("<span>" + text + radio + button + "</span>");
-        
         //remove addbutton
         if ($('.radio').length > 4) {
             // $('#addQuestion').remove();
