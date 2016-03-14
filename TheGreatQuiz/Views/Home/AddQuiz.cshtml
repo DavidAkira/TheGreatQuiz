@@ -56,7 +56,7 @@
 
                         <input id="addQuestion" type="button" value="+" />
                         <br />
-                        <input class="quizButton" type="button" value="Lägg till frågan i quizen" ng-click="AddQuestion()">
+                        <input id="addQuestionBtn" class="quizButton" type="button" value="Lägg till frågan i quizen" ng-click="AddQuestion()">
                     </form>
                 </article>
                 <div class="grid-5"><br /></div>
@@ -73,7 +73,7 @@
                         <input type="button" value="X" id="removeQuestion" ng-click="RemoveQuestion(item)"/>
                     </li>
                 </ul>
-                <input class="slutför" type="button" value="Slutför" ng-click="SendQuizData()" />
+                <input id="saveQuizBtn" class="slutför" type="button" value="Slutför" ng-click="SendQuizData()" />
             </aside>
 
         </section>

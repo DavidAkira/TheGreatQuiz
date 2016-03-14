@@ -1,6 +1,7 @@
 ﻿var app = angular.module("myModule", []);
 app.controller("myController", function ($scope, $rootScope) {
     
+    $()
 
     // varje fråga som puchas till denna visas på AddQuiz sidan
     $rootScope.question = [];
