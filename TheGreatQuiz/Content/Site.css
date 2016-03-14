@@ -173,3 +173,8 @@ nav ul.navList:hover {
       background-color: #D98906;
 
 }
+.btn {
+    display: inline-block;cursor: pointer;background-color: #FFAD00;
+    color: white;text-decoration: none;
+    padding: 5px 15px;border-radius: 6px;
+}
