@@ -40,7 +40,9 @@ namespace TheGreatQuiz.Controllers
 			//TODO:: when database is fixed send to database and redirect to loggin page.
 			if (firstPassword == secondPassword)
 			{
-				user.Password = firstPassword;
+                var updateDatabase = new UpdateDatabase();
+
+                updateDatabase.AddUser(user.Email, firstPassword);
 			}
 
 			return View();

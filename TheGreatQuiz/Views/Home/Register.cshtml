@@ -36,17 +36,21 @@
 
     </div>
 
+
+
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/registerValidation.js"></script>
+
     @RenderPage("../Shared/Footer.cshtml")
    
-<script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
-<script type="text/javascript" src="~/Scripts/registerValidation.js"></script>
+
 <script>
         $(function () {
             $(".loginForm").on("submit", function (event) {
-
+                console.log(1231);
 
                 if (!registerValidation(elEmail.value, elPsw.value, elSecondPsw.value)) {
-                    event.preventDefault();
+                    event.preventDefault
                 }
             })
         });
