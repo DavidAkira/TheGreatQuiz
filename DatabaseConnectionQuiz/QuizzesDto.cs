@@ -14,11 +14,12 @@ namespace DatabaseConnectionQuiz
         public DateTime Enddate { get; set; }
 
 
-        public QuizzesDto(int Id, string Name, DateTime Created)
+        public QuizzesDto(int Id, string Name, DateTime Created, DateTime Enddate)
         {
             this.Id = Id;
             this.Name = Name;
             this.Created = Created;
+            this.Enddate = Enddate;
         }
         public QuizzesDto()
         {

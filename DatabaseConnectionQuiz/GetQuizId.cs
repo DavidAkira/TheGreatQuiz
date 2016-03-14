@@ -5,49 +5,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace DatabaseConnectionQuiz
 {
-    public class GetQuizName
+    public class GetQuizId
     {
-
-        public List<QuizzesDto> FetchInfoFromQuizDb()
+        public int GetLatestQuizId()
         {
             var sqlCon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
-
-
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Quizzes", sqlCon);
-
+            
+            SqlCommand cmd = new SqlCommand("SELECT MAX(Id) AS Id from Quizzes", sqlCon);
             
             sqlCon.Open();
+            int QuizId = -1;
             try
             {
-                var listFromDB = new List<QuizzesDto>();
                 using (SqlDataReader rdr = cmd.ExecuteReader())
                 {
                     while (rdr.Read())
                     {
-                        var NewQuiz = new QuizzesDto();
-
-                        NewQuiz.Id = (int)rdr["Id"];
-                        NewQuiz.Name = rdr["Name"].ToString();
-                        NewQuiz.Created = (DateTime)rdr["Created"];
-                        NewQuiz.Enddate = (DateTime)rdr["Enddate"];
-
-
-                        listFromDB.Add(NewQuiz);
+                        QuizId = (int)rdr["Id"];
                     }
                     sqlCon.Close();
                     rdr.Close();
-                    return listFromDB;
+                    return QuizId;
                 }
             }
             finally
             {
                 sqlCon.Dispose();
                 cmd.Dispose();
+                
             }
-
         }
     }
 }

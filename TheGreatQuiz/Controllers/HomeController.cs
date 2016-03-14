@@ -14,6 +14,10 @@ namespace TheGreatQuiz.Controllers
         {
             return View();
         }
+        public ActionResult AdminHome()
+        {
+            return View();
+        }
         public ActionResult Index()
         {
             return View();
@@ -21,6 +25,7 @@ namespace TheGreatQuiz.Controllers
 
         public ActionResult Register()
         {
+           
             return View();
         }
 
@@ -43,49 +48,41 @@ namespace TheGreatQuiz.Controllers
 
         public ActionResult Portal()
         {
-            List<Test> tests = new List<Models.Test>();
-            List<FinishedTest> finishedTests = new List<FinishedTest>();
+            var model = new QuizzesView();
+            var quizzesDtos = new GetQuizName().FetchInfoFromQuizDb();
+            List<Quizzes> tmpQuizzes = new List<Quizzes>();
 
-            tests.Add(new Test());
-            tests[0].Name = "Programmering prov 2";
+            if (quizzesDtos.Count != 0)
+            {
+                foreach (QuizzesDto t in quizzesDtos)
+                {
+                    var newMod = new Quizzes
+                    {
+                        Id = t.Id,
+                        Name = t.Name,
+                        Created = t.Created,
+                        Enddate = t.Enddate
 
-            tests.Add(new Test());
-            tests[1].Name = "Webbutveckling prov 2";
+                    };
+                    tmpQuizzes.Add(newMod);
+                }
+            }
 
-            tests.Add(new Test());
-            tests[2].Name = "Databashantering prov 2";
+
+            var tmpActiveQuizzes = from f in tmpQuizzes
+                                   where f.Enddate > DateTime.Now
+                                   select f;
+            model.ActiveQuizzes = tmpActiveQuizzes.ToList();
 
 
-            finishedTests.Add(new FinishedTest());
-            finishedTests[0].Name = "Programmering prov 1";
-            finishedTests[0].FinishedOn = new DateTime(2014, 1, 1);
+            var tmpFinishedQuizzes = from f in tmpQuizzes
+                                     where f.Enddate < DateTime.Now
+                                     select f;
+            model.FinishedQuizzes = tmpFinishedQuizzes.ToList();
 
-            finishedTests.Add(new FinishedTest());
-            finishedTests[1].Name = "Programmering prov 1";
-            finishedTests[1].FinishedOn = new DateTime(2014, 1, 1);
-
-            finishedTests.Add(new FinishedTest());
-            finishedTests[2].Name = "Programmering prov 1";
-            finishedTests[2].FinishedOn = new DateTime(2014, 1, 1);
-
-            finishedTests.Add(new FinishedTest());
-            finishedTests[3].Name = "Webbutveckling prov 1";
-            finishedTests[3].FinishedOn = new DateTime(2014, 1, 1);
-
-            finishedTests.Add(new FinishedTest());
-            finishedTests[4].Name = "Programmering prov 1";
-            finishedTests[4].FinishedOn = new DateTime(2014, 1, 1);
-
-            ViewBag.tests = tests;
-            ViewBag.finishedTests = finishedTests;
-
-            return View();
+            return View(model);
         }
 
-		public ActionResult QuizPage()
-        {
-            return View();
-        }
         public ActionResult Test()
         {
             return View();
@@ -101,34 +98,9 @@ namespace TheGreatQuiz.Controllers
 			return View();
 		}
 
-        public ActionResult Quizzes()
-        {
-       
-            var model = new QuizzesView();
-            var quizzesDtos = new GetQuizName().FetchInfoFromQuizDb();
 
-            if (quizzesDtos.Count != 0)
-            {
-                foreach (QuizzesDto t in quizzesDtos)
-                {
-                    var newMod = new Quizzes
+        public ActionResult QuizPage(int Id)
                     {
-                        Id = t.Id,
-                        Name = t.Name,
-                        Created = t.Created,
-                        Enddate = t.Enddate
-                        
-                    };
-                    model.QuizzesList.Add(newMod);
-                }
-            }
-
-            return View(model);
-        }
-
-
-        public ActionResult angularTestPage(int Id)
-        {
             quizIdHolder.quizId = Id;
             return View();
         }
@@ -137,12 +109,33 @@ namespace TheGreatQuiz.Controllers
         public ActionResult QuestionsTest()
         {
             var getQuestions = new GetQuestions();
-            List<QuestionsDto> questions = getQuestions.FetchQuestionsFromDb(2);
+            List<QuestionsDto> questions = getQuestions.FetchQuestionsFromDb(quizIdHolder.quizId);
 
             return Json(questions, JsonRequestBehavior.AllowGet);
 
         }
 
+        public ActionResult angularTestPage()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult angularTestData(string[][] arr)
+        {
+            var updDB = new UpdateDatabase();
+            updDB.CreateQuiz(arr[0][0]);
+
+            var getQuiz = new GetQuizId();
+            int quizID = getQuiz.GetLatestQuizId();
+
+            for (int i = 1; i < arr.Length; i++)
+            {
+                updDB.CreateQuestionsForQuiz(quizID, arr[i][0], arr[i][1], arr[i][2], arr[i][3], arr[i][4], arr[i][5], arr[i][6]);
+            }
+
+            return Json("HEJ!", JsonRequestBehavior.AllowGet);
+        }
 
 
     }

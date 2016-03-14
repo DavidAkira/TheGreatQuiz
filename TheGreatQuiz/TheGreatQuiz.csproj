@@ -186,6 +186,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Views\sendData.html" />
     <Content Include="App_Data\QuizDB.mdf" />
     <Content Include="App_Data\QuizDBB.mdf" />
     <Content Include="App_Data\QuizDBB_log.ldf">
@@ -273,11 +274,11 @@
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Home\RegisterPage.cshtml" />
-    <Content Include="Views\Home\Quizzes.cshtml" />
     <Content Include="Views\Home\Portal.cshtml" />
     <Content Include="Views\Home\QuizPage.cshtml" />
     <Content Include="Views\Home\AddQuiz.cshtml" />
     <Content Include="Views\Home\Footer.cshtml" />
+    <Content Include="Views\Home\AdminHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DatabaseConnectionQuiz\DatabaseConnectionQuiz.csproj">

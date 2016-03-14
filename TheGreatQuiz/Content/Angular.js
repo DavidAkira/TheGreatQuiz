@@ -1,48 +1,107 @@
 ﻿var app = angular.module("myModule", []);
 app.controller("myController", function ($scope, $rootScope) {
     
-    $scope.SendQuizData = function () {
-        alert("anropats");
-        //var quiz = [
-        //{
-        //    title: "NaturQuiz",
-        //    questions: [
-        //        { q: "vilken färg har himlen?", a0: "blå", a1: "vit", a2: "ingen", a3: "", a4: "", ra: 0 },
-        //        { q: "vilken färg har gräd?", a0: "blå", a1: "grön", a2: "ingen", a3: brun, a4: "", ra: 2 },
-        //        { q: "vilken färg har himlen?", a0: "blå", a1: "vit", a2: "ingen", a3: "roligt", a4: "", ra: 4 },
-        //        { q: "hur gammal är solen?", a0: "5", a1: "vet inte", a2: "irrelevant", a3: "grattis", a4: "", ra: 3 },
-        //        { q: "Hur hälsar man?", a0: "stick och brinn", a1: "nej tack", a2: "ingen", a3: "hej", a4: "hejsan", ra: 4 },
-        //        { q: "vilken färg har himlen?", a0: "blå", a1: "vit", a2: "ingen", a3: "fel", a4: "rätt", ra: 1 }
-        //    ]
-        //}
-        //];
-    };
-    var Answers = [{ q: "", a0: "", a1: "", a2: "", a3: "", a4: "", ra: "" }];        
-    $scope.Answers = Answers;
+    //$scope.SendQuizData = function () {
+    //    alert("anropats");
+    //};
+    //var Answers = [{ q: "", a0: "", a1: "", a2: "", a3: "", a4: "", ra: "" }];        
+    //$scope.Answers = Answers;
+    //var Quiz = [
+    //    {
+    //        Title: "",
+    //        Answers: []
+    //    }
+    //];
+    //$scope.Quiz = Quiz;
+    //$scope.RightAnswer = { value: 0 };
+    //$scope.AddQuestion = function () {
+    //    var value = $scope.RightAnswer.value;
+    //    alert("right answer index = "+ value);
+    //    var q = $scope.Answers.q
+    //    alert("question= " + q);
+    //    var a0 = $scope.Answers.a0
+    //    alert("answer 1= " + a0);
+    //    var a1 = $scope.Answers.a1
+    //    alert("answer 2= " + a1);
+    //    var a2 = $scope.Answers.a2
+    //    alert("answer 3= " + a2);
+    //    if($scope.Answers.a3)
+    //    {
+    //        alert($scope.Answers.a3);
+    //    }
+    //    else {
+    //        alert("not declared");
+    //    }
+    //    if ($scope.Answers.a4) {
+    //        alert($scope.Answers.a3);
+    //    }
+    //    else {
+    //        alert("not declared");
+    //    }
+    //   // $scope.answers.q.push($scope.Answers.q);
+    //    // $scope.Quiz.Answers.push(el);
+    //}
 
+    var quizData = [];
 
-    var Quiz = [
-        {
-            Title: "",
-            Answers: []
+    var elQuizTitle = document.getElementById('quizTitle');
+
+    elQuizTitle.addEventListener('blur', function () {
+        if (quizData[0] === undefined) {
+            quizData.push([elQuizTitle.value]);
         }
-    ];
-    $scope.Quiz = Quiz;
-
-    $rootScope.answers = [{ q: "hej" }];
-
+        else {
+            quizData[0][0] = elQuizTitle.value;
+        }
+   
+    });
 
     $scope.AddQuestion = function () {
-        var el = [
-            { q: $scope.q },
-            { a0: $scope.a0 },
-            { a1: $scope.a1 },
-            { a2: $scope.a2 },
-            { a3: "" },
-            { a4: "" },
-            { ra: 0 }
-        ];
-        $rootScope.answers.q.push($scope.Answers.q);
-        $scope.Quiz.Answers.push(el);
+
+        var rightAnswer;
+        var answers = ["", "", "", "", ""];
+        
+        $(".radio").each(function (i) {
+            if (this.checked) {
+                rightAnswer = i;
+            }
+        });
+
+        //console.log(rightAnswer);
+
+        $(".queAnswer").each(function (i) {
+            if (!this.value) {
+                //Print error
+        }
+            else {
+                answers[i] = this.value;
+        }
+        });
+
+        quizData.push([$scope.Answers.q, rightAnswer, answers[0], answers[1], answers[2], answers[3],  answers[4]]);
+
+
+        console.log(quizData);
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });

@@ -1,0 +1,31 @@
+﻿<div>
+    <input type="text" placeholder="Question name" ng-model="questionName"/>  <br /><br />
+    <textarea ng-model="question"></textarea>
+
+    <br />
+    <br />
+    <form>
+        <input type="text" placeholder="Svar" />
+        <input type="radio" name="rightAnswer" /><br /><br />
+
+        <input type="text" placeholder="Svar" />
+        <input type="radio" name="rightAnswer" /><br /><br />
+
+        <input type="text" placeholder="Svar" />
+        <input type="radio" name="rightAnswer" /><br /><br />
+
+        <input type="button" value="Add" />
+        <input type="text" placeholder="Svar" class="hiddenAnswerInput1"/>
+        <input type="radio" name="rightAnswer" class="hiddenAnswerInput1"/><br /><br />
+
+        <input type="text" placeholder="Svar" class="hiddenAnswerInput2"/>
+        <input type="radio" name="rightAnswer" class="hiddenAnswerInput2"/><br /><br />
+
+
+    </form>
+
+
+
+    <p ng-click="sendDataFunc()">send</p>
+
+</div>
