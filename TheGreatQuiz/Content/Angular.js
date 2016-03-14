@@ -49,7 +49,8 @@ app.controller("myController", function ($scope, $rootScope) {
     $scope.RemoveQuestion = function (questiion) {
         var indexFörFrågan = $rootScope.question.indexOf(questiion);
         // alert(indexFörFrågan);
-        quizData.slice(indexFörFrågan, 1);
+       
+        quizData.splice([indexFörFrågan], 1);
         $rootScope.question.splice(indexFörFrågan, 1);
         console.log(quizData);
     }
