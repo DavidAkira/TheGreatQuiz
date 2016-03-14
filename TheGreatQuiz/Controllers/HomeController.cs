@@ -20,6 +20,7 @@ namespace TheGreatQuiz.Controllers
         }
         public ActionResult Index()
         {
+            var user = new GetUser();
             return View();
         }
 
@@ -83,11 +84,6 @@ namespace TheGreatQuiz.Controllers
         }
 
 		public ActionResult TestHeader()
-		{
-			return View();
-		}
-
-		public ActionResult RegisterPage()
 		{
 			return View();
 		}
