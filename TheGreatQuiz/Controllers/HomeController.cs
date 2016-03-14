@@ -18,27 +18,46 @@ namespace TheGreatQuiz.Controllers
         {
             return View();
         }
+
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Register()
+        [HttpPost]
+        public ActionResult Index(string email, string password)
         {
-
+            var getUser = new GetUser();
+            var user = getUser.FetchUserFromQuizDb(email);
+            if (user.Password == password)
+            {
+                if (user.IsAdmin == 1)
+                {
+                    return RedirectToAction("AdminHome", "Home");
+                }else if (user.IsAdmin == 0)
+                {
+                    return RedirectToAction("Portal", "Home");
+                }             
+            }
             return View();
         }
 
-        [HttpPost]
-        public JsonResult RegisterUser(string[] arr)
+        public ActionResult Register()
         {
+           
+            return View();
+        }
+
+		[HttpPost]
+		public JsonResult RegisterUser(string[] arr)
+		{
 
             var dbUpdate = new UpdateDatabase();
 
             dbUpdate.AddUser(arr[0], arr[1]);
 
             return Json("HEJ!", JsonRequestBehavior.AllowGet);
-        }
+		}
 
         public ActionResult Portal()
         {
@@ -82,19 +101,14 @@ namespace TheGreatQuiz.Controllers
             return View();
         }
 
-        public ActionResult TestHeader()
-        {
-            return View();
-        }
-
-        public ActionResult RegisterPage()
-        {
-            return View();
-        }
+		public ActionResult TestHeader()
+		{
+			return View();
+		}
 
 
         public ActionResult QuizPage(int Id)
-        {
+                    {
             quizIdHolder.quizId = Id;
             return View();
         }

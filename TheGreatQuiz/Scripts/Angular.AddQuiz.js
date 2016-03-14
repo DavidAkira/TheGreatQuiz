@@ -1,7 +1,6 @@
 ﻿var app = angular.module("myModule", []);
 app.controller("myController", function ($scope, $rootScope) {
     
-   // $('#saveQuizBtn, #addQuestionBtn').hide();
 
     // varje fråga som puchas till denna visas på AddQuiz sidan
     $rootScope.question = [];
@@ -48,41 +47,11 @@ app.controller("myController", function ($scope, $rootScope) {
         console.log(quizData);
     }
     $scope.RemoveQuestion = function (questiion) {
-        var questionIndex = $rootScope.question.indexOf(questiion);
+        var indexFörFrågan = $rootScope.question.indexOf(questiion);
         // alert(indexFörFrågan);
-       
-        quizData.splice([(questionIndex + 1)], 1);
-        $rootScope.question.splice(questionIndex, 1);
+        
+        quizData.splice([indexFörFrågan], 1);
+        $rootScope.question.splice(indexFörFrågan, 1);
         console.log(quizData);
     }
-
-
-    $scope.SendQuizData = function () {
-        console.log(123);
-        var jsonData = JSON.stringify({ quizData: quizData });
-
-            $(function () {
-                $.ajax({
-                    type: "POST",
-                    url: "/Home/angularTestData",
-                    data: jsonData,
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: OnSuccess,
-                    error: OnErrorCall
-                });
-
-                function OnSuccess(response) {
-                    console.log(response.d)
-                }
-
-                function OnErrorCall(response) { console.log(error); }
-
-            });
-    }
-
-
-
-
-
 });

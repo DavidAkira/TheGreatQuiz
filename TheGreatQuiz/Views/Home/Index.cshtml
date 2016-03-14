@@ -1,14 +1,15 @@
-﻿@{
-    Layout = null;
+﻿@using System.Activities.Expressions
+@using System.Web.Mvc.Html
+@{
+    ViewBag.Title = "Login";
 }
-
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="~/Content/Site.css">
+    <link rel="stylesheet" href="~/Content/Login.css">
     <link rel="stylesheet" href="~/Content/unsemantic-grid-responsive-tablet.css">
 </head>
 <body class="loginBody">
@@ -18,13 +19,25 @@
 
         <section class="grid-100 grid-parent">
             <div class="loginWindow grid-60 prefix-20">
-                <h1>Newton</h1>
-                <form class="loginForm">
-                    <input type="text" id="loginEmail" class="inputBox" placeholder="Email" maxlength="50" />
-                    <input type="password" id="loginPassword" class="inputBox" placeholder="Lösenord" maxlength="50" /><br><br><br>
-                    <input type="button" value="Logga in" class="logRegButton" id="loginButton" />
-                    <input type="button" value="Registrera dig" class="logRegButton" id="registerButton" />
-                </form>
+                @using (Html.BeginForm())
+                {
+                    <h1>Newton</h1>
+                    <h3>Email</h3>
+                    <div id="loginEmail" class="inputBox">@Html.TextBox("email")</div>
+                    <h3>Lösenord</h3>
+                    <div id="loginPassword" class="inputBox">@Html.TextBox("password")</div><br>
+                    <input type="submit" value="Logga in" class="logRegButton" id="loginButton" />
+                    <input type="button" value="Registrera" class="logRegButton" id="registerButton" />
+                }
+
+
+
+                @*<form class="loginForm">
+                        <input type="text" id="loginEmail" class="inputBox" placeholder="Email" maxlength="50"/>
+                        <input type="password" id="loginPassword" class="inputBox" placeholder="Lösenord" maxlength="50"/><br><br><br>
+                        <input type="button" value="Logga in" class="logRegButton" id="loginButton"/>
+                        <input type="button" value="Registrera dig" class="logRegButton" id="registerButton"/>
+                    </form>*@
             </div>
 
         </section>
