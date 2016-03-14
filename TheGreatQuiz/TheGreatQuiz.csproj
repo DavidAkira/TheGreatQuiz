@@ -195,6 +195,7 @@
       <DependentUpon>QuizDB.mdf</DependentUpon>
     </Content>
     <Content Include="Content\AddQuiz.css" />
+    <Content Include="Content\Login.css" />
     <Content Include="Scripts\jquery.AddQuiz.js" />
     <Content Include="Scripts\angular.AddQuiz.js" />
     <Content Include="Content\Portal.css" />

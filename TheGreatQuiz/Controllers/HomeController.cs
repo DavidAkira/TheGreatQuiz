@@ -18,9 +18,27 @@ namespace TheGreatQuiz.Controllers
         {
             return View();
         }
+
         public ActionResult Index()
         {
-            var user = new GetUser();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(string email, string password)
+        {
+            var getUser = new GetUser();
+            var user = getUser.FetchUserFromQuizDb(email);
+            if (user.Password == password)
+            {
+                if (user.IsAdmin == 1)
+                {
+                    return RedirectToAction("AdminHome", "Home");
+                }else if (user.IsAdmin == 0)
+                {
+                    return RedirectToAction("Portal", "Home");
+                }             
+            }
             return View();
         }
 

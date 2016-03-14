@@ -13,7 +13,7 @@ namespace DatabaseConnectionQuiz
         {
             var sqlCon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE Users.Email=" + email, sqlCon);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE Users.Email =" + email, sqlCon);
 
             sqlCon.Open();
             var user = new UserDto();
