@@ -196,8 +196,8 @@
       <DependentUpon>QuizDB.mdf</DependentUpon>
     </Content>
     <Content Include="Content\AddQuiz.css" />
-    <Content Include="Content\AddQuiz.js" />
-    <Content Include="Content\Angular.js" />
+    <Content Include="Scripts\jquery.AddQuiz.js" />
+    <Content Include="Scripts\angular.AddQuiz.js" />
     <Content Include="Content\Portal.css" />
     <Content Include="Content\QuizPage.css" />
     <Content Include="Content\Test.css" />
@@ -205,7 +205,6 @@
     <Content Include="App\Controllers\TestPageController.js" />
     <Content Include="App\Views\StartPage.html" />
     <Content Include="Content\unsemantic-grid-responsive-tablet.css" />
-    <Content Include="Content\whatTests.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

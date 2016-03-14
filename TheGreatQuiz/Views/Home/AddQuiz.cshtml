@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="~/Content/AddQuiz.css">
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Content/AddQuiz.js"></script>
-    <script src="~/Content/angular.js"></script>
+    <script src="~/Scripts/jquery.AddQuiz.js"></script>
+    <script src="~/Scripts/angular.AddQuiz.js"></script>
     <link rel="stylesheet" href="~/Content/unsemantic-grid-responsive-tablet.css">
 </head>
 <body>
@@ -68,10 +68,12 @@
                 <label class="frågSida">Frågor</label>
                 <ul class="listaMedFrågor">
                     <li ng-repeat="item in question">
+                        <span>
                         <label class="fråga">{{item}}
                         </label>
                         <input type="button" value="X" id="removeQuestion" ng-click="RemoveQuestion(item)"/>
-                    </li>
+                    </span>
+                   </li>
                 </ul>
                 <input class="slutför" type="button" value="Slutför" ng-click="SendQuizData()" />
             </aside>

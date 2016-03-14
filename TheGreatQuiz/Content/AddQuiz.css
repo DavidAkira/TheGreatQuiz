@@ -184,17 +184,18 @@ input{
     max-height: 540px;
     min-height: 540px;
 }
-/* 
+
 #removeQuestion{
-    float: right;
-    width: 10%;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px 20px;
     color: red;
-    padding: 5px;
     font-size: 12px;
 }
 .fråga{
     width: 90%;
-    font-size: 30px;
+    font-size: 12px;
     overflow: hidden;
+    
 }
-    */
+   
