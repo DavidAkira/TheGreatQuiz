@@ -44,11 +44,13 @@
     <Compile Include="GetQuestions.cs" />
     <Compile Include="GetQuizId.cs" />
     <Compile Include="GetQuizName.cs" />
+    <Compile Include="GetUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionsDto.cs" />
     <Compile Include="quizIdHolder.cs" />
     <Compile Include="QuizzesDto.cs" />
     <Compile Include="UpdateDatabase.cs" />
+    <Compile Include="UserDto.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
