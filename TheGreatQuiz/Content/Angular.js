@@ -1,7 +1,7 @@
 ﻿var app = angular.module("myModule", []);
 app.controller("myController", function ($scope, $rootScope) {
     
-    $()
+   // $('#saveQuizBtn, #addQuestionBtn').hide();
 
     // varje fråga som puchas till denna visas på AddQuiz sidan
     $rootScope.question = [];
@@ -55,4 +55,34 @@ app.controller("myController", function ($scope, $rootScope) {
         $rootScope.question.splice(questionIndex, 1);
         console.log(quizData);
     }
+
+
+    $scope.SendQuizData = function () {
+        console.log(123);
+        var jsonData = JSON.stringify({ quizData: quizData });
+
+            $(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/angularTestData",
+                    data: jsonData,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: OnSuccess,
+                    error: OnErrorCall
+                });
+
+                function OnSuccess(response) {
+                    console.log(response.d)
+                }
+
+                function OnErrorCall(response) { console.log(error); }
+
+            });
+    }
+
+
+
+
+
 });

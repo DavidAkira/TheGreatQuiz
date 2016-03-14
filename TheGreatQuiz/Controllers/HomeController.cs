@@ -25,20 +25,20 @@ namespace TheGreatQuiz.Controllers
 
         public ActionResult Register()
         {
-           
+
             return View();
         }
 
-		[HttpPost]
-		public JsonResult RegisterUser(string[] arr)
-		{
+        [HttpPost]
+        public JsonResult RegisterUser(string[] arr)
+        {
 
             var dbUpdate = new UpdateDatabase();
 
             dbUpdate.AddUser(arr[0], arr[1]);
 
             return Json("HEJ!", JsonRequestBehavior.AllowGet);
-		}
+        }
 
         public ActionResult Portal()
         {
@@ -82,19 +82,19 @@ namespace TheGreatQuiz.Controllers
             return View();
         }
 
-		public ActionResult TestHeader()
-		{
-			return View();
-		}
+        public ActionResult TestHeader()
+        {
+            return View();
+        }
 
-		public ActionResult RegisterPage()
-		{
-			return View();
-		}
+        public ActionResult RegisterPage()
+        {
+            return View();
+        }
 
 
         public ActionResult QuizPage(int Id)
-                    {
+        {
             quizIdHolder.quizId = Id;
             return View();
         }
