@@ -76,7 +76,7 @@ namespace DatabaseConnectionQuiz
         public void AddUser(string email, string password)
         {
             SqlConnection sqlcon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
-            string sqlInsert = "INSERT INTO User(Email, Password) VALUES(@param1,@param2)";
+            string sqlInsert = "INSERT INTO Users(Email, Password) VALUES(@param1,@param2)";
             SqlCommand sqlCom = new SqlCommand(sqlInsert, sqlcon);
 
             try

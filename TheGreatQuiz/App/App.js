@@ -24,7 +24,6 @@ app.controller('StartPageController', ['$http', '$scope', function ($http, $scop
 app.controller('sendDataController', ['$http', '$scope', function ($http, $scope) {
     console.log(123);
 
-    $scope.testData = ngValue;
 
     var arr = [
         [
@@ -82,6 +81,7 @@ app.controller('sendDataController', ['$http', '$scope', function ($http, $scope
     var jsonData = JSON.stringify({ arr: arr});
 
     $scope.sendDataFunc = function () {
+        console.log(123);
         $(function () {
             $.ajax({
                 type: "POST",

@@ -23,7 +23,7 @@
         <section class="grid-100 grid-parent">
             <div class="registerWindow grid-60 prefix-20">
                 <h1>Newton</h1>
-                <form class="loginForm" onsubmit="onSubmit(event)">
+                <form class="loginForm">
                     <input name="txtEmail" type="text" id="registerEmail" class="inputBox registerBox" placeholder="Email" maxlength="50" /><br />
                     <p id="emailErrorDisplay" class="errorText">holder</p>
                     <input name="txtFirstPassword" type="password" id="registerPassword" class="inputBox registerBox" placeholder="Lösenord" maxlength="50" /><br />
@@ -36,24 +36,20 @@
 
     </div>
 
-
-
-    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
-    <script type="text/javascript" src="~/Scripts/registerValidation.js"></script>
-
-    @RenderPage("../Shared/Footer.cshtml")
+    @*@RenderPage("../Shared/Footer.cshtml")*@
    
-
-<script>
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="~/Scripts/registerValidation.js"></script>
+@*<script>
         $(function () {
             $(".loginForm").on("submit", function (event) {
-                console.log(1231);
+
 
                 if (!registerValidation(elEmail.value, elPsw.value, elSecondPsw.value)) {
-                    event.preventDefault
+                    event.preventDefault();
                 }
             })
         });
-    </script>
+    </script>*@
 </body>
 </html>
