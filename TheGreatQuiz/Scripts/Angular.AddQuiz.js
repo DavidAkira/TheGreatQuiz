@@ -39,6 +39,7 @@ app.controller("myController", function ($scope, $rootScope) {
             }
 
         });
+        alert($('#firstDate').val());
         quizData.push([$scope.Answers.q, rightAnswer, answers[0], answers[1], answers[2], answers[3], answers[4]]);
 
         console.log(quizData);
