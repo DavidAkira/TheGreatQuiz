@@ -99,5 +99,60 @@ namespace DatabaseConnectionQuiz
                 sqlcon.Dispose();
             }
         }
+
+        public void AddUsersToQuiz(int userId, int quizId)
+        {
+            SqlConnection sqlcon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
+            string sqlInsert = "INSERT INTO UsersQuizzes(UQ_userId, UQ_quizId) VALUES(@param1,@param2)";
+            SqlCommand sqlCom = new SqlCommand(sqlInsert, sqlcon);
+
+            try
+            {
+                sqlCom.Parameters.AddWithValue("@param1", userId);
+                sqlCom.Parameters.AddWithValue("@param2", quizId);
+
+                sqlcon.Open();
+                sqlCom.ExecuteNonQuery();
+                sqlcon.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            finally
+            {
+                sqlCom.Dispose();
+                sqlcon.Dispose();
+            }
+        }
+
+
+        public void BlockUserFromQuiz(int userId, int quizId)
+        {
+            SqlConnection sqlcon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
+            string sqlInsert = "UPDATE UsersQuizzes SET Finished=1 WHERE UQ_userId=" + userId + "AND UQ_quizId=" + quizId;
+            SqlCommand sqlCom = new SqlCommand(sqlInsert, sqlcon);
+
+            try
+            {
+                sqlcon.Open();
+                sqlCom.ExecuteNonQuery();
+                sqlcon.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            finally
+            {
+                sqlCom.Dispose();
+                sqlcon.Dispose();
+            }
+        }
+
+
+
     }
 }

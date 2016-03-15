@@ -45,6 +45,7 @@
     <Compile Include="GetQuestions.cs" />
     <Compile Include="GetQuizId.cs" />
     <Compile Include="GetQuizName.cs" />
+    <Compile Include="GetQuizStatus.cs" />
     <Compile Include="GetUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionsDto.cs" />
