@@ -87,13 +87,13 @@
     @RenderPage("../Shared/Footer.cshtml")
 <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
 <script type="text/javascript" src="~/Scripts/quiz.js"></script>
-    <script>
-        $("#start-btn").click(function () {
+<script>
+    $("#start-btn").click(function () {
             startTimer(1, 0, function () {
-                stopTimer();
-                alert("Testet är slut");
-            });
+            stopTimer();
+            alert("Testet är slut");
         });
-    </script>
+    });
+</script>
 </body>
 </html>
