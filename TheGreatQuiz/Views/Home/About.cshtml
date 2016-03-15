@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "About";
+}
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/Content/Site.css">
+    <link rel="stylesheet" href="~/Content/unsemantic-grid-responsive-tablet.css">
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+</head>
+
+<body>
+    @RenderPage("../Shared/Header.cshtml")
+
+    <section class="grid-container prefix-25 suffix-25 about-section">
+        <h2 class="grid-100" >Om oss</h2>
+        <p class="grid-100">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla turpis a ex hendrerit, et pharetra sapien interdum. Praesent vehicula lorem ac aliquet vestibulum. Mauris dictum consequat ornare. Vestibulum sagittis libero volutpat purus dignissim, id commodo felis rhoncus. Proin finibus enim id lacinia porttitor. Vivamus in sapien et neque sagittis ultrices in non diam. Vivamus molestie eget neque vel malesuada. Ut venenatis nisl ut ipsum dictum semper. Nulla facilisi. Praesent porttitor vitae odio id tempus.</p>
+    </section>
+
+    @RenderPage("../Shared/Footer.cshtml")
+</body>
+
+</html>

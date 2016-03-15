@@ -40,5 +40,37 @@ namespace DatabaseConnectionQuiz
                 cmd.Dispose();
             }
         }
+
+        public List<int> FetchUserIds()
+        {
+            var sqlCon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
+
+            SqlCommand cmd = new SqlCommand("SELECT id FROM Users", sqlCon);
+
+            sqlCon.Open();
+            List<int> userIds = new List<int>();
+            try
+            {
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        userIds.Add((int)rdr["Id"]);
+
+                    }
+                    sqlCon.Close();
+                    rdr.Close();
+                    return userIds;
+                }
+            }
+            finally
+            {
+                sqlCon.Dispose();
+                cmd.Dispose();
+            }
+        }
+
+
+
     }
 }

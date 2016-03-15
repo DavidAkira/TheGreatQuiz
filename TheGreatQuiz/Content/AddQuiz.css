@@ -12,8 +12,7 @@
     font-family: Verdana, sans-serif;
 }
 body{
-    transform: scale(0.75);
-    transform-origin: 50% 20%;
+
     background-color: #546964;
 }
 input{
@@ -32,6 +31,7 @@ input{
     height: 80px;
     width: 100%;
 }
+
 .mainPage{
      margin-left: 5%;
      width: 90%;
@@ -48,8 +48,6 @@ input{
     margin-top: 40px;
     background-color: #FFAD00;
     border-radius: 10px;
-    min-height: 680px;
-    border-radius: 40px 40px;
     min-height: 770px;
     max-height: 770px;
 }
@@ -60,12 +58,10 @@ input{
     padding: 5px;
     overflow: hidden;
     background-color: #FFAD00;
-    border-radius: 20px 20px;
     min-height: 770px;
     max-height: 770px;
     border-radius: 10px;
-    min-height: 680px;
-    max-height: 680px;
+
 }
 .tittelRubrik{
     letter-spacing: 0.2em;
@@ -93,7 +89,6 @@ input{
     margin-bottom: 10px;
     font-size: 28px;
     padding: 5px;
-    
     margin-bottom: 20px;
     border-radius: 10px 10px;
 }

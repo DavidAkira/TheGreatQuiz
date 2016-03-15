@@ -14,6 +14,12 @@
     <link rel="stylesheet" href="/Content/Site.css">
     <link rel="stylesheet" href="/Content/unsemantic-grid-responsive-tablet.css">
     <script src="/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/TimerScript.js"></script>
+    <script>
+        function test() {
+            alert("Hello World!");
+        }
+    </script>
 </head>
 <body>
 @RenderPage("../Shared/Header.cshtml")
@@ -34,7 +40,7 @@
                 <article class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active' }}">
                     <h2>Välkommen till TheGreatQuiz</h2><br/>
                     <p>Tryck på start för att pröva dina kunskaper!</p><br/>
-                    <p class="btn" ng-click="activeQuestion = 0">Start!</p>
+                    <p class="btn" id="start-btn"ng-click="activeQuestion = 0">Start!</p>
                 </article>
 
                 <article class="question
@@ -70,7 +76,7 @@
                 <article class="result {{ (totalQuestions === activeQuestion) ? 'active' : 'inactive'}}">
                     <h3>Resultat</h3><br/>
                     <p>Du svarade {{percentage}}% korrekt, {{score}} rätt utav {{totalQuestions}} frågor</p><br/>
-                    <p class="btn" ng-click="exitQuiz()">Avsluta</p>
+                    <p class="btn">@Html.ActionLink("Avsluta", "Portal", "Home")</p>
                 </article>
             </section>
 
@@ -81,6 +87,13 @@
     @RenderPage("../Shared/Footer.cshtml")
 <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
 <script type="text/javascript" src="~/Scripts/quiz.js"></script>
-
+<script>
+    $("#start-btn").click(function () {
+            startTimer(1, 0, function () {
+            stopTimer();
+            alert("Testet är slut");
+        });
+    });
+</script>
 </body>
 </html>

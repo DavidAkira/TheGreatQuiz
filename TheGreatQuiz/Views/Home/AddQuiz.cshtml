@@ -7,34 +7,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="/Content/Site.css">
     <link rel="stylesheet" href="~/Content/AddQuiz.css">
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery.AddQuiz.js"></script>
     <script src="~/Scripts/angular.AddQuiz.js"></script>
     <link rel="stylesheet" href="~/Content/unsemantic-grid-responsive-tablet.css">
+
 </head>
 <body>
+@RenderPage("../Shared/Header.cshtml")
     <div class="grid-container">
 
         <section class="grid-parent grid-100" ng-controller="myController">
 
-            <div class="grid-5"><br /></div>
+        <div class="grid-5"><br/>
+        </div>
             <article class="quizPage grid-70 grid-parent">
 
-                <div class="grid-5"><br /></div>
+            <div class="grid-5"><br/>
+            </div>
 
                 <article class="questionPage grid-90">
                     <header class="quizHeader">
                         <form>
                         <label class="tittelRubrik">Titel</label>
-                        <input class="tittel" type="text" placeholder="Ge din quiz ett lämpligt namn:" ng-model="Quiz.Title" id="quizTitle" />
+                        <input class="tittel" type="text" placeholder="Ge din quiz ett lämpligt namn:" ng-model="Quiz.Title" id="quizTitle"/>
                         
                         <section class="grid-100 grid-parent">                          
                             <label class="grid-20 dateLabel">startdatum</label>
-                            <div class="grid-10"><br /></div>
+                            <div class="grid-10"><br/>
+                            </div>
                             <label class="grid-20 dateLabel">slutdatum</label>
-                            <div class="grid-10"><br /></div>
+                            <div class="grid-10"><br/>
+                            </div>
                             <label class="grid-20 timeLabel">tidsbegränsning (minuter)</label>
                         </section>
                          <section>
@@ -43,6 +50,13 @@
                              <input ng-model="DateAndTime.lastDate" class="grid-25 pickDate" id="lastDate" type="date" />
                              <div class="grid-5"><br /></div>
                              <input ng-model="DateAndTime.time" class="grid-25 pickminits" min="10" max="180" id="minits" type="number" />
+                            <input class="grid-25 pickDate" id="startDate" type="date"/>
+                            <div class="grid-5"><br/>
+                            </div>
+                            <input class="grid-25 pickDate" id="lastDate" type="date"/>
+                            <div class="grid-5"><br/>
+                            </div>
+                            <input class="grid-25 pickminits" min="10" max="180" id="minits" type="number"/>
                         </section>                                                                 
                        </form>
                     </header>
@@ -52,7 +66,7 @@
                         <label class="questionLabel">Fråga</label>
                         <textarea class="question" placeholder="Skriv in din fråga här..." ng-model="Answers.q"></textarea>
 
-                        <label class="radioRubrik">Kryssa i rätt alternativ<br /></label>
+                    <label class="radioRubrik">Kryssa i rätt alternativ<br/></label>
                         <span>
                             <input class="0 svarsAlternativ queAnswer" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a0" />
                             <input class="radio 0" type="radio" name="rättSvar" ng-model="RightAnswer" ng-value="0" />
@@ -69,15 +83,17 @@
                         </span>
 
 
-                        <input id="addQuestion" type="button" value="+" />
-                        <br />
+                    <input id="addQuestion" type="button" value="+"/>
+                    <br/>
                         <input id="addQuestionBtn" class="quizButton" type="button" value="Lägg till frågan i quizen" ng-click="AddQuestion()">
                     </form>
                 </article>
-                <div class="grid-5"><br /></div>
+            <div class="grid-5"><br/>
+            </div>
             </article>
 
-            <div class="space grid-5"><br /></div>
+        <div class="space grid-5"><br/>
+        </div>
 
             <aside class="grid-20 färdigaSvar">
                 <label class="frågSida">Frågor</label>
@@ -90,7 +106,7 @@
                     </span>
                    </li>
                 </ul>
-                <input id="saveQuizBtn" class="slutför" type="button" value="Slutför" ng-click="SendQuizData()" />
+            <input id="saveQuizBtn" class="slutför" type="button" value="Slutför" ng-click="SendQuizData()"/>
             </aside>
 
         </section>
@@ -98,6 +114,6 @@
 
     </div>
 
-
 </body>
+    @RenderPage("../Shared/Footer.cshtml")
 </html>

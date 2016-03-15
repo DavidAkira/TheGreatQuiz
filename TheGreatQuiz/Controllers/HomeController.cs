@@ -12,7 +12,7 @@ namespace TheGreatQuiz.Controllers
     {
         public ActionResult AddQuiz()
         {
-            if (Session["userId"] == null)
+            if (Session["userId"] == null && (int)Session["userId"] != 1)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -43,7 +43,8 @@ namespace TheGreatQuiz.Controllers
                 {
                     Session["userId"] = currentUser.Id;
                     return RedirectToAction("AdminHome", "Home");
-                }else if (currentUser.IsAdmin == false)
+                }
+                else if (currentUser.IsAdmin == false)
                 {
                     Session["userId"] = currentUser.Id;
                     return RedirectToAction("Portal", "Home");
@@ -112,6 +113,19 @@ namespace TheGreatQuiz.Controllers
 
         public ActionResult Test()
         {
+
+            //var getQuizStatus = new GetQuizStatus();
+            //var getUser = new GetUser();
+            //var usersIds = getUser.FetchUserIds();
+            //var updateDatabase = new UpdateDatabase();
+
+            //updateDatabase.BlockUserFromQuiz(2, 8);
+
+            //foreach (var userId in usersIds)
+            //{
+            //    updateDatabase.AddUsersToQuiz(userId, 4);
+            //}
+
             return View();
         }
 
@@ -121,8 +135,19 @@ namespace TheGreatQuiz.Controllers
 		}
 
 
+
         public ActionResult QuizPage(int Id)
-        {
+                    {
+
+            var getQuizStatus = new GetQuizStatus();
+
+            bool quizStatus = getQuizStatus.FetchUserQuizStatus((int)Session["userId"], Id);
+
+            if (quizStatus)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             quizIdHolder.quizId = Id;
             return View();
         }
@@ -134,7 +159,6 @@ namespace TheGreatQuiz.Controllers
             List<QuestionsDto> questions = getQuestions.FetchQuestionsFromDb(quizIdHolder.quizId);
 
             return Json(questions, JsonRequestBehavior.AllowGet);
-
         }
 
         public ActionResult angularTestPage()
@@ -156,9 +180,35 @@ namespace TheGreatQuiz.Controllers
                 updDB.CreateQuestionsForQuiz(quizID, quizData[i][0], quizData[i][1], quizData[i][2], quizData[i][3], quizData[i][4], quizData[i][5], quizData[i][6]);
             }
 
+
+            var getQuizStatus = new GetQuizStatus();
+            var getUser = new GetUser();
+            var usersIds = getUser.FetchUserIds();
+            var updateDatabase = new UpdateDatabase();
+
+            foreach (var userId in usersIds)
+            {
+                updateDatabase.AddUsersToQuiz(userId, quizID);
+            }
+
+
             return Json("HEJ!", JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public ActionResult QuizEnded()
+        {
+            var updateDatabase = new UpdateDatabase();
 
+            updateDatabase.BlockUserFromQuiz((int)Session["userId"], quizIdHolder.quizId);
+
+            return View();
+        }
+
+
+		public ActionResult About()
+		{
+			return View();
+		}
     }
 }
