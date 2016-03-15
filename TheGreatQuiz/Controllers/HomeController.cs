@@ -114,22 +114,17 @@ namespace TheGreatQuiz.Controllers
         public ActionResult Test()
         {
 
-            var getQuizStatus = new GetQuizStatus();
-            var getUser = new GetUser();
-            var usersIds = getUser.FetchUserIds();
-            var updateDatabase = new UpdateDatabase();
+            //var getQuizStatus = new GetQuizStatus();
+            //var getUser = new GetUser();
+            //var usersIds = getUser.FetchUserIds();
+            //var updateDatabase = new UpdateDatabase();
 
-            updateDatabase.BlockUserFromQuiz(2, 8);
+            //updateDatabase.BlockUserFromQuiz(2, 8);
 
             //foreach (var userId in usersIds)
             //{
             //    updateDatabase.AddUsersToQuiz(userId, 4);
             //}
-
-
-
-
-
 
             return View();
         }
@@ -138,6 +133,7 @@ namespace TheGreatQuiz.Controllers
         {
             return View();
         }
+
 
 
         public ActionResult QuizPage(int Id)
@@ -163,7 +159,6 @@ namespace TheGreatQuiz.Controllers
             List<QuestionsDto> questions = getQuestions.FetchQuestionsFromDb(quizIdHolder.quizId);
 
             return Json(questions, JsonRequestBehavior.AllowGet);
-
         }
 
         public ActionResult angularTestPage()
@@ -198,6 +193,16 @@ namespace TheGreatQuiz.Controllers
 
 
             return Json("HEJ!", JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult QuizEnded()
+        {
+            var updateDatabase = new UpdateDatabase();
+
+            updateDatabase.BlockUserFromQuiz((int)Session["userId"], quizIdHolder.quizId);
+
+            return View();
         }
 
 
