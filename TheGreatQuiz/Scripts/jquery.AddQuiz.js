@@ -1,5 +1,30 @@
 ﻿$(function () {
-    
+
+    $(".queAnswer").on('keyup', function () {
+        Update();
+    });
+    $(".question").on('keyup', function () {
+        Update();
+    })
+    var Update = function () {
+        var ifInputIsInitialized = true;
+        $(".queAnswer").each(function () {
+            if (this.value == "") {
+                ifInputIsInitialized = false;
+            }
+            else {
+
+            }
+        });
+        if (ifInputIsInitialized) {
+            val = $('.question').val();
+            if (val != "") {
+                alert("alla fält ifyllda");
+
+            }
+        }
+    };
+
     var UpdateIndex = function () {
         $('.ettSvarsAlternativTill').removeClass('4').addClass('3');
         var radio =  $('.radio:last');
@@ -23,6 +48,9 @@
         var button = "<input id=\"" + antalSvar + "\" class=\"" + antalSvar + " remove\" type=\"button\" value=\"x\" />";
         var lastEl = $('#addQuestion');
         lastEl.before("<span>" + text + radio + button + "</span>");
+        $(".queAnswer:last").on('keyup', function () {
+            Update();
+        });
         //remove addbutton
         if ($('.radio').length > 4) {
             $('#addQuestion').hide();

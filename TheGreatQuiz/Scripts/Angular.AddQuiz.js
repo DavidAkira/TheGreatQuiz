@@ -1,12 +1,14 @@
 ﻿var app = angular.module("myModule", []);
 app.controller("myController", function ($scope, $rootScope) {
 
+    
     // $('#saveQuizBtn, #addQuestionBtn').hide();
 
     // varje fråga som puchas till denna visas på AddQuiz sidan
     $rootScope.question = [];
 
     $scope.RightAnswer = 0;
+
 
     var quizData = [[]];
     var elQuizTitle = document.getElementById('quizTitle');
