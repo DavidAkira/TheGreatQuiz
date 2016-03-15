@@ -12,8 +12,7 @@
     font-family: Verdana, sans-serif;
 }
 body{
-    transform: scale(0.65);
-    transform-origin: 50% 20%;
+
     background-color: #546964;
 }
 input{
@@ -32,6 +31,7 @@ input{
     height: 80px;
     width: 100%;
 }
+
 .mainPage{
      margin-left: 5%;
      width: 90%;
