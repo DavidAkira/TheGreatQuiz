@@ -31,10 +31,10 @@ namespace TheGreatQuiz.Controllers
             var user = getUser.FetchUserFromQuizDb(email);
             if (user.Password == password)
             {
-                if (user.IsAdmin == 1)
+                if (user.IsAdmin == true)
                 {
                     return RedirectToAction("AdminHome", "Home");
-                }else if (user.IsAdmin == 0)
+                }else if (user.IsAdmin ==false)
                 {
                     return RedirectToAction("Portal", "Home");
                 }             
@@ -98,6 +98,22 @@ namespace TheGreatQuiz.Controllers
 
         public ActionResult Test()
         {
+
+            var getQuizStatus = new GetQuizStatus();
+            var getUser = new GetUser();
+            var usersIds = getUser.FetchUserIds();
+            var updateDatabase = new UpdateDatabase();
+
+            foreach (var userId in usersIds)
+            {
+                updateDatabase.AddUsersToQuiz(userId, 4);
+            }
+          
+
+
+
+
+
             return View();
         }
 
@@ -141,6 +157,18 @@ namespace TheGreatQuiz.Controllers
             {
                 updDB.CreateQuestionsForQuiz(quizID, quizData[i][0], quizData[i][1], quizData[i][2], quizData[i][3], quizData[i][4], quizData[i][5], quizData[i][6]);
             }
+
+
+            var getQuizStatus = new GetQuizStatus();
+            var getUser = new GetUser();
+            var usersIds = getUser.FetchUserIds();
+            var updateDatabase = new UpdateDatabase();
+
+            foreach (var userId in usersIds)
+            {
+                updateDatabase.AddUsersToQuiz(userId, quizID);
+            }
+
 
             return Json("HEJ!", JsonRequestBehavior.AllowGet);
         }

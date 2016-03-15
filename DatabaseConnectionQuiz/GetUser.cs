@@ -13,7 +13,7 @@ namespace DatabaseConnectionQuiz
         {
             var sqlCon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE Users.Email =" + email, sqlCon);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Users WHERE Email ='" +email+"'", sqlCon); 
 
             sqlCon.Open();
             var user = new UserDto();
@@ -26,7 +26,7 @@ namespace DatabaseConnectionQuiz
                         user.Id = (int)rdr["Id"];
                         user.Email = (string)rdr["Email"];
                         user.Password = (string)rdr["Password"];
-                        //user.IsAdmin = (int)rdr["IsAdmin"];
+                        user.IsAdmin = (bool)rdr["IsAdmin"];
 
                     }
                     sqlCon.Close();
@@ -40,5 +40,37 @@ namespace DatabaseConnectionQuiz
                 cmd.Dispose();
             }
         }
+
+        public List<int> FetchUserIds()
+        {
+            var sqlCon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
+
+            SqlCommand cmd = new SqlCommand("SELECT id FROM Users", sqlCon);
+
+            sqlCon.Open();
+            List<int> userIds = new List<int>();
+            try
+            {
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        userIds.Add((int)rdr["Id"]);
+
+                    }
+                    sqlCon.Close();
+                    rdr.Close();
+                    return userIds;
+                }
+            }
+            finally
+            {
+                sqlCon.Dispose();
+                cmd.Dispose();
+            }
+        }
+
+
+
     }
 }
