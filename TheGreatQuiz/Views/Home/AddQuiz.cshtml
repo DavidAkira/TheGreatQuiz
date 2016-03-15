@@ -26,10 +26,25 @@
 
                 <article class="questionPage grid-90">
                     <header class="quizHeader">
-
+                        <form>
                         <label class="tittelRubrik">Titel</label>
                         <input class="tittel" type="text" placeholder="Ge din quiz ett lämpligt namn:" ng-model="Quiz.Title" id="quizTitle" />
-
+                        
+                        <section class="grid-100 grid-parent">                          
+                            <label class="grid-20 dateLabel">startdatum</label>
+                            <div class="grid-10"><br /></div>
+                            <label class="grid-20 dateLabel">slutdatum</label>
+                            <div class="grid-10"><br /></div>
+                            <label class="grid-20 timeLabel">tidsbegränsning (minuter)</label>
+                        </section>
+                         <section>
+                             <input class="grid-25 pickDate" id="startDate" type="date" />
+                             <div class="grid-5"><br /></div>
+                             <input class="grid-25 pickDate" id="lastDate" type="date" />
+                             <div class="grid-5"><br /></div>
+                             <input class="grid-25 pickminits" min="10" max="180" id="minits" type="number" />
+                        </section>                                                                 
+                       </form>
                     </header>
                     <div class="mainPage"></div>
                     <form>
