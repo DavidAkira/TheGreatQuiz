@@ -70,7 +70,7 @@
                 <article class="result {{ (totalQuestions === activeQuestion) ? 'active' : 'inactive'}}">
                     <h3>Resultat</h3><br/>
                     <p>Du svarade {{percentage}}% korrekt, {{score}} rätt utav {{totalQuestions}} frågor</p><br/>
-                    <p class="btn" ng-click="exitQuiz()">Avsluta</p>
+                    <p class="btn">@Html.ActionLink("Avsluta", "Portal", "Home")</p>
                 </article>
             </section>
 

@@ -1,4 +1,5 @@
-﻿@{
+﻿@using TheGreatQuiz.Models
+@{
     Layout = null;
 }
 
@@ -17,7 +18,7 @@
 
         <section class="grid-100 grid-parent">
             <div class="loginWindow grid-60 prefix-20">
-                <h1>Välkommen</h1><br/>
+                <h1>Välkommen @Session["userId"]</h1><br/>
                 <p>Detta är sidan för admins här kan man välja att lägga till quizzes eller redigera dem.</p><br/>
 
                 <a class="btn" href="/Home/AddQuiz">Skapa ett test</a>

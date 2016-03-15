@@ -12,6 +12,8 @@
     font-family: Verdana, sans-serif;
 }
 body{
+    transform: scale(0.65);
+    transform-origin: 50% 20%;
     background-color: #546964;
 }
 input{
@@ -26,7 +28,7 @@ input{
     width: 100%;
 }
 .quizHeader{
-    padding-top: 10px;
+    margin-top: 10px;
     height: 80px;
     width: 100%;
 }
@@ -38,12 +40,16 @@ input{
      border-color: #D98906;
      padding: 5px;
 }
+.quizHeader{
+    height: 160px;
+}
 .quizPage{ 
     border: solid black 2px;
     margin-top: 40px;
     background-color: #FFAD00;
-    border-radius: 40px 40px;
-    min-height: 680px;
+    border-radius: 10px;
+    min-height: 770px;
+    max-height: 770px;
 }
 .färdigaSvar{
     border: solid black 2px;
@@ -52,9 +58,10 @@ input{
     padding: 5px;
     overflow: hidden;
     background-color: #FFAD00;
-    border-radius: 20px 20px;
-    min-height: 680px;
-    max-height: 680px;
+    min-height: 770px;
+    max-height: 770px;
+    border-radius: 10px;
+
 }
 .tittelRubrik{
     letter-spacing: 0.2em;
@@ -81,9 +88,12 @@ input{
     margin-top: 5px;
     margin-bottom: 10px;
     font-size: 28px;
-    padding: 15px;
-    margin-bottom: 40px;
+    padding: 5px;
+    margin-bottom: 20px;
     border-radius: 10px 10px;
+}
+textarea {
+    width: 90% !important;
 }
 #addQuestion{
     margin-top: 15px;
@@ -92,7 +102,7 @@ input{
     height: 35px;
     color: green;
     font-weight: bold;
-    border-radius: 35px 35px;
+    border-radius: 50%;
     vertical-align: central;
     margin-left: 10px;
 }
@@ -104,7 +114,7 @@ input{
     height: auto;
     background-color: #D98906;
     color: black;
-    border-radius: 5px 5px;
+    border-radius: 10px;
     border: solid 1px black;
     width: 40%;
     margin-left: 28%;
@@ -140,7 +150,7 @@ input{
     width: 35px;
     color: red;
     font-weight: bold;
-    border-radius: 35px 35px;
+    border-radius: 50%;
     vertical-align: central;
     margin-bottom: 10px;
 }
@@ -175,7 +185,7 @@ input{
     margin-left: 25%;
     background-color: #D98906;
     color: black;
-    border-radius: 5px 5px;
+    border-radius: 10px;
     border: solid 1px black;
 }
 .listaMedFrågor{
@@ -188,7 +198,7 @@ input{
 #removeQuestion{
     width: 20px;
     height: 20px;
-    border-radius: 20px 20px;
+    border-radius: 50%;
     color: red;
     font-size: 12px;
 }
@@ -198,4 +208,30 @@ input{
     overflow: hidden;
     
 }
+.dateSpan{
+    margin-top: 10px;
+}
+.dateLabel{    
+    margin-top: 10px;
+    font-size: 16px;
+    padding: 5px;
+}
+.timeLabel{
+    margin-top: 10px;
+    font-size: 16px;
+    padding: 5px;
+}
+.pickDate{
+    margin-left: 5px;
+    font-size: 16px;
+    padding: 5px;
+    height: 25px;
+}
+.pickminits{
+    margin-left: 5px;
+    font-size: 16px;
+    padding: 5px;
+    height: 25px;
+}
+
    
