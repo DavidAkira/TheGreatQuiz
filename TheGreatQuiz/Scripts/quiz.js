@@ -56,7 +56,29 @@
         }
 
 
+        var blockUserFromQuiz = function () {
+            $http.get("/Home/quizEnded").success(function (data) {
+                console.log(data);
+            });
+        }
+
+        $('endQuizBtn').click(function () {
+            blockUserFromQuiz();
+        });
+
+        $("#start-btn").click(function () {
+            console.log("kom en bit");
+            startTimer(0, 5, function () {
+                blockUserFromQuiz();
+                stopTimer();
+                alert("Testet är slut");
+            });
+        });
+
+
+
+
     }]);
 
 
-})();2
+})();

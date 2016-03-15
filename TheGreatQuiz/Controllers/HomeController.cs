@@ -48,27 +48,27 @@ namespace TheGreatQuiz.Controllers
                 {
                     Session["userId"] = currentUser.Id;
                     return RedirectToAction("Portal", "Home");
-                }             
+                }
             }
             return View();
         }
 
         public ActionResult Register()
         {
-           
+
             return View();
         }
 
-		[HttpPost]
-		public JsonResult RegisterUser(string[] arr)
-		{
+        [HttpPost]
+        public JsonResult RegisterUser(string[] arr)
+        {
 
             var dbUpdate = new UpdateDatabase();
 
             dbUpdate.AddUser(arr[0], arr[1]);
 
             return Json("HEJ!", JsonRequestBehavior.AllowGet);
-		}
+        }
 
         public ActionResult Portal()
         {
@@ -129,15 +129,15 @@ namespace TheGreatQuiz.Controllers
             return View();
         }
 
-		public ActionResult TestHeader()
-		{
-			return View();
-		}
+        public ActionResult TestHeader()
+        {
+            return View();
+        }
 
 
 
         public ActionResult QuizPage(int Id)
-                    {
+        {
 
             var getQuizStatus = new GetQuizStatus();
 
@@ -195,20 +195,20 @@ namespace TheGreatQuiz.Controllers
             return Json("HEJ!", JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult QuizEnded()
         {
             var updateDatabase = new UpdateDatabase();
 
             updateDatabase.BlockUserFromQuiz((int)Session["userId"], quizIdHolder.quizId);
 
-            return View();
+            return Json("hej", JsonRequestBehavior.AllowGet); ;
         }
 
 
-		public ActionResult About()
-		{
-			return View();
-		}
+        public ActionResult About()
+        {
+            return View();
+        }
     }
 }
