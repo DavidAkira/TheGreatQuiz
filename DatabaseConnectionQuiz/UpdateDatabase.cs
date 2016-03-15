@@ -72,5 +72,32 @@ namespace DatabaseConnectionQuiz
                 sqlcon.Dispose();
             }
         }
+
+        public void AddUser(string email, string password)
+        {
+            SqlConnection sqlcon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
+            string sqlInsert = "INSERT INTO Users(Email, Password) VALUES(@param1,@param2)";
+            SqlCommand sqlCom = new SqlCommand(sqlInsert, sqlcon);
+
+            try
+            {
+                sqlCom.Parameters.AddWithValue("@param1", email);
+                sqlCom.Parameters.AddWithValue("@param2", password);
+
+                sqlcon.Open();
+                sqlCom.ExecuteNonQuery();
+                sqlcon.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            finally
+            {
+                sqlCom.Dispose();
+                sqlcon.Dispose();
+            }
+        }
     }
 }

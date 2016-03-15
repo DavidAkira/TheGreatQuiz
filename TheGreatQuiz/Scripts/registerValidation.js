@@ -15,11 +15,32 @@ function registerValidation(email, firstPassword, secondPassword) {
 
     // Do something if everything is valid.
     if (validEmail && validPassword) {
-        return true;
+
+
+        var arr = [email, firstPassword];
+
+        var jsonData = JSON.stringify({ arr: arr });
+
+            $(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/RegisterUser",
+                    data: jsonData,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: OnSuccess,
+                    error: OnErrorCall
+                });
+
+                function OnSuccess(response) {
+                    console.log(response.d)
+                }
+
+                function OnErrorCall(response) { console.log(error); }
+            });
+
     }
-    else {
-        return false;
-    }
+
 }
 
 elCompletRegBtn.addEventListener('click', function () {

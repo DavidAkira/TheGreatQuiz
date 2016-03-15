@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="~/Content/AddQuiz.css">
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Content/AddQuiz.js"></script>
-    <script src="~/Content/angular.js"></script>
+    <script src="~/Scripts/jquery.AddQuiz.js"></script>
+    <script src="~/Scripts/angular.AddQuiz.js"></script>
     <link rel="stylesheet" href="~/Content/unsemantic-grid-responsive-tablet.css">
 </head>
 <body>
@@ -40,23 +40,23 @@
                         <label class="radioRubrik">Kryssa i rätt alternativ<br /></label>
                         <span>
                             <input class="0 svarsAlternativ queAnswer" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a0" />
-                            <input class="radio 0" type="radio" name="rättSvar" ng-model="RightAnswer.value" ng-value="0" />
+                            <input class="radio 0" type="radio" name="rättSvar" ng-model="RightAnswer" ng-value="0" />
                         </span>
 
                         <span>
                             <input class="1 svarsAlternativ queAnswer" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a1" />
-                            <input class="radio 1" type="radio" name="rättSvar" ng-model="RightAnswer.value" ng-value="1" />
+                            <input class="radio 1" type="radio" name="rättSvar" ng-model="RightAnswer" ng-value="1" />
                         </span>
 
                         <span>
                             <input class="2 svarsAlternativ queAnswer" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a2" />
-                            <input class="radio 2" type="radio" ng-model="RightAnswers.value" ng-value="2" name="rättSvar" />
+                            <input class="radio 2" type="radio" ng-model="RightAnswers" ng-value="2" name="rättSvar" />
                         </span>
 
 
                         <input id="addQuestion" type="button" value="+" />
                         <br />
-                        <input class="quizButton" type="button" value="Lägg till frågan i quizen" ng-click="AddQuestion()">
+                        <input id="addQuestionBtn" class="quizButton" type="button" value="Lägg till frågan i quizen" ng-click="AddQuestion()">
                     </form>
                 </article>
                 <div class="grid-5"><br /></div>
@@ -67,9 +67,15 @@
             <aside class="grid-20 färdigaSvar">
                 <label class="frågSida">Frågor</label>
                 <ul class="listaMedFrågor">
-                    <li ng-repeat="item in Answers">{{item.q}}</li>
+                    <li ng-repeat="item in question">
+                        <span>
+                        <label class="fråga">{{item}}
+                        </label>
+                        <input type="button" value="X" id="removeQuestion" ng-click="RemoveQuestion(item)"/>
+                    </span>
+                   </li>
                 </ul>
-                <input class="slutför" type="button" value="Slutför" ng-click="SendQuizData()" />
+                <input id="saveQuizBtn" class="slutför" type="button" value="Slutför" ng-click="SendQuizData()" />
             </aside>
 
         </section>

@@ -185,3 +185,17 @@ input{
     min-height: 540px;
 }
 
+#removeQuestion{
+    width: 20px;
+    height: 20px;
+    border-radius: 20px 20px;
+    color: red;
+    font-size: 12px;
+}
+.fråga{
+    width: 90%;
+    font-size: 12px;
+    overflow: hidden;
+    
+}
+   
