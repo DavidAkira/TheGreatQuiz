@@ -31,10 +31,10 @@ namespace TheGreatQuiz.Controllers
             var user = getUser.FetchUserFromQuizDb(email);
             if (user.Password == password)
             {
-                if (user.IsAdmin == 1)
+                if (user.IsAdmin == true)
                 {
                     return RedirectToAction("AdminHome", "Home");
-                }else if (user.IsAdmin == 0)
+                }else if (user.IsAdmin ==false)
                 {
                     return RedirectToAction("Portal", "Home");
                 }             

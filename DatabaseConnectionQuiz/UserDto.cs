@@ -11,9 +11,9 @@ namespace DatabaseConnectionQuiz
         public int Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public int IsAdmin { get; set; }
+        public bool IsAdmin { get; set; }
 
-        public UserDto(int id, string email, string password, int isAdmin)
+        public UserDto(int id, string email, string password, bool isAdmin)
         {
             this.Id = id;
             this.Email = email;
