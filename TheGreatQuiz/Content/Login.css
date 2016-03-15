@@ -5,6 +5,9 @@
 *{
 	font-family: Verdana, sans-serif;
 }
+a{ text-decoration: none;
+    color: white;
+}
 h1 {
     font-family: Serif;
     font-size: 50px;
@@ -22,16 +25,22 @@ h3 {
     font-size: 18px;
     margin-bottom: 5px;
 }
-input.logRegButton{
-	font-size: 115%;
-	cursor: pointer;
-	border-style:none;
-	height: 40px;
-	width: 140px;
-	color: white;
-	background-color: #FFAD00;
-    border-radius: 10px;
+.logRegButton{
+	display: inline-block;
+    padding: 10px;
+    margin-left: 8px;
+    margin-top: 10px;
+	font-size: 20px;
+    background-color: #FFAD00;
+    border-color: #FFAD00;
+    border-style: solid;
+    border-radius: 4px;
+    color: white;
 }
+.logRegButton:hover{
+	background-color: #D98906;
+}
+
 header.mainHeader{
 
     position: fixed;
@@ -52,20 +61,6 @@ div .inputBox:focus{
 	border-color: #FFAD00;
 }
 
-input .logRegButton{
-	font-size: 100%;
-	cursor: pointer;
-	border-style:none;
-	height: 45px;
-	width: 160px;
-	color: white;
-	background-color: #FFAD00;
-    text-align: center;
-}
-
-input.logRegButton:hover{
-	background-color: #D98906;
-}
 
 div .registerWindow{
     text-align: center;
