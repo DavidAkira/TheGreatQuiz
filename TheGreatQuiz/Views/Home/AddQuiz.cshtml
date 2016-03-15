@@ -18,24 +18,25 @@
 </head>
 <body>
 @RenderPage("../Shared/Header.cshtml")
-<div class="grid-container">
+    <section id="shrink">
+    <div class="grid-container">
 
-    <section class="grid-parent grid-100" ng-controller="myController">
+        <section class="grid-parent grid-100" ng-controller="myController">
 
         <div class="grid-5"><br/>
         </div>
-        <article class="quizPage grid-70 grid-parent">
+            <article class="quizPage grid-70 grid-parent">
 
             <div class="grid-5"><br/>
             </div>
 
-            <article class="questionPage grid-90">
-                <header class="quizHeader">
-                    <form>
+                <article class="questionPage grid-90">
+                    <header class="quizHeader">
+                        <form>
                         <label class="tittelRubrik">Titel</label>
-                        <input class="tittel" type="text" placeholder="Ge din quiz ett lämpligt namn:" ng-model="Quiz.Title" id="quizTitle"/>
-
-                        <section class="grid-100 grid-parent">
+                        <input class="tittel" type="text" placeholder="Ge testet ett lämpligt namn:" ng-model="Quiz.Title" id="quizTitle"/>
+                        
+                        <section class="grid-100 grid-parent">                          
                             <label class="grid-20 dateLabel">startdatum</label>
                             <div class="grid-10"><br/>
                             </div>
@@ -44,35 +45,33 @@
                             </div>
                             <label class="grid-20 timeLabel">tidsbegränsning (minuter)</label>
                         </section>
-                        <section>
-                            <input class="grid-25 pickDate" id="startDate" type="date"/>
-                            <div class="grid-5"><br/>
-                            </div>
-                            <input class="grid-25 pickDate" id="lastDate" type="date"/>
-                            <div class="grid-5"><br/>
-                            </div>
-                            <input class="grid-25 pickminits" min="10" max="180" id="minits" type="number"/>
-                        </section>
-                    </form>
-                </header>
-                <div class="mainPage"></div>
-                <form>
+                         <section>
+                             <input ng-model="DateAndTime.firstDate" class="grid-25 pickDate" id="startDate" type="date" />
+                             <div class="grid-5"><br /></div>
+                             <input ng-model="DateAndTime.lastDate" class="grid-25 pickDate" id="lastDate" type="date" />
+                             <div class="grid-5"><br /></div>
+                             <input ng-model="DateAndTime.time" class="grid-25 pickminits" min="10" max="180" id="minits" type="number" />
+                        </section>                                                                 
+                       </form>
+                    </header>
+                    <div class="mainPage"></div>
+                    <form>
 
-                    <label class="questionLabel">Fråga</label>
-                    <textarea class="question" placeholder="Skriv in din fråga här..." ng-model="Answers.q"></textarea>
+                        <label class="questionLabel">Fråga</label>
+                        <textarea class="question" placeholder="Skriv in din fråga här..." ng-model="Answers.q"></textarea>
 
-                    <label class="radioRubrik">Kryssa i rätt alternativ<br/></label>
-                    <span>
+                    <label class="radioRubrik">Markera rätt svarsalternativ<br/></label>
+                        <span>
                             <input class="0 svarsAlternativ queAnswer" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a0" />
                             <input class="radio 0" type="radio" name="rättSvar" ng-model="RightAnswer" ng-value="0" />
                         </span>
 
-                    <span>
+                        <span>
                             <input class="1 svarsAlternativ queAnswer" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a1" />
                             <input class="radio 1" type="radio" name="rättSvar" ng-model="RightAnswer" ng-value="1" />
                         </span>
 
-                    <span>
+                        <span>
                             <input class="2 svarsAlternativ queAnswer" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a2" />
                             <input class="radio 2" type="radio" ng-model="RightAnswers" ng-value="2" name="rättSvar" />
                         </span>
@@ -80,35 +79,35 @@
 
                     <input id="addQuestion" type="button" value="+"/>
                     <br/>
-                    <input id="addQuestionBtn" class="quizButton" type="button" value="Lägg till frågan i quizen" ng-click="AddQuestion()">
-                </form>
-            </article>
+                        <input id="addQuestionBtn" class="quizButton" type="button" value="Lägg till fråga" ng-click="AddQuestion()">
+                    </form>
+                </article>
             <div class="grid-5"><br/>
             </div>
-        </article>
+            </article>
 
-        <div class="space grid-5"><br/>
+        <div class="grid-5"><br/>
         </div>
 
-        <aside class="grid-20 färdigaSvar">
-            <label class="frågSida">Frågor</label>
-            <ul class="listaMedFrågor">
-                <li ng-repeat="item in question">
-                    <span>
+            <aside class="grid-20 färdigaSvar">
+                <label class="frågSida">Frågor</label>
+                <ul class="listaMedFrågor">
+                    <li ng-repeat="item in question">
+                        <span>
                         <label class="fråga">{{item}}
                         </label>
                         <input type="button" value="X" id="removeQuestion" ng-click="RemoveQuestion(item)"/>
                     </span>
-                </li>
-            </ul>
+                   </li>
+                </ul>
             <input id="saveQuizBtn" class="slutför" type="button" value="Slutför" ng-click="SendQuizData()"/>
-        </aside>
+            </aside>
 
-    </section>
+        </section>
 
 
-</div>
-
+    </div>
+        </section>
 </body>
     @RenderPage("../Shared/Footer.cshtml")
 </html>

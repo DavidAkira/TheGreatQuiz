@@ -16,6 +16,7 @@ app.controller("myController", function ($scope, $rootScope) {
         quizData[0][0] = elQuizTitle.value;
     });
 
+    $scope.DateAndTime = { firstDate: "", lastDate: "", time: 0 }
     $scope.AddQuestion = function () {
         $rootScope.question.push($scope.Answers.q);
         var rightAnswer;
@@ -39,7 +40,11 @@ app.controller("myController", function ($scope, $rootScope) {
             }
 
         });
-        alert($('#firstDate').val());
+        alert($scope.DateAndTime.firstDate);
+        alert($scope.DateAndTime.lastDate);
+        alert($scope.DateAndTime.time);
+        
+        
         quizData.push([$scope.Answers.q, rightAnswer, answers[0], answers[1], answers[2], answers[3], answers[4]]);
 
         console.log(quizData);
