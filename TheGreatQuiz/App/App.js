@@ -78,7 +78,9 @@ app.controller('sendDataController', ['$http', '$scope', function ($http, $scope
     //    }
     
 
-    var jsonData = JSON.stringify({ arr: arr});
+    var jsonData = JSON.stringify({ arr: arr });
+
+    console.log(jsonData);
 
     $scope.sendDataFunc = function () {
         console.log(123);
