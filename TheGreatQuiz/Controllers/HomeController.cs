@@ -12,10 +12,18 @@ namespace TheGreatQuiz.Controllers
     {
         public ActionResult AddQuiz()
         {
+            if (Session["userId"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
         public ActionResult AdminHome()
         {
+            if (Session["userId"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
@@ -28,14 +36,16 @@ namespace TheGreatQuiz.Controllers
         public ActionResult Index(string email, string password)
         {
             var getUser = new GetUser();
-            var user = getUser.FetchUserFromQuizDb(email);
-            if (user.Password == password)
+            var currentUser = getUser.FetchUserFromQuizDb(email);
+            if (currentUser.Password == password)
             {
-                if (user.IsAdmin == 1)
+                if (currentUser.IsAdmin)
                 {
+                    Session["userId"] = currentUser.Id;
                     return RedirectToAction("AdminHome", "Home");
-                }else if (user.IsAdmin == 0)
+                }else if (currentUser.IsAdmin == false)
                 {
+                    Session["userId"] = currentUser.Id;
                     return RedirectToAction("Portal", "Home");
                 }             
             }
@@ -61,6 +71,10 @@ namespace TheGreatQuiz.Controllers
 
         public ActionResult Portal()
         {
+            if (Session["userId"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             var model = new QuizzesView();
             var quizzesDtos = new GetQuizName().FetchInfoFromQuizDb();
             List<Quizzes> tmpQuizzes = new List<Quizzes>();
@@ -108,7 +122,7 @@ namespace TheGreatQuiz.Controllers
 
 
         public ActionResult QuizPage(int Id)
-                    {
+        {
             quizIdHolder.quizId = Id;
             return View();
         }
