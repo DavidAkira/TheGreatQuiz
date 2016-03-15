@@ -38,11 +38,11 @@
                             <label class="grid-20 timeLabel">tidsbegränsning (minuter)</label>
                         </section>
                          <section>
-                             <input class="grid-25 pickDate" id="startDate" type="date" />
+                             <input ng-model="DateAndTime.firstDate" class="grid-25 pickDate" id="startDate" type="date" />
                              <div class="grid-5"><br /></div>
-                             <input class="grid-25 pickDate" id="lastDate" type="date" />
+                             <input ng-model="DateAndTime.lastDate" class="grid-25 pickDate" id="lastDate" type="date" />
                              <div class="grid-5"><br /></div>
-                             <input class="grid-25 pickminits" min="10" max="180" id="minits" type="number" />
+                             <input ng-model="DateAndTime.time" class="grid-25 pickminits" min="10" max="180" id="minits" type="number" />
                         </section>                                                                 
                        </form>
                     </header>
