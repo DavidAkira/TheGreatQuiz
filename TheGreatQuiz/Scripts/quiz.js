@@ -51,9 +51,12 @@
             }
             return 0;
         }
+        $scope.exitQuiz = function() {
+            $window.location.path("/Home/Portal.cshtml");
+        }
 
 
     }]);
 
 
-})();
+})();2
