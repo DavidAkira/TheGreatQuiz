@@ -128,6 +128,31 @@ namespace DatabaseConnectionQuiz
         }
 
 
+        public void BlockUserFromQuiz(int userId, int quizId)
+        {
+            SqlConnection sqlcon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
+            string sqlInsert = "UPDATE UsersQuizzes SET Finished=1 WHERE UQ_userId=" + userId + "AND UQ_quizId=" + quizId;
+            SqlCommand sqlCom = new SqlCommand(sqlInsert, sqlcon);
+
+            try
+            {
+                sqlcon.Open();
+                sqlCom.ExecuteNonQuery();
+                sqlcon.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            finally
+            {
+                sqlCom.Dispose();
+                sqlcon.Dispose();
+            }
+        }
+
+
 
     }
 }

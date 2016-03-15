@@ -44,31 +44,31 @@ namespace TheGreatQuiz.Controllers
                     Session["userId"] = currentUser.Id;
                     return RedirectToAction("AdminHome", "Home");
                 }
-                else if (user.IsAdmin == false)
+                else if (currentUser.IsAdmin == false)
                 {
                     Session["userId"] = currentUser.Id;
                     return RedirectToAction("Portal", "Home");
-                }             
+                }
             }
             return View();
         }
 
         public ActionResult Register()
         {
-           
+
             return View();
         }
 
-		[HttpPost]
-		public JsonResult RegisterUser(string[] arr)
-		{
+        [HttpPost]
+        public JsonResult RegisterUser(string[] arr)
+        {
 
             var dbUpdate = new UpdateDatabase();
 
             dbUpdate.AddUser(arr[0], arr[1]);
 
             return Json("HEJ!", JsonRequestBehavior.AllowGet);
-		}
+        }
 
         public ActionResult Portal()
         {
@@ -119,10 +119,12 @@ namespace TheGreatQuiz.Controllers
             var usersIds = getUser.FetchUserIds();
             var updateDatabase = new UpdateDatabase();
 
-            foreach (var userId in usersIds)
-            {
-                updateDatabase.AddUsersToQuiz(userId, 4);
-            }
+            updateDatabase.BlockUserFromQuiz(2, 8);
+
+            //foreach (var userId in usersIds)
+            //{
+            //    updateDatabase.AddUsersToQuiz(userId, 4);
+            //}
 
 
 
@@ -132,14 +134,24 @@ namespace TheGreatQuiz.Controllers
             return View();
         }
 
-		public ActionResult TestHeader()
-		{
-			return View();
-		}
+        public ActionResult TestHeader()
+        {
+            return View();
+        }
 
 
         public ActionResult QuizPage(int Id)
-                    {
+        {
+
+            var getQuizStatus = new GetQuizStatus();
+
+            bool quizStatus = getQuizStatus.FetchUserQuizStatus((int)Session["userId"], Id);
+
+            if (quizStatus)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             quizIdHolder.quizId = Id;
             return View();
         }
