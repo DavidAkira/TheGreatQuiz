@@ -129,17 +129,17 @@ namespace TheGreatQuiz.Controllers
         }
 
         [HttpPost]
-        public JsonResult angularTestData(string[][] arr)
+        public JsonResult angularTestData(string[][] quizData)
         {
             var updDB = new UpdateDatabase();
-            updDB.CreateQuiz(arr[0][0]);
+            updDB.CreateQuiz(quizData[0][0]);
 
             var getQuiz = new GetQuizId();
             int quizID = getQuiz.GetLatestQuizId();
 
-            for (int i = 1; i < arr.Length; i++)
+            for (int i = 1; i < quizData.Length; i++)
             {
-                updDB.CreateQuestionsForQuiz(quizID, arr[i][0], arr[i][1], arr[i][2], arr[i][3], arr[i][4], arr[i][5], arr[i][6]);
+                updDB.CreateQuestionsForQuiz(quizID, quizData[i][0], quizData[i][1], quizData[i][2], quizData[i][3], quizData[i][4], quizData[i][5], quizData[i][6]);
             }
 
             return Json("HEJ!", JsonRequestBehavior.AllowGet);
