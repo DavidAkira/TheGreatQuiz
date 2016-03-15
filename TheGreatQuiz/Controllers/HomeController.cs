@@ -145,6 +145,9 @@ namespace TheGreatQuiz.Controllers
             return Json("HEJ!", JsonRequestBehavior.AllowGet);
         }
 
-
+		public ActionResult About()
+		{
+			return View();
+		}
     }
 }
