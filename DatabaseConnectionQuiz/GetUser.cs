@@ -26,7 +26,7 @@ namespace DatabaseConnectionQuiz
                         user.Id = (int)rdr["Id"];
                         user.Email = (string)rdr["Email"];
                         user.Password = (string)rdr["Password"];
-                        user.IsAdmin = (int)rdr["IsAdmin"];
+                        //user.IsAdmin = (int)rdr["IsAdmin"];
 
                     }
                     sqlCon.Close();
