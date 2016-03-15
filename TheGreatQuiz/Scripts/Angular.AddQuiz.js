@@ -8,16 +8,12 @@ app.controller("myController", function ($scope, $rootScope) {
 
     $scope.RightAnswer = 0;
 
-    var quizData = [];
+    var quizData = [[]];
     var elQuizTitle = document.getElementById('quizTitle');
 
     elQuizTitle.addEventListener('blur', function () {
-        if (quizData[0] === undefined) {
-            quizData.push([elQuizTitle.value]);
-        }
-        else {
-            quizData[0][0] = elQuizTitle.value;
-        }
+        //fix error controll
+        quizData[0][0] = elQuizTitle.value;
     });
 
     $scope.AddQuestion = function () {
@@ -55,6 +51,7 @@ app.controller("myController", function ($scope, $rootScope) {
         $rootScope.question.splice(questionIndex, 1);
         console.log(quizData);
     }
+
 
 
     $scope.SendQuizData = function () {
