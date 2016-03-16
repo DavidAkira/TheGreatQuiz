@@ -12,7 +12,7 @@ namespace TheGreatQuiz.Controllers
     {
         public ActionResult AddQuiz()
         {
-            if (Session["userId"] == null && (int)Session["userId"] != 1)
+            if (Session["userId"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
