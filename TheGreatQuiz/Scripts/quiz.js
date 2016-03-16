@@ -4,6 +4,8 @@
 
     app.controller("QuizController", ["$scope", "$http", function($scope, $http) {
 
+        var quizTimer = 0;
+
         $scope.score = 0;
         $scope.activeQuestion = -1;
         $scope.activeQuestionAnswered = 0;
@@ -12,6 +14,12 @@
         $http.get("/Home/QuestionsTest").success(function (quizData) {
             $scope.myQuestions = quizData;
             $scope.totalQuestions = quizData.length;
+        });
+
+        $http.get("/Home/LoadQuizData").success(function (data) {
+            console.log(data);
+            $scope.quizTitle = data.Name;
+            quizTimer = data.QuizTimer;
         });
 
         $scope.selectAnswer = function(questionIndex, answerIndex) {
@@ -68,7 +76,7 @@
 
         $("#start-btn").click(function () {
             console.log("kom en bit");
-            startTimer(0, 5, function () {
+            startTimer(quizTimer, 0, function () {
                 blockUserFromQuiz();
                 stopTimer();
                 alert("Testet är slut");

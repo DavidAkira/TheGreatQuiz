@@ -18,7 +18,7 @@ namespace DatabaseConnectionQuiz
 
             SqlCommand cmd = new SqlCommand("SELECT * FROM Quizzes", sqlCon);
 
-            
+
             sqlCon.Open();
             try
             {
@@ -49,5 +49,45 @@ namespace DatabaseConnectionQuiz
             }
 
         }
+
+        public QuizzesDto FetchQuizInfo(int Id)
+        {
+            var sqlCon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
+
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Quizzes WHERE Id =" + Id, sqlCon);
+
+
+            sqlCon.Open();
+            try
+            {
+                var quiz = new QuizzesDto();
+                using (SqlDataReader rdr = cmd.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+
+                        quiz.Id = (int)rdr["Id"];
+                        quiz.Name = rdr["Name"].ToString();
+                        quiz.Created = (DateTime)rdr["Created"];
+                        quiz.Enddate = (DateTime)rdr["Enddate"];
+                        quiz.StartDate = (DateTime)rdr["Startdate"];
+                        quiz.QuizTimer = (int)rdr["quizTimer"];
+
+                    }
+                    sqlCon.Close();
+                    rdr.Close();
+                    return quiz;
+                }
+            }
+            finally
+            {
+                sqlCon.Dispose();
+                cmd.Dispose();
+            }
+
+        }
+
+
     }
 }

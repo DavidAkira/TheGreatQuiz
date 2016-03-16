@@ -38,7 +38,7 @@
                     <header class="quizHeader">
                         <form>
                         <label class="tittelRubrik">Titel</label>
-                        <input class="tittel" type="text" placeholder="Ge testet ett lämpligt namn:" ng-model="Quiz.Title" id="quizTitle"/>
+                        <input required="required" class="tittel" type="text" placeholder="Ge testet ett lämpligt namn:" ng-model="Quiz.Title" id="quizTitle"/>
                         
                         <section class="grid-100 grid-parent">                          
                             <label class="grid-20 dateLabel">startdatum</label>
@@ -50,16 +50,17 @@
                             <label class="grid-20 timeLabel">tidsbegränsning (minuter)</label>
                         </section>
                          <section>
-                             <input ng-model="DateAndTime.firstDate" class="grid-25 pickDate" id="startDate" type="date" />
+                             <input required="required" ng-model="DateAndTime.firstDate" class="grid-25 pickDate" id="startDate" type="date" />
                              <div class="grid-5"><br /></div>
-                             <input ng-model="DateAndTime.lastDate" class="grid-25 pickDate" id="lastDate" type="date" />
+                             <input required="required" ng-model="DateAndTime.lastDate" class="grid-25 pickDate" id="lastDate" type="date" />
                              <div class="grid-5"><br /></div>
-                             <input ng-model="DateAndTime.time" class="grid-25 pickminits" min="10" max="180" id="minits" type="number" />
-                        </section>                                                                 
+                             <input required="required" ng-model="DateAndTime.time" class="grid-25 pickminits" min="10" max="180" id="minits" type="number" />
+                        </section>
+                            <input type="submit" value="fortsätt" class="continueButton"/>                                                                 
                        </form>
                     </header>
-                    <div class="mainPage"></div>
-                    <form>
+                   <!-- <div class="mainPage"></div> -->
+                    <form class="testPage">
 
                         <label class="questionLabel">Fråga</label>
                         <textarea class="question" placeholder="Skriv in din fråga här..." ng-model="Answers.q"></textarea>

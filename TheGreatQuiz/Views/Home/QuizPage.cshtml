@@ -28,7 +28,7 @@
             <div class="quizWindow grid-60 prefix-20 tablet-grid-90 tablet-prefix-5">
 
                 <section id="quizMain" ng-controller="QuizController">
-                    <h1>Newton</h1><br />
+                    <h1>{{ quizTitle }}</h1><br />
 
                     <article class="progress">
                         <div class="{{ ($index === activeQuestion) ? 'on' : 'off' }}
