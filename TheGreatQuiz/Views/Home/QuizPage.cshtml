@@ -73,7 +73,7 @@
                         </div>
                     </article>
                     <article class="result {{ (totalQuestions === activeQuestion) ? 'active' : 'inactive'}}">
-                        <h3 ng-hide="showAnswers===true">Din lärare kommer återkomma med ditt resultat när hen behagar.</h3><br />
+                        <h3 ng-hide="showAnswers===true">Din lärare kommer återkomma med ditt resultat när denne behagar.</h3><br />
                         <p id="resultShowOrNot" ng-show="showAnswers===true">Ditt resultat: <br/>Du svarade {{percentage}}% korrekt, {{score}} rätt utav {{totalQuestions}} frågor</p><br />
                         <p class="btn" id="endQuizBtn">@Html.ActionLink("Avsluta", "Portal", "Home")</p>
                     </article>

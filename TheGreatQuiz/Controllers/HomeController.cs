@@ -16,6 +16,10 @@ namespace TheGreatQuiz.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+            if (Session["userId"] == null || (bool)Session["admin"] != true)
+            {
+                return RedirectToAction("Portal", "Home");
+            }
             return View();
         }
         public ActionResult AdminHome()
@@ -23,6 +27,10 @@ namespace TheGreatQuiz.Controllers
             if (Session["userId"] == null)
             {
                 return RedirectToAction("Index", "Home");
+            }
+            if (Session["userId"] == null || (bool)Session["admin"] != true)
+            {
+                return RedirectToAction("Portal", "Home");
             }
             return View();
         }
@@ -46,10 +54,10 @@ namespace TheGreatQuiz.Controllers
                     return RedirectToAction("AdminHome", "Home");
                 }
                 
-
                 else if (currentUser.IsAdmin == false)
                 {
                     Session["userId"] = currentUser.Id;
+                    Session["admin"] = false;
                     return RedirectToAction("Portal", "Home");
                 }
             }
@@ -255,11 +263,14 @@ namespace TheGreatQuiz.Controllers
         }
         public ActionResult ResultPage()
         {
-            
-            if (Session["userId"] == null && (bool)(Session["admin"]) != true)
+            if (Session["userId"] == null)
             {
                 return RedirectToAction("Index", "Home");
+            } if (Session["userId"] == null || (bool)Session["admin"] != true)
+            {
+                return RedirectToAction("Portal", "Home");
             }
+                
             return View();
         }
     }
