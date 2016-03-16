@@ -38,14 +38,24 @@ function registerValidation(email, firstPassword, secondPassword) {
 
                 function OnErrorCall(response) { console.log(error); }
             });
-
+            return true;
     }
 
-}
+    return false;
 
-elCompletRegBtn.addEventListener('click', function () {
-    registerValidation(elEmail.value, elPsw.value, elSecondPsw.value);
-}, false);
+}
+$(".completRegistrationButton").on("click", function (event) {
+    event.preventDefault();
+    if (registerValidation(elEmail.value, elPsw.value, elSecondPsw.value)) {
+        document.location.href = "Index";
+    }
+});
+
+//elCompletRegBtn.addEventListener("submit", function (event) {
+//    $(".completRegistrationButton").submit(false);
+//    registerValidation(elEmail.value, elPsw.value, elSecondPsw.value);
+//    document.location.href = "Index";
+//}, false);
 
 
 
