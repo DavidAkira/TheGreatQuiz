@@ -13,8 +13,6 @@ app.controller("myController", function ($scope, $rootScope) {
     var quizData = [[]];
     var elQuizTitle = document.getElementById('quizTitle');
 
-    var noEmptyAnswers = false;
-    var noEmptyQuestion = false;
 
     elQuizTitle.addEventListener('blur', function () {
         //fix error controll
@@ -23,6 +21,9 @@ app.controller("myController", function ($scope, $rootScope) {
 
     $scope.DateAndTime = { firstDate: "", lastDate: "", time: 0 }
     $scope.AddQuestion = function () {
+
+        var noEmptyAnswers = false;
+        var noEmptyQuestion = false;
 
         var rightAnswer;
         var answers = ["", "", "", "", ""];
@@ -39,7 +40,7 @@ app.controller("myController", function ($scope, $rootScope) {
                 console.log("fel");
             }
             else {
-                answers[i] = this.value;
+                answers[i] = this.value
             }
 
         });
@@ -47,6 +48,7 @@ app.controller("myController", function ($scope, $rootScope) {
         //alert($scope.DateAndTime.lastDate);
         //alert($scope.DateAndTime.time);
 
+        console.log($(".question").val());
 
         if ($(".question").val() === "") {
             noEmptyQuestion = true;

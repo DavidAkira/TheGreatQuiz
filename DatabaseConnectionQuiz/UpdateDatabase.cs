@@ -25,7 +25,7 @@ namespace DatabaseConnectionQuiz
                 sqlCom.ExecuteNonQuery();
                 sqlcon.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 
             }
@@ -61,7 +61,7 @@ namespace DatabaseConnectionQuiz
                 sqlCom.ExecuteNonQuery();
                 sqlcon.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
@@ -88,7 +88,7 @@ namespace DatabaseConnectionQuiz
                 sqlCom.ExecuteNonQuery();
                 sqlcon.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
@@ -115,7 +115,7 @@ namespace DatabaseConnectionQuiz
                 sqlCom.ExecuteNonQuery();
                 sqlcon.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
@@ -140,7 +140,7 @@ namespace DatabaseConnectionQuiz
                 sqlCom.ExecuteNonQuery();
                 sqlcon.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
