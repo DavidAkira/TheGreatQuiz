@@ -28,7 +28,7 @@
                     <h3>Email</h3>
                     <div id="loginEmail" class="inputBox">@Html.TextBox("email")</div>
                     <h3>Lösenord</h3>
-                    <div id="loginPassword" class="inputBox">@Html.TextBox("password")</div><br>
+                    <div id="loginPassword" class="inputBox">@Html.Password("password")</div><br>
                     <div id="submitbtn">
                     <input type="submit" value="Logga in" class="logRegButton" id="loginButton" />
                     <p class="logRegButton" id="registerButton">@Html.ActionLink("Registrera", "Register", "Home")</p>                        

@@ -12,24 +12,26 @@
     <link rel="stylesheet" href="~/Content/unsemantic-grid-responsive-tablet.css">
 </head>
 <body class="loginBody">
-    <header class="mainHeader"></header>
-
-    <div class="grid-container">
-
-        <section class="grid-100 grid-parent">
-            <div class="loginWindow grid-60 prefix-20">
-                <h1>Välkommen</h1><br/>
-                <p>Detta är administratörsidan för lärare. <br/> 
-                Här kan man man skapa test till lyckligt ovetande studenter, samt pröva att göra skapade test.</p><br/>
-
-                <a class="btn" href="/Home/AddQuiz">Skapa ett test</a>
-                <a class="btn" href="/Home/Portal">Gör ett test</a>
-            </div>
-
-        </section>
-
-    </div>
+@RenderPage("../Shared/Header.cshtml")
 
 
+<div class="grid-container">
+
+    <section class="grid-100 grid-parent">
+        <div class="loginWindow grid-60 prefix-20">
+            <h1>Välkommen</h1><br/>
+            <p>Detta är administratörsidan för lärare. <br/>
+                Här kan man man skapa test till lyckligt ovetande studenter, samt pröva att göra skapade test.
+            </p><br/>
+
+            <a class="btn" href="/Home/AddQuiz">Skapa test</a>
+            <a class="btn" href="/Home/Portal">Utför test</a>
+        </div>
+
+    </section>
+
+</div>
+
+    @RenderPage("../Shared/Footer.cshtml")
 </body>
 </html>
