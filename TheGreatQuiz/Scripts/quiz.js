@@ -18,12 +18,11 @@
         });
 
         $http.get("/Home/LoadQuizData").success(function (data) {
-            console.log(data);
-            $scope.quizTitle = data.Name;            
+            
+            $scope.quizTitle = data.Name;             
             quizTimer = data.QuizTimer;
             $scope.showAnswers = data.ShowAnswers;
-
-
+            console.log(data);
         });
 
         $scope.selectAnswer = function(questionIndex, answerIndex) {

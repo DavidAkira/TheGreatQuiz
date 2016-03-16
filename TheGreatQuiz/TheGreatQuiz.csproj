@@ -247,6 +247,7 @@
     <Content Include="Views\Home\AddQuiz.cshtml" />
     <Content Include="Views\Home\AdminHome.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\ResultPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DatabaseConnectionQuiz\DatabaseConnectionQuiz.csproj">

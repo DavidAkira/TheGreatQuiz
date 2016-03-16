@@ -250,5 +250,13 @@ namespace TheGreatQuiz.Controllers
         {
             return View();
         }
+        public ActionResult ResultPage()
+        {
+            if (Session["userId"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
+        }
     }
 }
