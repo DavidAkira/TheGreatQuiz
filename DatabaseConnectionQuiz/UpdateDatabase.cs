@@ -100,7 +100,18 @@ namespace DatabaseConnectionQuiz
             }
         }
 
-        public void AddUsersToQuiz(int userId, int quizId)
+		public void BlockAllUsersFromQuiz(int quizId)
+		{
+			GetUser getUser = new GetUser();
+			var userIds = getUser.FetchUserIds();
+
+			foreach (var userId in userIds)
+			{
+				BlockUserFromQuiz(userId, quizId);
+			}
+		}
+
+		public void AddUsersToQuiz(int userId, int quizId)
         {
             SqlConnection sqlcon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
             string sqlInsert = "INSERT INTO UsersQuizzes(UQ_userId, UQ_quizId) VALUES(@param1,@param2)";
