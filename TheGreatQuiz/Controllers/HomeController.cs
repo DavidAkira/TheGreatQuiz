@@ -56,6 +56,7 @@ namespace TheGreatQuiz.Controllers
                 
                 else if (currentUser.IsAdmin == false)
                 {
+                    Session["admin"] = false;
                     Session["userId"] = currentUser.Id;
                     Session["admin"] = false;
                     return RedirectToAction("Portal", "Home");
