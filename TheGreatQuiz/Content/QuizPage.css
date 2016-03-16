@@ -11,6 +11,9 @@ a {
     color: white !important;
     text-decoration: none;
 }
+#resultShowOrNot {
+    display: none;
+}
 .quizWindow {
     position: relative;
     overflow: hidden;
