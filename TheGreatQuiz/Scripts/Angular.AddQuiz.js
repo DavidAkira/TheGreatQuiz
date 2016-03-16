@@ -13,6 +13,9 @@ app.controller("myController", function ($scope, $rootScope) {
     var quizData = [[]];
     var elQuizTitle = document.getElementById('quizTitle');
 
+    var noEmptyAnswers = false;
+    var noEmptyQuestion = false;
+
     elQuizTitle.addEventListener('blur', function () {
         //fix error controll
         quizData[0][0] = elQuizTitle.value;
@@ -20,7 +23,7 @@ app.controller("myController", function ($scope, $rootScope) {
 
     $scope.DateAndTime = { firstDate: "", lastDate: "", time: 0 }
     $scope.AddQuestion = function () {
-        $rootScope.question.push($scope.Answers.q);
+
         var rightAnswer;
         var answers = ["", "", "", "", ""];
 
@@ -30,24 +33,36 @@ app.controller("myController", function ($scope, $rootScope) {
             }
         });
 
-        //console.log(rightAnswer);
-
         $(".queAnswer").each(function (i) {
             if (!this.value) {
-                //Print error
-
+                noEmptyAnswers = true;
+                console.log("fel");
             }
             else {
                 answers[i] = this.value;
             }
 
         });
-        alert($scope.DateAndTime.firstDate);
-        alert($scope.DateAndTime.lastDate);
-        alert($scope.DateAndTime.time);
+        //alert($scope.DateAndTime.firstDate);
+        //alert($scope.DateAndTime.lastDate);
+        //alert($scope.DateAndTime.time);
+
+
+        if ($(".question").val() === "") {
+            noEmptyQuestion = true;
+        }
+
+     
+        if (!noEmptyAnswers && !noEmptyQuestion) {
+            quizData.push([$scope.Answers.q, rightAnswer, answers[0], answers[1], answers[2], answers[3], answers[4]]);
+            $rootScope.question.push($scope.Answers.q);
+        }
+        else {
+            alert("Fyll i alla svar och frågan");
+        }
         
         
-        quizData.push([$scope.Answers.q, rightAnswer, answers[0], answers[1], answers[2], answers[3], answers[4]]);
+        
 
         console.log(quizData);
     }
@@ -63,6 +78,7 @@ app.controller("myController", function ($scope, $rootScope) {
 
 
     $scope.SendQuizData = function () {
+
         console.log(123);
         var jsonData = JSON.stringify({ quizData: quizData });
         console.log(jsonData);

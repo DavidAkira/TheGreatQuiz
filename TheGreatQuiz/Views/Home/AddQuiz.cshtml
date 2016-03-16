@@ -16,8 +16,12 @@
     <link rel="stylesheet" href="~/Content/unsemantic-grid-responsive-tablet.css">
 
 </head>
+
 <body>
 @RenderPage("../Shared/Header.cshtml")
+    <div id="backButton">
+        <p class="regBackButton">@Html.ActionLink("Tillbaka", "AdminHome", "Home")</p>
+    </div>
     <section id="shrink">
     <div class="grid-container">
 
