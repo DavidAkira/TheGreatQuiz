@@ -19,7 +19,7 @@
         if (ifInputIsInitialized) {
             val = $('.question').val();
             if (val != "") {
-                alert("alla fält ifyllda");
+                //alert("alla fält ifyllda");
 
             }
         }
