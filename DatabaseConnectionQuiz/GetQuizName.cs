@@ -73,6 +73,7 @@ namespace DatabaseConnectionQuiz
                         quiz.Enddate = (DateTime)rdr["Enddate"];
                         quiz.StartDate = (DateTime)rdr["Startdate"];
                         quiz.QuizTimer = (int)rdr["quizTimer"];
+                        quiz.ShowAnswers = (bool)rdr["ShowAnswers"];
 
                     }
                     sqlCon.Close();
