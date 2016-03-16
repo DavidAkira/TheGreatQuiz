@@ -51,30 +51,36 @@
 
                               <div class="grid-5"><br/>
                               </div>
-
                             <section class="grid-25 tablet-grid-100">                                                           
                             <label class="dateLabel">slutdatum</label>
                              <input required="required" ng-model="DateAndTime.lastDate" class="pickDate" id="lastDate" type="date" />                             
                             </section> 
                                 <div class="grid-5"><br />
                                </div>
-                            <section class="grid-25 tablet-grid-100">
-                                <label class="timeLabel">tidsbegränsning (minuter)</label>
+                            <section class="grid-30 tablet-grid-100">
+                                <label class="timeLabel">tidsbegränsning</label>
+                                <span>
                                 <input required="required" ng-model="DateAndTime.time" class="pickminits" min="10" max="180" id="minits" type="number" />
-                            </section>                           
-                                                     
-                            <label>visa svar efter avslutat test</label>
-                            <input type="checkbox" id="showAnswersCheckbox" />
+                                    <label class="timeInMinits">(minuter)</label>
+                                </span>
+                            </section>    
+                               <div class="grid-100 spaceBetweenInput"></div>
+                               <span class="grid-100">
+                                <label class="labelForCheckbox">visa svar efter avslutat test</label>
+                                <input type="checkbox" id="showAnswersCheckbox"/>
+                               </span>                  
                             <input type="submit" value="fortsätt" class="continueButton"/> 
                             </article>                                                                
                        </form>
                     </header>
+
                     <form class="testPage">
-                        <label class="nameForTest">{{Quiz.Title}}</label>
+                        <label class="nameForTest">Titel: {{Quiz.Title}}</label>
                         <div class="horizontalLine"></div> 
                         <label class="questionLabel">Fråga</label>
                         <textarea class="question" placeholder="Skriv in din fråga här..." ng-model="Answers.q"></textarea>
 
+                        <label class="errorLabel">OBS! fråga samt svar måste fyllas i</label>
                     <label class="radioRubrik">Markera rätt svarsalternativ<br/></label>
                         <span>
                             <input class="0 svarsAlternativ queAnswer" type="text" placeholder="Skriv in ett svar här..." ng-model="Answers.a0" />
@@ -106,6 +112,7 @@
 
             <aside>  
                 <div class="grid-20 färdigaSvar">
+                <div class="grid-100 spaceBetweenInput"></div>
                 <label class="frågSida">Frågor</label>
                 <ul class="listaMedFrågor">
                     <li ng-repeat="item in question">

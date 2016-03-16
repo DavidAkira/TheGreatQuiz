@@ -73,7 +73,6 @@ app.controller("myController", function ($scope, $rootScope, $window) {
         }
 
         var UpdateInnput = function(){
-            alert("innan");
             $(".queAnswer").val('');
             $(".question").val('');
         }
@@ -81,9 +80,10 @@ app.controller("myController", function ($scope, $rootScope, $window) {
             quizData.push([$scope.Answers.q, rightAnswer, answers[0], answers[1], answers[2], answers[3], answers[4]]);
             $rootScope.question.push($scope.Answers.q);
             UpdateInnput();
+            $('.errorLabel').hide();
         }
         else {
-            alert("Fyll i alla svar och frågan");
+            $('.errorLabel').show();
         }
         
         
