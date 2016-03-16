@@ -72,7 +72,10 @@ namespace TheGreatQuiz.Controllers
 
         public ActionResult Portal()
         {
-            if (Session["userId"] == null)
+
+
+
+			if (Session["userId"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -99,7 +102,7 @@ namespace TheGreatQuiz.Controllers
 
 					if (!getQuizStatus.FetchUserQuizStatus((int)Session["userId"], newMod.Id))
 					{
-						model.ActiveQuizzes.Add(newMod);
+						model.ActiveQuizzes.Add(newMod); 
 					}
 					else
 					{
@@ -108,20 +111,24 @@ namespace TheGreatQuiz.Controllers
                 }
             }
 
+			var tmp = from f in model.ActiveQuizzes
+									 where f.Enddate < DateTime.Now
+									 select f;
+			var outOfDateQuizzes = tmp.ToList();
 
+			var updateDatabase = new UpdateDatabase();
 
-            //var tmpActiveQuizzes = from f in tmpQuizzes
-            //                       where f.Enddate > DateTime.Now
-            //                       select f;
-            //model.ActiveQuizzes = tmpActiveQuizzes.ToList();
+			foreach (var quiz in outOfDateQuizzes)
+			{
+				updateDatabase.BlockAllUsersFromQuiz(quiz.Id);
+			}
 
+			tmp = from f in model.ActiveQuizzes
+				  where f.StartDate >= DateTime.Now
+				  select f;
+			model.ActiveQuizzes = tmp.ToList();
 
-            //var tmpFinishedQuizzes = from f in tmpQuizzes
-            //                         where f.Enddate < DateTime.Now
-            //                         select f;
-            //model.FinishedQuizzes = tmpFinishedQuizzes.ToList();
-
-            return View(model);
+			return View(model);
         }
 
         public ActionResult Test()

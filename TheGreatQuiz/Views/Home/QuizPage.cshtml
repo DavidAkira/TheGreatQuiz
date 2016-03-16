@@ -38,7 +38,7 @@
                     </article>
 
                     <article class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active' }}">
-                        <h2>Välkommen till prov i</h2><br />
+                        <h2>Välkommen till prov i {{ quizTitle }}</h2><br />
                         <p>Tryck på start för att börja, en timer kommer dyka upp vid nedre delen av sidan som visar hur mycket tid du har kvar att slutföra provet</p><br />
                         <p class="btn" id="start-btn" ng-click="activeQuestion = 0">Start!</p>
                     </article>
@@ -74,7 +74,7 @@
                     </article>
                     <article class="result {{ (totalQuestions === activeQuestion) ? 'active' : 'inactive'}}">
                         <h3>Resultat</h3><br />
-                        <p>Du svarade {{percentage}}% korrekt, {{score}} rätt utav {{totalQuestions}} frågor</p><br />
+                        <p id="resultShowOrNot" ng-show="showAnswers === true">Du svarade {{percentage}}% korrekt, {{score}} rätt utav {{totalQuestions}} frågor</p><br />
                         <p class="btn" id="endQuizBtn">@Html.ActionLink("Avsluta", "Portal", "Home")</p>
                     </article>
                 </section>
