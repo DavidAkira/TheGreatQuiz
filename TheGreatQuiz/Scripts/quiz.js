@@ -76,9 +76,35 @@
                 console.log(data);
             });
         }
+        var UpdateUserScore = function () {
+            var arr = []
+            arr[0] = $scope.score;
+            arr[1] = $scope.totalQuestions;
+
+            var jsonData = JSON.stringify({ arr: arr });
+
+            $.ajax({
+                type: "POST",
+                url: "/Home/QuizEndUpdateScore",
+                data: jsonData,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                },
+                error: OnErrorCall
+            });
+
+            //function OnSuccess(response) {
+            //    console.log(response);
+            //}
+
+            function OnErrorCall(response) { console.log(error); }
+        }
 
         $('#endQuizBtn').click(function () {
             blockUserFromQuiz();
+            UpdateUserScore();
         });
 
         $("#start-btn").click(function () {

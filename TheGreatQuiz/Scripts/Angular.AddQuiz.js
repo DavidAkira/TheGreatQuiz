@@ -72,13 +72,18 @@ app.controller("myController", function ($scope, $rootScope, $window) {
             noEmptyQuestion = true;
         }
 
-     
+        var UpdateInnput = function(){
+            $(".queAnswer").val('');
+            $(".question").val('');
+        }
         if (!noEmptyAnswers && !noEmptyQuestion) {
             quizData.push([$scope.Answers.q, rightAnswer, answers[0], answers[1], answers[2], answers[3], answers[4]]);
             $rootScope.question.push($scope.Answers.q);
+            UpdateInnput();
+            $('.errorLabel').hide();
         }
         else {
-            alert("Fyll i alla svar och frågan");
+            $('.errorLabel').show();
         }
         
         

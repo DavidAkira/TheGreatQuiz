@@ -30,12 +30,12 @@ input{
     background-color: #546964;
 }
 .questionPage{
-    min-height: 300px;
+    min-height: 350px;
     width: 100%;
 }
 .continueButton{
-    margin-top: 35px;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     font-size: 20px;
     padding: 5px;
     width: 20%;
@@ -51,6 +51,7 @@ input{
     cursor: pointer;
 }
 .testPage{
+    margin-bottom: 10px;
     margin-top: 50px;
     display: none;
 }
@@ -77,6 +78,7 @@ margin-top: 10px;
 .färdigaSvar{
     border: solid black 2px;
     margin-top: 70px;
+    margin-bottom: 10px;
     font-size: 16px;
     padding: 5px;
     overflow: hidden;
@@ -100,6 +102,7 @@ margin-top: 10px;
     height: auto;
     width: 90%;
     margin-left: 5%;
+    margin-bottom: 20px;
 }
 .question{
     border: solid 2px;
@@ -203,15 +206,13 @@ textarea {
     width: 80%;
     margin-left: 10%;
     font-size: 30px;
-    padding: 5px;
     margin-bottom: 10px;
     text-align: center;
-    border-bottom: 2px solid black;
 }
 .frågSida{
     font-size: 26px;
     padding: 10px;
-    margin-top: 40px;
+    /*margin-top: 50px; */
     margin-bottom: 10px;
     width: 50%;
     margin-left: 25%;
@@ -231,7 +232,7 @@ textarea {
 .listaMedFrågor{
     margin-top: 20px;
     margin-bottom: 10px;
-    height: 490px;
+    height: 480px;
     list-style-type: none;
     font-size: 16px;
     padding: 5px;
@@ -255,24 +256,56 @@ textarea {
     margin-top: 10px;
 }
 .dateLabel{    
-    margin-top: 30px;
+    margin-bottom: 10px;
     font-size: 16px;
-    padding: 5px;
+    padding: 10px;
 }
 .timeLabel{
-    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 10px;
     font-size: 16px;
-    padding: 5px;
+    padding: 10px;
 }
 .pickDate{
+    margin-top: 5px;
     font-size: 16px;
     padding: 5px;
     height: auto;
 }
+.timeInMinits{
+    width: 60%;
+    font-size: 16px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
 .pickminits{
+    width: 40%;
+    margin-top: 5px;
     font-size: 16px;
     padding: 5px;
     height: auto;
 }
+.showAnswersCheckbox{
+    height: 16px;
+    width: 16px;
+}
+.labelForCheckbox{
+    font-size: 16px;
+    padding: 5px; 
+    width: 60%;
+    margin-left: 30%;
+}
+.spaceBetweenInput{
+    height: 15px;
+}
+.errorLabel{
+    display: none;
+    color: red;
+    font-size: 26px;
+    width: 80%;
+    margin-left: 15%;
+}
+
 
    
