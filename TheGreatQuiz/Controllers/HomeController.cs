@@ -114,6 +114,7 @@ namespace TheGreatQuiz.Controllers
 			var tmp = from f in model.ActiveQuizzes
 									 where f.Enddate < DateTime.Now
 									 select f;
+
 			var outOfDateQuizzes = tmp.ToList();
 
 			var updateDatabase = new UpdateDatabase();
@@ -121,6 +122,9 @@ namespace TheGreatQuiz.Controllers
 			foreach (var quiz in outOfDateQuizzes)
 			{
 				updateDatabase.BlockAllUsersFromQuiz(quiz.Id);
+				model.ActiveQuizzes.Remove(quiz);
+				model.FinishedQuizzes.Add(quiz);
+
 			}
 
 			tmp = from f in model.ActiveQuizzes
