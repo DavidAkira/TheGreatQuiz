@@ -6,6 +6,7 @@
 
         var quizTimer = 0;
 
+        $scope.showAnswers = false;
         $scope.score = 0;
         $scope.activeQuestion = -1;
         $scope.activeQuestionAnswered = 0;
@@ -18,8 +19,9 @@
 
         $http.get("/Home/LoadQuizData").success(function (data) {
             console.log(data);
-            $scope.quizTitle = data.Name;
+            $scope.quizTitle = data.Name;            
             quizTimer = data.QuizTimer;
+            $scope.showAnswers = data.ShowAnswers;
         });
 
         $scope.selectAnswer = function(questionIndex, answerIndex) {
@@ -62,7 +64,11 @@
         $scope.exitQuiz = function() {
             $window.location.path("/Home/Portal.cshtml");
         }
-
+        $scope.showOrNot = function() {
+            if (showAnswers === true) {
+                
+            }
+        }
 
         var blockUserFromQuiz = function () {
             $http.get("/Home/quizEnded").success(function (data) {
