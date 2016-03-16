@@ -3,27 +3,43 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="ResultApp">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/ResultPageApp.js"></script>
     <link rel="stylesheet" href="~/Content/Site.css">
+    <link rel="stylesheet" href="~/Content/ShowResultPage.css" />
     <link rel="stylesheet" href="~/Content/unsemantic-grid-responsive-tablet.css">
 </head>
 <body class="loginBody">
     @RenderPage("../Shared/Header.cshtml")
     <p class="regBackButton">@Html.ActionLink("Tillbaka", "AdminHome", "Home")</p>
 
-    <div class="grid-container">
+    <div class="grid-container" ng-controller="ResultPageController">
+
+
+
 
         <section class="grid-100 grid-parent">
-            <div class="loginWindow grid-60 prefix-20 tablet-grid-90 tablet-prefix-5">
-                <h1>Välkommen</h1><br />
-                <p>
-                    Detta är Resultatsidan.<br/>                   
-                </p><br />
-
+            <div class="grid-25 prefix-5 tablet-grid-25 tablet-prefix-5" ng-model="quizData">
+                <select id="selectQuiz">
+                    <option ng-repeat="quiz in quizData" value="{{ quiz.Id }}"> {{ quiz.Name }}</option>
+                </select>
             </div>
+
+            <section class="userScoreBox grid-parent grid-55 prefix-5 tablet-grid-55 tablet-prefix-5">
+                <article class="grid-100 tablet-grid-90 tablet-prefix-5">
+                    <h3>awdawdaw</h3>
+                    <h3>{{ test1 }}</h3>
+                </article>
+
+            </section>
+
+
+
 
         </section>
 

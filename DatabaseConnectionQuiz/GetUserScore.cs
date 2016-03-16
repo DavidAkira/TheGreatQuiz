@@ -14,7 +14,7 @@ namespace DatabaseConnectionQuiz
             var sqlCon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
 
 
-            SqlCommand cmd = new SqlCommand("SELECT MaxScore, UserScore, Users.Email, Quizzes.Name FROM UserQuizScore " +
+            SqlCommand cmd = new SqlCommand("SELECT MaxScore, UserScore, Users.Email AS Email, Quizzes.Name AS Name FROM UserQuizScore " +
                 "JOIN Users ON Users.Id = UserQuizScore.UQ_userId " +
                 "JOIN Quizzes ON Quizzes.Id = UserQuizScore.UQ_quizId " +
                 "WHERE UserQuizScore.UQ_quizId =" + quizId, sqlCon);
@@ -32,8 +32,8 @@ namespace DatabaseConnectionQuiz
 
                         newUserScore.MaxScore = (int)rdr["MaxScore"];
                         newUserScore.UserScore = (int)rdr["UserScore"];
-                        newUserScore.QuizName = (string)rdr["Quizzes.Name"];
-                        newUserScore.UserEmail = (string)rdr["Users.Email"];
+                        newUserScore.QuizName = (string)rdr["Name"];
+                        newUserScore.UserEmail = (string)rdr["Email"];
 
 
                         listFromDB.Add(newUserScore);

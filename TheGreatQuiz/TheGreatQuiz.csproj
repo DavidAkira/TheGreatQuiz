@@ -194,6 +194,7 @@
     </Content>
     <Content Include="Content\AddQuiz.css" />
     <Content Include="Content\Login.css" />
+    <Content Include="Content\ShowResultPage.css" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\jquery.AddQuiz.js" />
@@ -221,6 +222,7 @@
     <Content Include="Scripts\registerValidation.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\ResultPageApp.js" />
     <Content Include="Scripts\TimerScript.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
