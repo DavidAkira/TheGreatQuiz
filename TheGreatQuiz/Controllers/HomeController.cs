@@ -80,7 +80,11 @@ namespace TheGreatQuiz.Controllers
             var quizzesDtos = new GetQuizName().FetchInfoFromQuizDb();
             List<Quizzes> tmpQuizzes = new List<Quizzes>();
 
-            if (quizzesDtos.Count != 0)
+			var getQuizStatus = new GetQuizStatus();
+			model.FinishedQuizzes = new List<Quizzes>();
+			model.ActiveQuizzes = new List<Quizzes>();
+
+			if (quizzesDtos.Count != 0)
             {
                 foreach (QuizzesDto t in quizzesDtos)
                 {
@@ -92,21 +96,30 @@ namespace TheGreatQuiz.Controllers
                         Enddate = t.Enddate
 
                     };
-                    tmpQuizzes.Add(newMod);
+
+					if (!getQuizStatus.FetchUserQuizStatus((int)Session["userId"], newMod.Id))
+					{
+						model.ActiveQuizzes.Add(newMod);
+					}
+					else
+					{
+						model.FinishedQuizzes.Add(newMod);
+					}
                 }
             }
 
 
-            var tmpActiveQuizzes = from f in tmpQuizzes
-                                   where f.Enddate > DateTime.Now
-                                   select f;
-            model.ActiveQuizzes = tmpActiveQuizzes.ToList();
+
+            //var tmpActiveQuizzes = from f in tmpQuizzes
+            //                       where f.Enddate > DateTime.Now
+            //                       select f;
+            //model.ActiveQuizzes = tmpActiveQuizzes.ToList();
 
 
-            var tmpFinishedQuizzes = from f in tmpQuizzes
-                                     where f.Enddate < DateTime.Now
-                                     select f;
-            model.FinishedQuizzes = tmpFinishedQuizzes.ToList();
+            //var tmpFinishedQuizzes = from f in tmpQuizzes
+            //                         where f.Enddate < DateTime.Now
+            //                         select f;
+            //model.FinishedQuizzes = tmpFinishedQuizzes.ToList();
 
             return View(model);
         }

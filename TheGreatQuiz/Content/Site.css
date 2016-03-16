@@ -5,6 +5,8 @@
 	brown/orange #B86E0C
 	grey #546964 background
 	lighter orange #FFAD00
+    even lighter orange FFB519
+
 */
 
 *{
@@ -129,7 +131,7 @@ input.logRegButton{
 }
 
 input.logRegButton:hover{
-	background-color: #D98906;
+	background-color: #FFB519;
 }
 
 div.registerWindow{
@@ -153,15 +155,18 @@ input.completRegistrationButton{
 
 p.regBackButton{
 	display: inline-block;
-    padding: 10px;
+    padding: 8px;
     margin-left: 8px;
     margin-top: 58px;
-	font-size: 22px;
+	font-size: 20px;
     background-color: #FFAD00;
     border-color: #FFAD00;
     border-style: solid;
     border-radius: 4px;
     color: white;
+}
+p.regBackButton:hover {
+    background-color: #FFB519;
 }
 
 p.errorText{
