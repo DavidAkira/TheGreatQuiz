@@ -56,12 +56,14 @@
                              <div class="grid-5"><br /></div>
                              <input required="required" ng-model="DateAndTime.time" class="grid-25 pickminits" min="10" max="180" id="minits" type="number" />
                         </section>
+                            <label>visa svar efter avslutat test</label>
+                            <input type="checkbox" id="showAnswersCheckbox" />
                             <input type="submit" value="fortsätt" class="continueButton"/>                                                                 
                        </form>
                     </header>
-                   <!-- <div class="mainPage"></div> -->
                     <form class="testPage">
-
+                        <label class="nameForTest">{{Quiz.Title}}</label>
+                        <div class="horizontalLine"></div> 
                         <label class="questionLabel">Fråga</label>
                         <textarea class="question" placeholder="Skriv in din fråga här..." ng-model="Answers.q"></textarea>
 
@@ -94,7 +96,8 @@
         <div class="grid-5"><br/>
         </div>
 
-            <aside class="grid-20 färdigaSvar">
+            <aside>  
+                <div class="grid-20 färdigaSvar">
                 <label class="frågSida">Frågor</label>
                 <ul class="listaMedFrågor">
                     <li ng-repeat="item in question">
@@ -106,6 +109,8 @@
                    </li>
                 </ul>
             <input id="saveQuizBtn" class="slutför" type="button" value="Slutför" ng-click="SendQuizData()"/>
+
+                </div>          
             </aside>
 
         </section>
