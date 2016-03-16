@@ -1,6 +1,6 @@
 ﻿var app = angular.module("myModule", []);
-app.controller("myController", function ($scope, $rootScope) {
-
+app.controller("myController", function ($scope, $rootScope, $window) {
+    
     
     // $('#saveQuizBtn, #addQuestionBtn').hide();
 
@@ -19,7 +19,7 @@ app.controller("myController", function ($scope, $rootScope) {
         quizData[0][0] = elQuizTitle.value;
     });
 
-    $scope.DateAndTime = { firstDate: "", lastDate: "", time: 0 }
+    $scope.DateAndTime = { firstDate: "", lastDate: "", time: "" }
     $scope.AddQuestion = function () {
 
         var noEmptyAnswers = false;
@@ -97,7 +97,8 @@ app.controller("myController", function ($scope, $rootScope) {
             });
 
             function OnSuccess(response) {
-                console.log(response.d)
+                console.log(response.d);
+                $window.location.href = "AdminHome";
             }
 
             function OnErrorCall(response) { console.log(error); }

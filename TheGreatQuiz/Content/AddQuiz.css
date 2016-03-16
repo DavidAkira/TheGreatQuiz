@@ -12,7 +12,7 @@
     font-family: Verdana, sans-serif;
 }
 #shrink {
-        transform: scale(0.60);
+        transform: scale(0.80);
         transform-origin: 50% 10%;
 }
 #backButton {
@@ -38,7 +38,26 @@ input{
     height: 80px;
     width: 100%;
 }
-
+.continueButton{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 5px;
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+    background-color: #D98906;
+    color: black;
+    border-radius: 10px;
+    border: solid 1px black;
+}
+.continueButton:hover{
+    background-color:#FFB519;
+    cursor: pointer;
+}
+.testPage{
+    display: none;
+}/*
 .mainPage{
      margin-left: 5%;
      width: 90%;
@@ -46,13 +65,13 @@ input{
      border-top: solid 2px;
      border-color: #D98906;
      padding: 5px;
-}
+}*/
 .quizHeader{
     height: 160px;
 }
 .quizPage{ 
     border: solid black 2px;
-    margin-top: 50px;
+    margin-top: 80px;
     background-color: #FFAD00;
     border-radius: 10px;
 }
@@ -64,6 +83,7 @@ input{
     overflow: hidden;
     background-color: #FFAD00;
     border-radius: 10px;
+    display: none;
 
 }
 .tittelRubrik{

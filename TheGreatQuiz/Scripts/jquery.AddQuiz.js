@@ -1,5 +1,17 @@
 ﻿$(function () {
 
+    $('.continueButton').on('click', function () {
+
+        if ($('#quizTitle').val().length > 0 & $('#startDate').val().length > 0 & $('#lastDate').val().length > 0 & $('#minits').val() >= 10) {
+            $('.färdigaSvar').show();
+            $('.testPage').show();
+            $('.quizHeader').hide(); 
+        }
+        else {
+        }
+
+    });
+
     $(".queAnswer").on('keyup', function () {
         Update();
     });
