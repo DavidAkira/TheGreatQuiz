@@ -76,7 +76,7 @@
             });
         }
 
-        $('endQuizBtn').click(function () {
+        $('#endQuizBtn').click(function () {
             blockUserFromQuiz();
         });
 
