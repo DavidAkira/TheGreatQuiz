@@ -45,7 +45,7 @@ namespace TheGreatQuiz.Controllers
                     Session["admin"] = true;
                     return RedirectToAction("AdminHome", "Home");
                 }
-                
+
 
                 else if (currentUser.IsAdmin == false)
                 {
@@ -76,10 +76,7 @@ namespace TheGreatQuiz.Controllers
 
         public ActionResult Portal()
         {
-
-
-
-			if (Session["userId"] == null)
+            if (Session["userId"] == null)
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -87,11 +84,11 @@ namespace TheGreatQuiz.Controllers
             var quizzesDtos = new GetQuizName().FetchInfoFromQuizDb();
             List<Quizzes> tmpQuizzes = new List<Quizzes>();
 
-			var getQuizStatus = new GetQuizStatus();
-			model.FinishedQuizzes = new List<Quizzes>();
-			model.ActiveQuizzes = new List<Quizzes>();
+            var getQuizStatus = new GetQuizStatus();
+            model.FinishedQuizzes = new List<Quizzes>();
+            model.ActiveQuizzes = new List<Quizzes>();
 
-			if (quizzesDtos.Count != 0)
+            if (quizzesDtos.Count != 0)
             {
                 foreach (QuizzesDto t in quizzesDtos)
                 {
@@ -104,39 +101,39 @@ namespace TheGreatQuiz.Controllers
 
                     };
 
-					if (!getQuizStatus.FetchUserQuizStatus((int)Session["userId"], newMod.Id))
-					{
-						model.ActiveQuizzes.Add(newMod); 
-					}
-					else
-					{
-						model.FinishedQuizzes.Add(newMod);
-					}
+                    if (!getQuizStatus.FetchUserQuizStatus((int)Session["userId"], newMod.Id))
+                    {
+                        model.ActiveQuizzes.Add(newMod);
+                    }
+                    else
+                    {
+                        model.FinishedQuizzes.Add(newMod);
+                    }
                 }
             }
 
-			var tmp = from f in model.ActiveQuizzes
-									 where f.Enddate < DateTime.Now
-									 select f;
+            var tmp = from f in model.ActiveQuizzes
+                      where f.Enddate < DateTime.Now
+                      select f;
 
-			var outOfDateQuizzes = tmp.ToList();
+            var outOfDateQuizzes = tmp.ToList();
 
-			var updateDatabase = new UpdateDatabase();
+            var updateDatabase = new UpdateDatabase();
 
-			foreach (var quiz in outOfDateQuizzes)
-			{
-				updateDatabase.BlockAllUsersFromQuiz(quiz.Id);
-				model.ActiveQuizzes.Remove(quiz);
-				model.FinishedQuizzes.Add(quiz);
+            foreach (var quiz in outOfDateQuizzes)
+            {
+                updateDatabase.BlockAllUsersFromQuiz(quiz.Id);
+                model.ActiveQuizzes.Remove(quiz);
+                model.FinishedQuizzes.Add(quiz);
 
-			}
+            }
 
-			tmp = from f in model.ActiveQuizzes
-				  where f.StartDate <= DateTime.Now
-				  select f;
-			model.ActiveQuizzes = tmp.ToList();
+            tmp = from f in model.ActiveQuizzes
+                  where f.StartDate <= DateTime.Now
+                  select f;
+            model.ActiveQuizzes = tmp.ToList();
 
-			return View(model);
+            return View(model);
         }
 
         public ActionResult Test()
@@ -213,7 +210,7 @@ namespace TheGreatQuiz.Controllers
         {
             var updDB = new UpdateDatabase();
 
-           
+
             updDB.CreateQuiz(quizData[0][0], quizData[0][1], quizData[0][2], Convert.ToInt32(quizData[0][3]), Convert.ToBoolean(quizData[0][4]));
 
             var getQuiz = new GetQuizId();
@@ -240,13 +237,24 @@ namespace TheGreatQuiz.Controllers
         }
 
         [HttpGet]
-        public ActionResult QuizEnded()
+        public JsonResult QuizEnded()
+        {
+            var updateDatabase = new UpdateDatabase();
+            updateDatabase.BlockUserFromQuiz((int)Session["userId"], quizIdHolder.quizId);
+
+            return Json("hej", JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public JsonResult QuizEndUpdateScore(string[] arr)
         {
             var updateDatabase = new UpdateDatabase();
 
-            updateDatabase.BlockUserFromQuiz((int)Session["userId"], quizIdHolder.quizId);
+            int userScore = int.Parse(arr[0]);
+            int maxScore = int.Parse(arr[1]);
 
-            return Json("hej", JsonRequestBehavior.AllowGet); ;
+            updateDatabase.CreateUserScore((int)Session["userId"], quizIdHolder.quizId, maxScore, userScore);
+
+            return Json("hej", JsonRequestBehavior.AllowGet);
         }
 
 
