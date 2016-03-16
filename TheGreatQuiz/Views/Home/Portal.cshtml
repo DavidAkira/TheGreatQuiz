@@ -14,7 +14,7 @@
     @RenderPage("../Shared/Header.cshtml")
 
     <section id="active-tests" class="grid-container">
-        <h2>Aktiva Test</h2>
+        <h2>Aktiva Test</h2><br/>
         @foreach (var quiz in Model.ActiveQuizzes)
         {
             @Html.ActionLink(quiz.Name, "/QuizPage", new { Id = quiz.Id }, new { @class = "test-link" })<br/>
@@ -23,7 +23,7 @@
     </section>
 
     <section id="finished-tests" class="grid-container">
-        <h2>Avklarade Test</h2>
+        <h2>Inaktiva Test</h2>
         @foreach (var quiz in Model.FinishedQuizzes)
         {
             <p>@quiz.Name</p>
