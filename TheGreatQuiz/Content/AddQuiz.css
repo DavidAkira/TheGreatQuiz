@@ -15,6 +15,9 @@
         transform: scale(0.60);
         transform-origin: 50% 10%;
 }
+#backButton {
+    position: fixed;
+}
 body{
 
     background-color: #546964;
@@ -201,8 +204,7 @@ textarea {
 .listaMedFrågor{
     margin-top: 20px;
     margin-bottom: 10px;
-    max-height: 540px;
-    min-height: 540px;
+    min-height: 600px;
 }
 
 #removeQuestion{
