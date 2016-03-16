@@ -124,7 +124,7 @@ namespace TheGreatQuiz.Controllers
 			}
 
 			tmp = from f in model.ActiveQuizzes
-				  where f.StartDate >= DateTime.Now
+				  where f.StartDate <= DateTime.Now
 				  select f;
 			model.ActiveQuizzes = tmp.ToList();
 
