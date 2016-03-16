@@ -26,13 +26,7 @@ app.controller("myController", function ($scope, $rootScope, $window) {
             quizData[0][1] = $("#startDate").val();
             quizData[0][2] = $("#lastDate").val();
             quizData[0][3] = $("#minits").val();
-            
-            if ($("#showAnswersCheckBox").checked) {
-                quizData[0][4] = true;
-            }
-            else {
-                quizData[0][4] = false;
-            }
+            quizData[0][4] = elCheckBox = document.getElementById("showAnswersCheckbox").checked;
 
             console.log(quizData);
 
