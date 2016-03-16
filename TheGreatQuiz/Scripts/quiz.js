@@ -6,7 +6,7 @@
 
         var quizTimer = 0;
 
-        $scope.showAnswers = false;
+        $scope.showAnswers = true;
         $scope.score = 0;
         $scope.activeQuestion = -1;
         $scope.activeQuestionAnswered = 0;
@@ -19,7 +19,7 @@
 
         $http.get("/Home/LoadQuizData").success(function (data) {
             console.log(data);
-            $scope.quizTitle = data.Name;            
+            $scope.quizTitle = data.Name;             
             quizTimer = data.QuizTimer;
             $scope.showAnswers = data.ShowAnswers;
         });
