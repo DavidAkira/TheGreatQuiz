@@ -21,7 +21,9 @@
             console.log(data);
             $scope.quizTitle = data.Name;            
             quizTimer = data.QuizTimer;
-            $scope.showAnswers = data.showAnswers;
+            $scope.showAnswers = data.ShowAnswers;
+
+
         });
 
         $scope.selectAnswer = function(questionIndex, answerIndex) {
