@@ -16,6 +16,10 @@ namespace TheGreatQuiz.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+            if (Session["userId"] == null || (bool)Session["admin"] != true)
+            {
+                return RedirectToAction("Portal", "Home");
+            }
             return View();
         }
         public ActionResult AdminHome()
@@ -23,6 +27,10 @@ namespace TheGreatQuiz.Controllers
             if (Session["userId"] == null)
             {
                 return RedirectToAction("Index", "Home");
+            }
+            if (Session["userId"] == null || (bool)Session["admin"] != true)
+            {
+                return RedirectToAction("Portal", "Home");
             }
             return View();
         }
@@ -42,11 +50,15 @@ namespace TheGreatQuiz.Controllers
                 if (currentUser.IsAdmin)
                 {
                     Session["userId"] = currentUser.Id;
+                    Session["admin"] = true;
                     return RedirectToAction("AdminHome", "Home");
                 }
+                
                 else if (currentUser.IsAdmin == false)
                 {
+                    Session["admin"] = false;
                     Session["userId"] = currentUser.Id;
+                    Session["admin"] = false;
                     return RedirectToAction("Portal", "Home");
                 }
             }
@@ -72,9 +84,6 @@ namespace TheGreatQuiz.Controllers
 
         public ActionResult Portal()
         {
-
-
-
 			if (Session["userId"] == null)
             {
                 return RedirectToAction("Index", "Home");
@@ -236,13 +245,24 @@ namespace TheGreatQuiz.Controllers
         }
 
         [HttpGet]
-        public ActionResult QuizEnded()
+        public JsonResult QuizEnded()
+        {
+            var updateDatabase = new UpdateDatabase();
+            updateDatabase.BlockUserFromQuiz((int)Session["userId"], quizIdHolder.quizId);
+
+            return Json("hej", JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public JsonResult QuizEndUpdateScore(string[] arr)
         {
             var updateDatabase = new UpdateDatabase();
 
-            updateDatabase.BlockUserFromQuiz((int)Session["userId"], quizIdHolder.quizId);
+            int userScore = int.Parse(arr[0]);
+            int maxScore = int.Parse(arr[1]);
 
-            return Json("hej", JsonRequestBehavior.AllowGet); ;
+            updateDatabase.CreateUserScore((int)Session["userId"], quizIdHolder.quizId, maxScore, userScore);
+
+            return Json("hej", JsonRequestBehavior.AllowGet);
         }
 
 
@@ -255,7 +275,11 @@ namespace TheGreatQuiz.Controllers
             if (Session["userId"] == null)
             {
                 return RedirectToAction("Index", "Home");
+            } if (Session["userId"] == null || (bool)Session["admin"] != true)
+            {
+                return RedirectToAction("Portal", "Home");
             }
+                
             return View();
         }
     }
