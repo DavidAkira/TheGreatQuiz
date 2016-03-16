@@ -153,6 +153,20 @@ namespace TheGreatQuiz.Controllers
         }
 
         [HttpGet]
+        public ActionResult LoadQuizData()
+        {
+
+            int quizId = quizIdHolder.quizId;
+            var getQuizData = new GetQuizName();
+            var quiz = getQuizData.FetchQuizInfo(quizId);
+
+            return Json(quiz, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
+        [HttpGet]
         public ActionResult QuestionsTest()
         {
             var getQuestions = new GetQuestions();
