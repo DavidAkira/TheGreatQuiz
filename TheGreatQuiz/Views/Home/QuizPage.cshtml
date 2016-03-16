@@ -38,7 +38,7 @@
                     </article>
 
                     <article class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active' }}">
-                        <h2>Välkommen till prov i {{}}</h2><br />
+                        <h2>Välkommen till prov i</h2><br />
                         <p>Tryck på start för att börja, en timer kommer dyka upp vid nedre delen av sidan som visar hur mycket tid du har kvar att slutföra provet</p><br />
                         <p class="btn" id="start-btn" ng-click="activeQuestion = 0">Start!</p>
                     </article>
@@ -59,8 +59,8 @@
                             <p ng-show="activeQuestion === (totalQuestions - 1)">
                                 <span>OBS! </span>Detta är sista frågan, trycker du nästa så avslutas testet!
                             </p>
-                            <p ng-show="myQuestion.correctness === 'correct'">Bra svarat!</p>
-                            <p ng-show="myQuestion.correctness === 'incorrect'">föga imponerande :(</p>
+                            @*<p ng-show="myQuestion.correctness === 'correct'">Bra svarat!</p>
+                            <p ng-show="myQuestion.correctness === 'incorrect'">föga imponerande :(</p>*@
                             @*<p ng-show="myQuestion.correctness === 'incorrect'">{{myQuestion.feedback}}</p>*@
                         </article>
                     </article>
