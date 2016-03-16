@@ -29,36 +29,44 @@
 
         <div class="grid-5"><br/>
         </div>
-            <article class="quizPage grid-70 grid-parent">
+            <article class="quizPage grid-70 grid-parent tablet-grid-100">
 
             <div class="grid-5"><br/>
             </div>
 
-                <article class="questionPage grid-90">
+                <article class="questionPage grid-90 tablet-grid-90">
                     <header class="quizHeader">
                         <form>
                         <label class="tittelRubrik">Titel</label>
                         <input required="required" class="tittel" type="text" placeholder="Ge testet ett lämpligt namn:" ng-model="Quiz.Title" id="quizTitle"/>
                         
-                        <section class="grid-100 grid-parent">                          
-                            <label class="grid-20 dateLabel">startdatum</label>
-                            <div class="grid-10"><br/>
-                            </div>
-                            <label class="grid-20 dateLabel">slutdatum</label>
-                            <div class="grid-10"><br/>
-                            </div>
-                            <label class="grid-20 timeLabel">tidsbegränsning (minuter)</label>
-                        </section>
-                         <section>
-                             <input required="required" ng-model="DateAndTime.firstDate" class="grid-25 pickDate" id="startDate" type="date" />
-                             <div class="grid-5"><br /></div>
-                             <input required="required" ng-model="DateAndTime.lastDate" class="grid-25 pickDate" id="lastDate" type="date" />
-                             <div class="grid-5"><br /></div>
-                             <input required="required" ng-model="DateAndTime.time" class="grid-25 pickminits" min="10" max="180" id="minits" type="number" />
-                        </section>
+                        <article class="grid-100 grid-parent tablet-grid-100">
+                            
+                              <div class="grid-5"><br/>
+                              </div>
+                            <section class="grid-25 tablet-grid-100">
+                              <label class="dateLabel">startdatum</label>
+                              <input required="required" ng-model="DateAndTime.firstDate" class="pickDate" id="startDate" type="date" />
+                            </section>
+
+                              <div class="grid-5"><br/>
+                              </div>
+
+                            <section class="grid-25 tablet-grid-100">                                                           
+                            <label class="dateLabel">slutdatum</label>
+                             <input required="required" ng-model="DateAndTime.lastDate" class="pickDate" id="lastDate" type="date" />                             
+                            </section> 
+                                <div class="grid-5"><br />
+                               </div>
+                            <section class="grid-25 tablet-grid-100">
+                                <label class="timeLabel">tidsbegränsning (minuter)</label>
+                                <input required="required" ng-model="DateAndTime.time" class="pickminits" min="10" max="180" id="minits" type="number" />
+                            </section>                           
+                                                     
                             <label>visa svar efter avslutat test</label>
                             <input type="checkbox" id="showAnswersCheckbox" />
-                            <input type="submit" value="fortsätt" class="continueButton"/>                                                                 
+                            <input type="submit" value="fortsätt" class="continueButton"/> 
+                            </article>                                                                
                        </form>
                     </header>
                     <form class="testPage">
