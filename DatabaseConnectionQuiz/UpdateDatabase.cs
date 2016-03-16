@@ -9,17 +9,19 @@ namespace DatabaseConnectionQuiz
 {
     public class UpdateDatabase
     {
-        public void CreateQuiz(string Quizname)
+        public void CreateQuiz(string Quizname, string startDate, string endDate, int min)
         {
             SqlConnection sqlcon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
-            string sqlInsert = "INSERT INTO Quizzes(Name,Created,Enddate) VALUES(@param1,@param2,@param3)";
+            string sqlInsert = "INSERT INTO Quizzes(Name,Created,Enddate,Startdate,quizTimer) VALUES(@param1,@param2,@param3,@param4,@param5)";
             SqlCommand sqlCom = new SqlCommand(sqlInsert, sqlcon);
 
             try
             {
                 sqlCom.Parameters.AddWithValue("@param1", Quizname);
                 sqlCom.Parameters.AddWithValue("@param2", DateTime.Now);
-                sqlCom.Parameters.AddWithValue("@param3", new DateTime(2018,12,12,12,12,12,12));
+                sqlCom.Parameters.AddWithValue("@param3", endDate);
+                sqlCom.Parameters.AddWithValue("@param4", startDate);
+                sqlCom.Parameters.AddWithValue("@param5", min);
 
                 sqlcon.Open();
                 sqlCom.ExecuteNonQuery();
