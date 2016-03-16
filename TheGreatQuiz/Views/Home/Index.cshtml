@@ -30,19 +30,11 @@
                     <h3>Lösenord</h3>
                     <div id="loginPassword" class="inputBox">@Html.Password("password")</div><br>
                     <div id="submitbtn">
-                    <input type="submit" value="Logga in" class="logRegButton" id="loginButton" />
-                    <p class="logRegButton" id="registerButton">@Html.ActionLink("Registrera", "Register", "Home")</p>                        
+                    <input type="submit" value="Logga in" class="logRegButton" />
+                    <p class="logRegButton">@Html.ActionLink("Registrera", "Register", "Home")</p>                        
                     </div>
                 }
 
-
-
-                @*<form class="loginForm">
-                        <input type="text" id="loginEmail" class="inputBox" placeholder="Email" maxlength="50"/>
-                        <input type="password" id="loginPassword" class="inputBox" placeholder="Lösenord" maxlength="50"/><br><br><br>
-                        <input type="button" value="Logga in" class="logRegButton" id="loginButton"/>
-                        <input type="button" value="Registrera dig" class="logRegButton" id="registerButton"/>
-                    </form>*@
             </div>
 
         </section>

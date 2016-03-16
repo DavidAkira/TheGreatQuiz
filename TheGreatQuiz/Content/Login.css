@@ -27,18 +27,16 @@ h3 {
 }
 .logRegButton{
 	display: inline-block;
-    padding: 10px;
+    padding: 12px;
     margin-left: 8px;
     margin-top: 10px;
 	font-size: 20px;
     background-color: #FFAD00;
-    border-color: #FFAD00;
-    border-style: solid;
     border-radius: 4px;
     color: white;
 }
 .logRegButton:hover{
-	background-color: #D98906;
+	background-color: #FFB519;
 }
 
 header.mainHeader{
