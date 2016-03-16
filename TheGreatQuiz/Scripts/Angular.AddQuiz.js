@@ -14,10 +14,28 @@ app.controller("myController", function ($scope, $rootScope, $window) {
     var elQuizTitle = document.getElementById('quizTitle');
 
 
-    elQuizTitle.addEventListener('blur', function () {
-        //fix error controll
-        quizData[0][0] = elQuizTitle.value;
+    //elQuizTitle.addEventListener('blur', function () {
+    //    //fix error controll
+    //    quizData[0][0] = elQuizTitle.value;
+    //});
+
+
+    $(function () {
+        $(".continueButton").click(function () {
+            quizData[0][0] = elQuizTitle.value;
+            quizData[0][1] = $("#startDate").val();
+            quizData[0][2] = $("#lastDate").val();
+            quizData[0][3] = $("#minits").val();
+            quizData[0][4] = elCheckBox = document.getElementById("showAnswersCheckbox").checked;
+
+            console.log(quizData);
+
+        });
     });
+
+
+
+
 
     $scope.DateAndTime = { firstDate: "", lastDate: "", time: "" }
     $scope.AddQuestion = function () {
