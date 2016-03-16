@@ -199,7 +199,7 @@ namespace TheGreatQuiz.Controllers
             var updDB = new UpdateDatabase();
 
            
-            updDB.CreateQuiz(quizData[0][0], quizData[0][1], quizData[0][2], Convert.ToInt32(quizData[0][3]));
+            updDB.CreateQuiz(quizData[0][0], quizData[0][1], quizData[0][2], Convert.ToInt32(quizData[0][3]), Convert.ToBoolean(quizData[0][4]));
 
             var getQuiz = new GetQuizId();
             int quizID = getQuiz.GetLatestQuizId();

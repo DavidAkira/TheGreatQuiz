@@ -9,10 +9,10 @@ namespace DatabaseConnectionQuiz
 {
     public class UpdateDatabase
     {
-        public void CreateQuiz(string Quizname, string startDate, string endDate, int min)
+        public void CreateQuiz(string Quizname, string startDate, string endDate, int min, bool showAnswers)
         {
             SqlConnection sqlcon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
-            string sqlInsert = "INSERT INTO Quizzes(Name,Created,Enddate,Startdate,quizTimer) VALUES(@param1,@param2,@param3,@param4,@param5)";
+            string sqlInsert = "INSERT INTO Quizzes(Name,Created,Enddate,Startdate,quizTimer, ShowAnswers) VALUES(@param1,@param2,@param3,@param4,@param5,@param6)";
             SqlCommand sqlCom = new SqlCommand(sqlInsert, sqlcon);
 
             try
@@ -22,6 +22,7 @@ namespace DatabaseConnectionQuiz
                 sqlCom.Parameters.AddWithValue("@param3", endDate);
                 sqlCom.Parameters.AddWithValue("@param4", startDate);
                 sqlCom.Parameters.AddWithValue("@param5", min);
+                sqlCom.Parameters.AddWithValue("@param6", showAnswers);
 
                 sqlcon.Open();
                 sqlCom.ExecuteNonQuery();
