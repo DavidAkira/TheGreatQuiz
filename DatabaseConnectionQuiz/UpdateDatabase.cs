@@ -167,6 +167,36 @@ namespace DatabaseConnectionQuiz
         }
 
 
+        public void CreateUserScore(int userId, int quizId, int maxScore, int userScore)
+        {
+            SqlConnection sqlcon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\QuizDBB.mdf;Integrated Security=True");
+            string sqlInsert = "INSERT INTO UserQuizScore(UQ_userId,UQ_quizId,MaxScore,UserScore) VALUES(@param1,@param2,@param3,@param4)";
+            SqlCommand sqlCom = new SqlCommand(sqlInsert, sqlcon);
+
+            try
+            {
+                sqlCom.Parameters.AddWithValue("@param1", userId);
+                sqlCom.Parameters.AddWithValue("@param2", quizId);
+                sqlCom.Parameters.AddWithValue("@param3", maxScore);
+                sqlCom.Parameters.AddWithValue("@param4", userScore);
+
+
+                sqlcon.Open();
+                sqlCom.ExecuteNonQuery();
+                sqlcon.Close();
+            }
+            catch (Exception)
+            {
+
+            }
+
+            finally
+            {
+                sqlCom.Dispose();
+                sqlcon.Dispose();
+            }
+        }
+
 
     }
 }

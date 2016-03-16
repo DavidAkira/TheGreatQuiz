@@ -15,8 +15,9 @@ namespace DatabaseConnectionQuiz
         public DateTime StartDate { get; set; }
         public int QuizTimer { get; set; }
 
+        public bool ShowAnswers { get; set; }
 
-        public QuizzesDto(int Id, string Name, DateTime Created, DateTime Enddate, int QuizTimer, DateTime StartDate)
+        public QuizzesDto(int Id, string Name, DateTime Created, DateTime Enddate, int QuizTimer, DateTime StartDate, bool ShowAnswers)
         {
             this.Id = Id;
             this.Name = Name;
@@ -24,6 +25,7 @@ namespace DatabaseConnectionQuiz
             this.Enddate = Enddate;
             this.QuizTimer = QuizTimer;
             this.StartDate = StartDate;
+            this.ShowAnswers = ShowAnswers;
 
 
         }
