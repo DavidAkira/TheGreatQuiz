@@ -6,7 +6,7 @@
 
         var quizTimer = 0;
 
-        $scope.showAnswers = true;
+        //$scope.showAnswers = false;
         $scope.score = 0;
         $scope.activeQuestion = -1;
         $scope.activeQuestionAnswered = 0;
@@ -21,7 +21,7 @@
             console.log(data);
             $scope.quizTitle = data.Name;             
             quizTimer = data.QuizTimer;
-            $scope.showAnswers = data.ShowAnswers;
+            $scope.showAnswers = data.showAnswers;
         });
 
         $scope.selectAnswer = function(questionIndex, answerIndex) {
